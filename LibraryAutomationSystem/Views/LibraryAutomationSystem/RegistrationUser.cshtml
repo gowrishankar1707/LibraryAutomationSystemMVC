@@ -1,0 +1,90 @@
+﻿@model LibraryAutomationSystem.Entity.User
+
+@{
+    ViewBag.Title = "RegistrationUser";
+}
+
+<h2>RegistrationUser</h2>
+@using (Html.BeginForm("Registration", "LibraryAutomationSystem", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>
+            @Html.Label("Name");
+        </td>
+        <td>
+        @Html.TextBoxFor(Model => Model.memberName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("UserName")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model=>Model.memberUserName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Password")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.memberPassword)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("DateOfBirth")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.memberDOB)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("DateOfJoining")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.memberDOJ)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Sex")
+        </td>
+        <td>
+           @Html.RadioButtonFor(Model=>Model.memberSex,"Male") Male
+            @Html.RadioButtonFor(Model => Model.memberSex, "Fe-Male") Fe-Male
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Phone")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.memberPhoneNumber)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("E-mail")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.e_Mail)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Address")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.memberAddress)
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <input type="submit" />
+        </td>
+    </tr>
+</table>
+}
