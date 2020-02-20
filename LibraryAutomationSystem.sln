@@ -5,7 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem", "LibraryAutomationSystem\LibraryAutomationSystem.csproj", "{27CFB320-4CD7-44C8-9021-CF9594D15FAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserEntity", "UserEntity\UserEntity.csproj", "{11611316-9863-4C5A-AEF4-8708547FF662}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem.Entity", "UserEntity\LibraryAutomationSystem.Entity.csproj", "{11611316-9863-4C5A-AEF4-8708547FF662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem.DAL", "LibraryAutomationSystem.DAL\LibraryAutomationSystem.DAL.csproj", "{B9DCDF90-F32D-4E77-808C-BAB0E8653E12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{11611316-9863-4C5A-AEF4-8708547FF662}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11611316-9863-4C5A-AEF4-8708547FF662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11611316-9863-4C5A-AEF4-8708547FF662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DCDF90-F32D-4E77-808C-BAB0E8653E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DCDF90-F32D-4E77-808C-BAB0E8653E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DCDF90-F32D-4E77-808C-BAB0E8653E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DCDF90-F32D-4E77-808C-BAB0E8653E12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

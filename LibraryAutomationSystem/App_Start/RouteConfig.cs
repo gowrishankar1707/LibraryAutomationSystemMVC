@@ -11,8 +11,12 @@ namespace LibraryAutomationSystem
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            
 
+            routes.MapRoute(
+                name:"Library",
+                url:" LibraryAutomationSystem /{ action}",
+                defaults:new {controller="LibraryAutomationSystem",action= "ViewUser",id=UrlParameter.Optional}
+                );
             routes.MapRoute(
                name: "Default",
                url: "{controller}/{action}/{id}",

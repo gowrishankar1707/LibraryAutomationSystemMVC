@@ -1,0 +1,56 @@
+﻿@model LibraryAutomationSystem.Entity.User
+
+@{
+    ViewBag.Title = "ViewUser";
+}
+
+<h2>ViewUser</h2>
+
+<table border="1">
+   <tr>
+       <td>Name</td>
+       <td>UserName</td>
+       <td>DOB</td>
+       <td>DOJ</td>
+       <td>Sex</td>
+       <td>PhoneNumber</td>
+       <td>Email</td>
+       <td>Address</td>
+   </tr>
+   @foreach(LibraryAutomationSystem.Entity.User user in(List<LibraryAutomationSystem.Entity.User>)ViewData["user"])
+   {
+       <tr>
+           <td>
+               @user.memberName;
+           </td>
+           <td>
+               @user.memberUserName;
+           </td>
+           <td>
+               @user.memberDOB;
+           </td>
+           <td>
+               @user.memberDOJ;
+           </td>
+           <td>
+               @user.memberSex;
+           </td>
+           <td>
+               @user.memberPhoneNumber;
+           </td>
+           <td>
+               @user.e_Mail;
+           </td>
+           <td>
+               @user.memberAddress;
+           </td>
+           <td>
+               @Html.ActionLink("Edit","Edit",new {userName=user.memberUserName } )
+               @Html.ActionLink("Delete","Delete",new{ userName=user.memberUserName})
+           </td>
+       </tr>
+   }
+</table>
+
+
+
