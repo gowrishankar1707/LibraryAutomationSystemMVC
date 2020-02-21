@@ -20,20 +20,22 @@ namespace LibraryAutomationSystem.Controllers
             TempData["user"] = user;
             return View();
         }
-        [HttpGet]
+ [HttpGet]
         [ActionName("RegistrationUser")]
         public ActionResult RegistrationUser_Get()
         {
             return View();
         }
-        [HttpPost]
-        [ActionName("Registration")]
+   [HttpPost]
+        [ActionName("RegistrationUser")]
+     
         public ActionResult RegistrationUser_post()
         {
-            if(ModelState.IsValid)
+            User user = new User();
+            TryUpdateModel(user);
+            if (ModelState.IsValid)
             {
-                User user = new User();
-                TryUpdateModel(user);
+                
                 userRepository.AddUser(user);
                 return RedirectToAction("ViewUser");
 

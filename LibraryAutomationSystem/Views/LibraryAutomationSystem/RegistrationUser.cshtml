@@ -5,7 +5,7 @@
 }
 
 <h2>RegistrationUser</h2>
-@using (Html.BeginForm("Registration", "LibraryAutomationSystem", FormMethod.Post))
+@using (Html.BeginForm("RegistrationUser", "LibraryAutomationSystem", FormMethod.Post))
 {
 <table>
     <tr>
@@ -23,6 +23,7 @@
         </td>
         <td>
             @Html.TextBoxFor(Model=>Model.memberUserName)
+            @Html.ValidationMessageFor(M => M.memberUserName,"Please enter the User Name")
         </td>
     </tr>
     <tr>
