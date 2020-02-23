@@ -10,19 +10,19 @@ namespace LibraryAutomationSystem.Controllers
 {
     public class LibraryAutomationSystemController : Controller
     {
-        UserRepository userRepository;
+        UserRepository repository = new UserRepository();
         // GET: LibraryUser
         public ActionResult ViewUser()
         {
             IEnumerable<User> user = UserRepository.GetUser();
-            ViewData["user"] = user;
+             ViewData["user"] = user;
             ViewBag.user = user;
             TempData["user"] = user;
             return View();
         }
  [HttpGet]
         [ActionName("RegistrationUser")]
-        public ActionResult RegistrationUser_Get()
+       public ActionResult RegistrationUser_Get()
         {
             return View();
         }
@@ -36,7 +36,7 @@ namespace LibraryAutomationSystem.Controllers
             if (ModelState.IsValid)
             {
                 
-                userRepository.AddUser(user);
+                repository.AddUser(user);
                 return RedirectToAction("ViewUser");
 
             }

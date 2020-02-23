@@ -9,23 +9,30 @@ namespace LibraryAutomationSystem.Entity
 {
     public class User
     {
-        [Required]
+        [Required(ErrorMessage = "Name is requrired")]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "Name should be in 5 to 25 Characters")]
+        [RegularExpression("^[A-Z][a-z]*$", ErrorMessage = "Name should not contains Digits")]
         public string memberName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "UserName is required")]
+        //[RegularExpression(@"(\D)",ErrorMessage ="User Name should not contains Space")]
         public string memberUserName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Password is required")]
         public string memberPassword { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Date of Birth is required")]
+        //[DataType(DataType.DateTime)]
+
         public DateTime memberDOB { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Date of Joining is required")]
         public DateTime memberDOJ { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Gender is required")]
         public string memberSex { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Phone Number is required")]
+        //[DataType(DataType.PhoneNumber)]
         public string memberPhoneNumber { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Email is required")]
+        //[DataType(DataType.EmailAddress)]
         public string e_Mail { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Address is required")]
         public string memberAddress { get; set; }
     }
 

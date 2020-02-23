@@ -136,6 +136,7 @@
     <Content Include="Views\HomeLAS\Home.cshtml" />
     <Content Include="Views\LibraryAutomationSystem\LoginUser.cshtml" />
     <Content Include="Views\LibraryAutomationSystem\ViewUser.cshtml" />
+    <Content Include="Views\Shared\LASPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
