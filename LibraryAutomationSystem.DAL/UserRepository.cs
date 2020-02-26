@@ -21,7 +21,15 @@ namespace LibraryAutomationSystem.DAL
         }
         public void AddUser(User user)
         {
-            userRepository.Add(user);
+            DBConnection dbConnection = new DBConnection();
+            dbConnection.user.Add(user);
+            dbConnection.SaveChanges();
+           
+        }
+        public IEnumerable<User> CreateUser()
+        {
+            DBConnection dbConnection = new DBConnection();
+            return dbConnection.user.ToList();
         }
     }
 }

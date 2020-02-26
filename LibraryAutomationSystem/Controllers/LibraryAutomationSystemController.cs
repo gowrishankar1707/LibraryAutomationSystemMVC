@@ -35,7 +35,8 @@ namespace LibraryAutomationSystem.Controllers
             TryUpdateModel(user);
             if (ModelState.IsValid)
             {
-                
+
+                repository.CreateUser();
                 repository.AddUser(user);
                 return RedirectToAction("ViewUser");
 

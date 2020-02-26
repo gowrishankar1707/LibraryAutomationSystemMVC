@@ -35,7 +35,7 @@
             @Html.Label("Password")
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.memberPassword)
+            @Html.PasswordFor(Model => Model.memberPassword)
             @Html.ValidationMessageFor(M => M.memberPassword)
         </td>
     </tr>
@@ -90,7 +90,7 @@
             @Html.Label("Address")
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.memberAddress)
+            @Html.TextAreaFor(Model => Model.memberAddress,3,10,null)
             @Html.ValidationMessageFor(M => M.memberAddress)
         </td>
     </tr>
