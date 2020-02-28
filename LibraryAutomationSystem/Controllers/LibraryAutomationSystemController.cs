@@ -5,6 +5,7 @@ using LibraryAutomationSystem.DAL;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 
 namespace LibraryAutomationSystem.Controllers
 {
@@ -14,43 +15,51 @@ namespace LibraryAutomationSystem.Controllers
         // GET: LibraryUser
         public ActionResult ViewUser()
         {
-            IEnumerable<User> user = UserRepository.GetUser();
-             ViewData["user"] = user;
+            IEnumerable<User> user = repository.GetUser();
+            ViewData["user"] = user;
             ViewBag.user = user;
             TempData["user"] = user;
             return View();
         }
- [HttpGet]
-        [ActionName("RegistrationUser")]
-       public ActionResult RegistrationUser_Get()
-        {
-            return View();
-        }
-   [HttpPost]
-        [ActionName("RegistrationUser")]
-     
-        public ActionResult RegistrationUser_post()
-        {
-            User user = new User();
-            TryUpdateModel(user);
-            if (ModelState.IsValid)
-            {
 
-                repository.CreateUser();
-                repository.AddUser(user);
-                return RedirectToAction("ViewUser");
-
-            }
-            return View();
-
-        }
         public ActionResult LoginUser()
         {
             return View();
         }
-        public ActionResult Edit()
+        [ActionName("Register")]
+        public ActionResult Register_Get()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ActionName("Register")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register_Post(User user)
         {
             if(ModelState.IsValid)
+            {
+                User userInput = new User
+                {
+                    memberName = user.memberName,
+                    memberUserName = user.memberUserName,
+                    memberPassword = user.memberPassword,
+                    memberDOB = user.memberDOB,
+                    memberDOJ=user.memberDOJ,
+                    memberSex=user.memberSex,
+                    memberAddress=user.memberAddress,
+                    e_Mail=user.e_Mail,
+                    memberPhoneNumber=user.memberPhoneNumber
+                };
+                
+
+                repository.AddUser(userInput);
+                return RedirectToAction("ViewUser");
+            }
+            return View();
+        }
+        public ActionResult Edit()
+        {
+            if (ModelState.IsValid)
             {
                 User user = new User();
                 UpdateModel(user);
