@@ -6,6 +6,7 @@ using System.Web;
 
 namespace LibraryAutomationSystem.Models
 {
+   
     public class UserModel
     {
 
@@ -69,7 +70,9 @@ namespace LibraryAutomationSystem.Models
         [Display(Name = "Address")]
         public string memberAddress { get; set; }
 
+      public string role { get; set; }
 
-        
+
+
     }
 }

@@ -12,9 +12,16 @@ namespace LibraryAutomationSystem.DAL
     {
         public DBConnection():base("connect")
         {
-
+            
         }
         public DbSet<User> user { get; set; }
-        
+       
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //    modelBuilder.Entity<User>().HasIndex(c => c.e_Mail).IsUnique();        
+        //}
+
     }
 }

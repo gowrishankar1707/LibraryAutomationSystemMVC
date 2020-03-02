@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using LibraryAutomationSystem.Entity;
 using LibraryAutomationSystem.DAL;
-using System.Linq;
+using LibraryAutomationSystem.Models;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
@@ -13,7 +13,7 @@ namespace LibraryAutomationSystem.Controllers
     {
         UserRepository repository = new UserRepository();
         // GET: LibraryUser
-        public ActionResult ViewUser()
+        public ActionResult ViewUser()//View the database to list
         {
             IEnumerable<User> user = repository.GetUser();
             ViewData["user"] = user;
@@ -21,22 +21,23 @@ namespace LibraryAutomationSystem.Controllers
             TempData["user"] = user;
             return View();
         }
-
-        public ActionResult LoginUser()
+        [ActionName("Login")]
+        public ActionResult Login_Get()
         {
             return View();
         }
         [ActionName("Register")]
-        public ActionResult Register_Get()
+        public ActionResult Register_Get()//Get Request register
         {
             return View();
         }
+
         [HttpPost]
         [ActionName("Register")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register_Post(User user)
+
+        public ActionResult Register_Post(UserModel user)//Post Register method
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 User userInput = new User
                 {
@@ -44,27 +45,63 @@ namespace LibraryAutomationSystem.Controllers
                     memberUserName = user.memberUserName,
                     memberPassword = user.memberPassword,
                     memberDOB = user.memberDOB,
-                    memberDOJ=user.memberDOJ,
-                    memberSex=user.memberSex,
-                    memberAddress=user.memberAddress,
-                    e_Mail=user.e_Mail,
-                    memberPhoneNumber=user.memberPhoneNumber
+                    memberDOJ = user.memberDOJ,
+                    memberSex = user.memberSex,
+                    memberAddress = user.memberAddress,
+                    e_Mail = user.e_Mail,
+                    memberPhoneNumber = Int64.Parse(user.memberPhoneNumber),
+                    role = "user",
+
                 };
-                
+
 
                 repository.AddUser(userInput);
-                return RedirectToAction("ViewUser");
+                TempData["message"] = "Registered successfully";
+                return RedirectToAction("");
             }
             return View();
         }
-        public ActionResult Edit()
+        
+        [HttpPost]
+        [ActionName("Login")]
+        public ActionResult Login_Post(Login login)
         {
             if (ModelState.IsValid)
             {
-                User user = new User();
-                UpdateModel(user);
+                User user = new User
+                {
+                    memberUserName = login.userName,
+                    memberPassword = login.password,
+
+                };
+                string role = repository.CheckLogin(user);
+                if (role == "admin")
+                {
+                    TempData["Login"] = "Admin";
+                    return RedirectToAction("");
+                }
+                else if (role == "user")
+                {
+                    TempData["Login"] = "user";
+                    return RedirectToAction("");
+                }
+                else
+                {
+                    TempData["login"] = "UserName or Password incorrect";
+                    return View();
+                }
+                
             }
             return View();
         }
+        //public ActionResult Edit()
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        User user = new User();
+        //        UpdateModel(user);
+        //    }
+        //    return View();
+        //}
     }
 }

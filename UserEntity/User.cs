@@ -2,37 +2,51 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LibraryAutomationSystem.Entity
 {
+  
     public class User
     {
-        
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity),Key()]
-        public int Id { get; set; }
-       
-        public string memberName { get; set; }
-        
-        public string memberUserName { get; set; }
-       
-        public string memberPassword { get; set; }
-      
-        public DateTime memberDOB { get; set; }
-      
-        public DateTime memberDOJ { get; set; }
-       
-        public string memberSex { get; set; }
-       
-        public string memberPhoneNumber { get; set; }
-      
-        public string e_Mail { get; set; }
-   
-        public string memberAddress { get; set; }
 
-        public string role = "user";
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
+        [Column("ID")]
+        public int Id { get; set; }
+        [Required]
+        [Column("Name")]
+        public string memberName { get; set; }
+        [Required]
+        [Column("UserName")]
+        [Index(IsUnique =true)]
+        public string memberUserName { get; set; }
+        [Required]
+        [Column("Password")]
+        public string memberPassword { get; set; }
+        [Required]
+        [Column("DOB")]
+        public DateTime memberDOB { get; set; }
+        [Required]
+        [Column("DOJ")]
+        public DateTime memberDOJ { get; set; }
+        [Required]
+        [Column("Gender")]
+        public string memberSex { get; set; }
+        [Required]
+        [Column("PhoneNumber")]
+        public long memberPhoneNumber { get; set; }
+        [Required]
+        [Column("Email")]
+        public string e_Mail { get; set; }
+        [Required]
+        [Column("Address")]
+        public string memberAddress { get; set; }
+        [Column("Role")]
+        public string role { get; set; }
+
     }
 
 
