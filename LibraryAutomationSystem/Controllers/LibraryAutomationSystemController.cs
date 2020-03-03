@@ -74,15 +74,16 @@ namespace LibraryAutomationSystem.Controllers
                     memberPassword = login.password,
 
                 };
-                string role = repository.CheckLogin(user);
-                if (role == "admin")
+                User checkUser = repository.CheckLogin(user);
+                if (checkUser.role == "admin")
                 {
                     TempData["Login"] = "Admin";
                     return RedirectToAction("");
                 }
-                else if (role == "user")
+                else if (checkUser.role == "user")
                 {
                     TempData["Login"] = "user";
+                    TempData["User"] = checkUser;
                     return RedirectToAction("");
                 }
                 else
@@ -94,14 +95,14 @@ namespace LibraryAutomationSystem.Controllers
             }
             return View();
         }
-        //public ActionResult Edit()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        User user = new User();
-        //        UpdateModel(user);
-        //    }
-        //    return View();
-        //}
+        public ActionResult Edit(string userName)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = new User();
+                UpdateModel(user);
+            }
+            return View();
+        }
     }
 }

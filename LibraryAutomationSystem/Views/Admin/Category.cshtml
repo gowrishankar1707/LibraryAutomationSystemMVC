@@ -1,0 +1,34 @@
+﻿@model  IEnumerable<LibraryAutomationSystem.Models.Category>
+
+@{
+    ViewBag.Title = "Category";
+}
+
+<h2>Category</h2>
+
+@Html.ActionLink("Create Category", "Create_Category", "Admin")
+
+@*@foreach(LibraryAutomationSystem.Models.Category items in (IEnumerable<LibraryAutomationSystem.Models.Category>)TempData["Category"])
+    {
+        <div>
+            @items.CategoryName
+        </div>
+    }*@
+<table>
+    <tr>
+        <td>
+            CategoryName
+        </td>
+    </tr>
+    <tr>
+        @foreach (var item in @Model)
+
+        {
+            <td>
+                @item.CategoryName
+            </td>
+
+
+        }
+    </tr>
+</table>

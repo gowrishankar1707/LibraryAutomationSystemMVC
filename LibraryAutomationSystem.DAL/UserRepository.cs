@@ -25,7 +25,7 @@ namespace LibraryAutomationSystem.DAL
             dbConnection = new DBConnection();
             return dbConnection.user.ToList();
         }
-        public string CheckLogin(User user)
+        public User CheckLogin(User user)
         {
             //IEnumerable<User> userList = GetUser();
             //foreach (User items in userList)
@@ -42,10 +42,21 @@ namespace LibraryAutomationSystem.DAL
             {
                 if(context.memberUserName.Equals(user.memberUserName)&&context.memberUserName.Equals(user.memberPassword))
                 {
-                    return context.role;
+                    return context;
                 }
             }
             return null;
+        }
+        //public User GetUserByUserName(string userName)
+        //{
+        //    DBConnection findUser = new DBConnection();
+        //    User userInput= findUser.user.Find()
+        //}
+
+        public IEnumerable<Category> GetCategory()
+        {
+            dbConnection = new DBConnection();
+            return dbConnection.category.ToList();
         }
     }
 }

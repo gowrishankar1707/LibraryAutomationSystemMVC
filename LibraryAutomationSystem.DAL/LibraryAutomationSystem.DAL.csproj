@@ -62,9 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnection.cs" />
-    <Compile Include="Migrations\202003010310475_user.cs" />
-    <Compile Include="Migrations\202003010310475_user.designer.cs">
-      <DependentUpon>202003010310475_user.cs</DependentUpon>
+    <Compile Include="Migrations\202003021245013_cs.cs" />
+    <Compile Include="Migrations\202003021245013_cs.designer.cs">
+      <DependentUpon>202003021245013_cs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
@@ -81,8 +81,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003010310475_user.resx">
-      <DependentUpon>202003010310475_user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003021245013_cs.resx">
+      <DependentUpon>202003021245013_cs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

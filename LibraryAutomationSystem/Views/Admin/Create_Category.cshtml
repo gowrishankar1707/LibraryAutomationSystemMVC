@@ -1,0 +1,22 @@
+﻿@model LibraryAutomationSystem.Models.Category
+
+@{
+    ViewBag.Title = "Create_Category";
+}
+
+<h2>Create_Category</h2>
+@using (Html.BeginForm("Create_Category", "Admin", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.DisplayNameFor(Model=>Model.CategoryName)
+            @Html.TextBoxFor(Model=>Model.CategoryName,new { maxlength=50})
+            @Html.ValidationMessageFor(Model=>Model.CategoryName)
+
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </div>
+}
+

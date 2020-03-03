@@ -18,13 +18,16 @@ namespace LibraryAutomationSystem.Entity
         public int Id { get; set; }
         [Required]
         [Column("Name")]
+        [MaxLength(30)]
         public string memberName { get; set; }
         [Required]
         [Column("UserName")]
         [Index(IsUnique =true)]
+        [MaxLength(25)]
         public string memberUserName { get; set; }
         [Required]
         [Column("Password")]
+        [MaxLength(25)]
         public string memberPassword { get; set; }
         [Required]
         [Column("DOB")]
@@ -37,12 +40,17 @@ namespace LibraryAutomationSystem.Entity
         public string memberSex { get; set; }
         [Required]
         [Column("PhoneNumber")]
+        [Index(IsUnique =true)]
+        
         public long memberPhoneNumber { get; set; }
         [Required]
         [Column("Email")]
+        [Index(IsUnique =true)]
+        [MaxLength(250)]
         public string e_Mail { get; set; }
         [Required]
         [Column("Address")]
+        [MaxLength(50)]
         public string memberAddress { get; set; }
         [Column("Role")]
         public string role { get; set; }

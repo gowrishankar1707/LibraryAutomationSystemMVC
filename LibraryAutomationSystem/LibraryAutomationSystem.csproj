@@ -156,12 +156,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeLASController.cs" />
     <Compile Include="Controllers\LibraryAutomationSystemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +183,9 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\LibraryAutomationSystem\Register.cshtml" />
     <Content Include="Views\LibraryAutomationSystem\Login.cshtml" />
+    <Content Include="Views\Admin\ManageUser.cshtml" />
+    <Content Include="Views\Admin\Category.cshtml" />
+    <Content Include="Views\Admin\Create_Category.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admn\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\LibraryUser\" />
   </ItemGroup>
