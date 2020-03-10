@@ -1,7 +1,8 @@
-﻿@model  IEnumerable<LibraryAutomationSystem.Models.Category>
+﻿@model  IEnumerable<LibraryAutomationSystem.Entity.Category>
 
 @{
     ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Category</h2>
@@ -14,21 +15,35 @@
             @items.CategoryName
         </div>
     }*@
-<table>
+<table border="1">
     <tr>
+        <td>
+            CategoryID
+        </td>
         <td>
             CategoryName
         </td>
-    </tr>
-    <tr>
-        @foreach (var item in @Model)
 
-        {
+    </tr>
+
+    @foreach (LibraryAutomationSystem.Entity.Category item in (IEnumerable<LibraryAutomationSystem.Entity.Category>)TempData["Category"])
+
+    {
+        <tr>
+            <td>
+                @Html.
+                @item.CategoryId
+            </td>
+
             <td>
                 @item.CategoryName
             </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit_Category", new { CategoryId = item.CategoryId })
+                @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId })
+            </td>
 
+        </tr>
 
-        }
-    </tr>
+    }
 </table>

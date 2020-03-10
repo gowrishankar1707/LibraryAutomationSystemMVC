@@ -7,13 +7,13 @@ namespace LibraryAutomationSystem.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class cs : IMigrationMetadata
+    public sealed partial class gs : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(cs));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(gs));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003021245013_cs"; }
+            get { return "202003060956441_gs"; }
         }
         
         string IMigrationMetadata.Source

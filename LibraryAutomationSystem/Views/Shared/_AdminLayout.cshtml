@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("ViewCategory","Category","Admin")
+        @Html.ActionLink("Add Book", "Add_Book", "Admin")
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -15,48 +15,79 @@ namespace LibraryAutomationSystem.DAL
 
         public void AddUser(User user)
         {
-            dbConnection = new DBConnection();
-            dbConnection.user.Add(user);
-            dbConnection.SaveChanges();
+            using (dbConnection = new DBConnection())
+            {
+                dbConnection.user.Add(user);
+                dbConnection.SaveChanges();
+            }
 
         }
         public IEnumerable<User> GetUser()
         {
-            dbConnection = new DBConnection();
-            return dbConnection.user.ToList();
+            using (dbConnection = new DBConnection())
+            {
+                return dbConnection.user.ToList();
+            }
         }
         public User CheckLogin(User user)
         {
-            //IEnumerable<User> userList = GetUser();
-            //foreach (User items in userList)
-            //{
-            //    if (items.memberUserName == user.memberUserName && items.memberPassword == user.memberPassword)
-            //    {
-            //        return items.role;
-            //    }
-            //}
-
-
-            DBConnection connnect = new DBConnection();
-            foreach(var context in connnect.user)
+            using (dbConnection = new DBConnection())
             {
-                if(context.memberUserName.Equals(user.memberUserName)&&context.memberUserName.Equals(user.memberPassword))
-                {
-                    return context;
-                }
+
+                User checkUser = dbConnection.user.Where(u => u.memberUserName == user.memberUserName && u.memberPassword == user.memberPassword).FirstOrDefault();
+                return checkUser;
             }
-            return null;
+
         }
-        //public User GetUserByUserName(string userName)
-        //{
-        //    DBConnection findUser = new DBConnection();
-        //    User userInput= findUser.user.Find()
-        //}
 
         public IEnumerable<Category> GetCategory()
         {
-            dbConnection = new DBConnection();
-            return dbConnection.category.ToList();
+            using (dbConnection = new DBConnection())
+            {
+
+                return dbConnection.category.ToList();
+            }
+        }
+        public void AddCategory(Category category)
+        {
+            using (dbConnection = new DBConnection())
+            {
+                dbConnection.category.Add(category);
+                dbConnection.SaveChanges();
+            }
+        }
+        public Category Get_CategoryById(int categoryId)
+        {
+            using (dbConnection = new DBConnection())
+            {
+                return dbConnection.category.Find(categoryId);
+            }
+        }
+        public void Update_Category(Category category)
+        {
+            using (dbConnection = new DBConnection())
+            {
+                dbConnection.Entry(category).State = System.Data.Entity.EntityState.Modified;
+                dbConnection.SaveChanges();
+            }
+        }
+        public void Delete_Category(int CategoryId)
+        {
+
+            using (dbConnection = new DBConnection())
+            {
+                Entity.Category category = dbConnection.category.Find(CategoryId);
+                dbConnection.category.Remove(category);
+                dbConnection.SaveChanges();
+            }
+        }
+        public IEnumerable<Category> Get_Category()
+        {
+            using (dbConnection = new DBConnection())
+            {
+                return dbConnection.category.ToList();
+            }
+
         }
     }
 }

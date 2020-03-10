@@ -17,7 +17,7 @@
        <td>Email</td>
        <td>Address</td>
    </tr>
-   @foreach(LibraryAutomationSystem.Entity.User user in(List<LibraryAutomationSystem.Entity.User>)ViewData["user"])
+   @foreach(LibraryAutomationSystem.Entity.User user  in(List<LibraryAutomationSystem.Entity.User>)ViewData["user"])
    {
        <tr>
            <td>
@@ -42,6 +42,7 @@
                @user.e_Mail;
            </td>
            <td>
+                @Html.DisplayFor(modelItem=>user.memberAddress)
                @user.memberAddress;
            </td>
            <td>

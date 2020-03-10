@@ -1,0 +1,37 @@
+﻿@model LibraryAutomationSystem.Models.Category
+
+@{
+    ViewBag.Title = "Edit_Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit_Category</h2>
+
+@using (Html.BeginForm("Update_Category", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(Model=>Model.CategoryId)
+    <table>
+      <tr>
+          <td>
+              @Html.LabelFor(Model=>Model.CategoryName)
+          </td>
+          <td>
+              @Html.EditorFor(Model=>Model.CategoryName)
+
+          </td>
+      </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back","Category","Admin")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+      
+
+    </table>
+}
+

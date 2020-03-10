@@ -8,6 +8,8 @@ namespace LibraryAutomationSystem.Models
 {
     public class Category
     {
+
+        public int CategoryId { get; set; }
         [Required(ErrorMessage ="CategoryName is Required")]
         [MaxLength(50)]
         [Display(Name ="CategoryName")]

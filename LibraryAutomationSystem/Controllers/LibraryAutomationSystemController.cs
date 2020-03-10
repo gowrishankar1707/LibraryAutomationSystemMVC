@@ -13,14 +13,14 @@ namespace LibraryAutomationSystem.Controllers
     {
         UserRepository repository = new UserRepository();
         // GET: LibraryUser
-        public ActionResult ViewUser()//View the database to list
-        {
-            IEnumerable<User> user = repository.GetUser();
-            ViewData["user"] = user;
-            ViewBag.user = user;
-            TempData["user"] = user;
-            return View();
-        }
+        //public ActionResult ViewUser()//View the database to list
+        //{
+        //    IEnumerable<User> user = repository.GetUser();
+        //    ViewData["user"] = user;
+        //    ViewBag.user = user;
+        //    TempData["user"] = user;
+        //    return View();
+        //}
         [ActionName("Login")]
         public ActionResult Login_Get()
         {
@@ -77,12 +77,14 @@ namespace LibraryAutomationSystem.Controllers
                 User checkUser = repository.CheckLogin(user);
                 if (checkUser.role == "admin")
                 {
+                    TempData["admin"] = user;
                     TempData["Login"] = "Admin";
-                    return RedirectToAction("");
+                    return RedirectToAction("AdminChoice","Admin");
+                
                 }
                 else if (checkUser.role == "user")
                 {
-                    TempData["Login"] = "user";
+                    TempData["Login"] = user;
                     TempData["User"] = checkUser;
                     return RedirectToAction("");
                 }

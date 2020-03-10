@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using LibraryAutomationSystem.Entity;
+using UserEntity;
 
 namespace LibraryAutomationSystem.DAL
 {
@@ -16,6 +17,8 @@ namespace LibraryAutomationSystem.DAL
         }
         public DbSet<User> user { get; set; }
         public DbSet<Category> category { get; set; }
+        public DbSet<Book> Book { get; set; }
+
        
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
