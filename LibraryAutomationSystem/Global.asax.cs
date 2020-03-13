@@ -13,6 +13,8 @@ namespace LibraryAutomationSystem
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            App_Start.MapConfig.Mapper();
+            
         }
     }
 }

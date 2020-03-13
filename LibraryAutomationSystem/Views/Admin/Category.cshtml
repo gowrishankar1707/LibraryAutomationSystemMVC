@@ -40,7 +40,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit_Category", new { CategoryId = item.CategoryId })
-                @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId })
+                @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId },new { Onclick = "Return Confirm('Delete')" })
             </td>
 
         </tr>

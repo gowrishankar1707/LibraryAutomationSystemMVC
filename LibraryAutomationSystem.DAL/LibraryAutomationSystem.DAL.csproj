@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -61,10 +61,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book_Language_Repository.cs" />
     <Compile Include="DBConnection.cs" />
-    <Compile Include="Migrations\202003060956441_gs.cs" />
-    <Compile Include="Migrations\202003060956441_gs.designer.cs">
-      <DependentUpon>202003060956441_gs.cs</DependentUpon>
+    <Compile Include="Migrations\202003111219365_Library-v1.cs" />
+    <Compile Include="Migrations\202003111219365_Library-v1.designer.cs">
+      <DependentUpon>202003111219365_Library-v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111220396_Library-v2.cs" />
+    <Compile Include="Migrations\202003111220396_Library-v2.designer.cs">
+      <DependentUpon>202003111220396_Library-v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111221554_Library-v3.cs" />
+    <Compile Include="Migrations\202003111221554_Library-v3.designer.cs">
+      <DependentUpon>202003111221554_Library-v3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
@@ -81,8 +90,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003060956441_gs.resx">
-      <DependentUpon>202003060956441_gs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003111219365_Library-v1.resx">
+      <DependentUpon>202003111219365_Library-v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111220396_Library-v2.resx">
+      <DependentUpon>202003111220396_Library-v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111221554_Library-v3.resx">
+      <DependentUpon>202003111221554_Library-v3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

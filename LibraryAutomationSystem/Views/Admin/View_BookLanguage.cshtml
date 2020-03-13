@@ -1,0 +1,35 @@
+﻿@model IEnumerable<LibraryAutomationSystem.Entity.BookLanguage>
+
+@{
+    ViewBag.Title = "View_BookLanguage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>View_BookLanguage</h2>
+@Html.ActionLink("Add Language", "Create_BookLanguage", "Admin")
+
+<table border="1">
+    <tr>
+        <td>
+            Book Language
+        </td>
+    </tr>
+    @foreach (LibraryAutomationSystem.Entity.BookLanguage items in ViewBag.view)
+    {
+        <tr>
+            <td>
+                @items.BookLanguageId
+            </td>
+
+            <td>
+                @items.BookLanguageName
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "", new { id = items.BookLanguageId })
+                @Html.ActionLink("Delete", "", new { id = items.BookLanguageId })
+            </td>
+        </tr>
+    }
+
+</table>

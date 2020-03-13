@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using LibraryAutomationSystem.Entity;
-using UserEntity;
+
 using LibraryAutomationSystem.DAL;
 using LibraryAutomationSystem.Models;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LibraryAutomationSystem.Entity;
 
 namespace LibraryAutomationSystem.Controllers
 {
@@ -26,7 +26,7 @@ namespace LibraryAutomationSystem.Controllers
             TempData["user"] = user;
             return View();
         }
-       public ActionResult Category()
+        public ActionResult Category()
         {
             ViewBag.Category = repository.GetCategory();
             TempData["Category"] = repository.GetCategory();
@@ -41,8 +41,8 @@ namespace LibraryAutomationSystem.Controllers
         public ActionResult Edit_Category(int CategoryId)
         {
             Models.Category categorylist = new Models.Category();
-            
-            Entity.Category category = repository.Get_CategoryById( CategoryId);
+
+            Entity.Category category = repository.Get_CategoryById(CategoryId);
 
             categorylist.CategoryName = category.CategoryName;
             categorylist.CategoryId = category.CategoryId;
@@ -56,7 +56,7 @@ namespace LibraryAutomationSystem.Controllers
         {
             Entity.Category entityCategory = new Entity.Category()
             {
-                CategoryName=category.CategoryName,
+                CategoryName = category.CategoryName,
             };
             repository.AddCategory(entityCategory);
             return RedirectToAction("Category");
@@ -65,12 +65,12 @@ namespace LibraryAutomationSystem.Controllers
         public ActionResult Update_Category(Models.Category categoryModel)
         {
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 Entity.Category category = new Entity.Category()
                 {
-                    CategoryName=categoryModel.CategoryName,
-                    CategoryId=categoryModel.CategoryId,
+                    CategoryName = categoryModel.CategoryName,
+                    CategoryId = categoryModel.CategoryId,
                 };
                 repository.Update_Category(category);
                 return RedirectToAction("Category");
@@ -81,7 +81,7 @@ namespace LibraryAutomationSystem.Controllers
         public ActionResult Delete_Category(int CategoryID)
         {
             repository.Delete_Category(CategoryID);
-           
+
             return RedirectToAction("Category");
         }
         public ActionResult View_Book()
@@ -99,17 +99,46 @@ namespace LibraryAutomationSystem.Controllers
         [ActionName("Add_Book")]
         public ActionResult Add_Book_Post(Models.Book book)
         {
-            UserEntity.Book addBook = new UserEntity.Book()
+            LibraryAutomationSystem.Entity.Book addBook = new Entity.Book()
             {
-                BookName=book.BookName,
-                category=book.Category,
+                BookName = book.BookName,
 
             };
             return View();
         }
-
-        
-
-
+        [HttpGet]
+        [ActionName("Create_BookLanguage")]
+        public ActionResult Create_BookLanguage_Get()
+        {
+            return View();
+        }
+        [ActionName("Create_BookLanguage")]
+        [HttpPost]
+        public ActionResult Create_BookLanguage_Post(Models.BookLanguage bookLanguage)
+        {
+            if (ModelState.IsValid)
+            {
+                var addLanguage = AutoMapper.Mapper.Map<Models.BookLanguage, LibraryAutomationSystem.Entity.BookLanguage>(bookLanguage);
+                Book_Language_Repository repository = new Book_Language_Repository();
+                repository.Add_Book_Language(addLanguage);
+                return RedirectToAction("");
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult View_BookLanguage()
+        {
+            Book_Language_Repository languageRepository = new Book_Language_Repository();
+            IEnumerable<Entity.BookLanguage> languagelist = languageRepository.View_Book_Language();
+            ViewBag.view = languagelist;
+            return View();
+        }
+        public ActionResult Edit_Book_Language(int Book_Language_Id)
+        {
+            Book_Language_Repository repository = new Book_Language_Repository();
+            Entity.BookLanguage language = repository.Find_Book_Language_Id(Book_Language_Id);
+            Models.Edit_Language edit_language = AutoMapper.Mapper.Map<Entity.BookLanguage, Models.Edit_Language>(language);
+            return View(edit_language);
+        }
     }
 }

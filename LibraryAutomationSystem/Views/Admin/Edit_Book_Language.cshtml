@@ -1,0 +1,18 @@
+﻿@model LibraryAutomationSystem.Models.Edit_Language
+
+@{
+    ViewBag.Title = "Edit_Book_Language";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit_Book_Language</h2>
+<div>
+    @Html.HiddenFor(Model=>Model.BookLanguageId)
+    <div>
+        @Html.DisplayNameFor(Model=>Model.BookLanguageName)
+        @Html.TextBoxFor(Model=>Model.BookLanguageName,new { maxlength = 25 })
+    </div>
+    <div>
+        <input type="submit" value="update" />
+    </div>
+</div>

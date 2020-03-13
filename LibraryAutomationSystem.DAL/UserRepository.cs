@@ -17,7 +17,7 @@ namespace LibraryAutomationSystem.DAL
         {
             using (dbConnection = new DBConnection())
             {
-                dbConnection.user.Add(user);
+                dbConnection.Users.Add(user);
                 dbConnection.SaveChanges();
             }
 
@@ -26,7 +26,7 @@ namespace LibraryAutomationSystem.DAL
         {
             using (dbConnection = new DBConnection())
             {
-                return dbConnection.user.ToList();
+                return dbConnection.Users.ToList();
             }
         }
         public User CheckLogin(User user)
@@ -34,7 +34,7 @@ namespace LibraryAutomationSystem.DAL
             using (dbConnection = new DBConnection())
             {
 
-                User checkUser = dbConnection.user.Where(u => u.memberUserName == user.memberUserName && u.memberPassword == user.memberPassword).FirstOrDefault();
+                User checkUser = dbConnection.Users.Where(u => u.memberUserName == user.memberUserName && u.memberPassword == user.memberPassword).FirstOrDefault();
                 return checkUser;
             }
 
@@ -45,14 +45,14 @@ namespace LibraryAutomationSystem.DAL
             using (dbConnection = new DBConnection())
             {
 
-                return dbConnection.category.ToList();
+                return dbConnection.Categories.ToList();
             }
         }
         public void AddCategory(Category category)
         {
             using (dbConnection = new DBConnection())
             {
-                dbConnection.category.Add(category);
+                dbConnection.Categories.Add(category);
                 dbConnection.SaveChanges();
             }
         }
@@ -60,7 +60,7 @@ namespace LibraryAutomationSystem.DAL
         {
             using (dbConnection = new DBConnection())
             {
-                return dbConnection.category.Find(categoryId);
+                return dbConnection.Categories.Find(categoryId);
             }
         }
         public void Update_Category(Category category)
@@ -76,8 +76,8 @@ namespace LibraryAutomationSystem.DAL
 
             using (dbConnection = new DBConnection())
             {
-                Entity.Category category = dbConnection.category.Find(CategoryId);
-                dbConnection.category.Remove(category);
+                Entity.Category category = dbConnection.Categories.Find(CategoryId);
+                dbConnection.Categories.Remove(category);
                 dbConnection.SaveChanges();
             }
         }
@@ -85,7 +85,7 @@ namespace LibraryAutomationSystem.DAL
         {
             using (dbConnection = new DBConnection())
             {
-                return dbConnection.category.ToList();
+                return dbConnection.Categories.ToList();
             }
 
         }

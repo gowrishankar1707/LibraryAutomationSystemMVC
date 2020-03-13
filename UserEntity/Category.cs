@@ -12,7 +12,6 @@ namespace LibraryAutomationSystem.Entity
     public class Category
     {
         [Key]
-        [Column("CategoryId")]
         public int CategoryId { get; set; }
      
         [Index(IsUnique =true)]

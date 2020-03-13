@@ -55,6 +55,7 @@ namespace LibraryAutomationSystem.Models
 
 
         [Required(ErrorMessage = "Phone Number is required")]
+        [RegularExpression("^[6-9][0-9]{9}$")]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
         public string memberPhoneNumber { get; set; }
