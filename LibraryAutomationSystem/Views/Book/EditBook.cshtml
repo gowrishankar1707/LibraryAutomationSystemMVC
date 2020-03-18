@@ -1,0 +1,44 @@
+﻿@model LibraryAutomationSystem.Models.Edit_Book
+
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>EditBook</h2>
+@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
+{
+<div>
+    <div>
+        @Html.HiddenFor(Model => Model.BookId)
+    </div>
+    <div>
+        @Html.DisplayNameFor(Model => Model.BookTittle)
+        @Html.TextBoxFor(Model => Model.BookTittle)
+    </div>
+    <div>
+        @Html.DisplayNameFor(Model => Model.Category)
+        @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select BookLanguage")
+    </div>
+    <div>
+        @Html.DisplayNameFor(Model => Model.BookLanguage)
+        @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
+    </div>
+    <div>
+        @Html.DisplayNameFor(Model => Model.AuthorName)
+        @Html.TextBoxFor(Model => Model.AuthorName)
+    </div>
+    <div>
+        @Html.HiddenFor(Model => Model.BookCount)
+
+    </div>
+    <div>
+        @Html.DisplayNameFor(Model => Model.BookType);
+        @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType")
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+</div>
+}
+

@@ -158,15 +158,17 @@
     <Compile Include="App_Start\MapConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeLASController.cs" />
     <Compile Include="Controllers\LibraryAutomationSystemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\AddBook.cs" />
     <Compile Include="Models\BookLanguage.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Edit_Book.cs" />
     <Compile Include="Models\Edit_Language.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -193,10 +195,12 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\AdminChoice.cshtml" />
     <Content Include="Views\Admin\Edit_Category.cshtml" />
-    <Content Include="Views\Admin\Add_Book.cshtml" />
     <Content Include="Views\Admin\Create_BookLanguage.cshtml" />
     <Content Include="Views\Admin\View_BookLanguage.cshtml" />
     <Content Include="Views\Admin\Edit_Book_Language.cshtml" />
+    <Content Include="Views\Book\AddBook.cshtml" />
+    <Content Include="Views\Book\ViewBook.cshtml" />
+    <Content Include="Views\Book\EditBook.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

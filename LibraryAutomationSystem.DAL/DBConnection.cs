@@ -18,10 +18,11 @@ namespace LibraryAutomationSystem.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<BookLanguage> BookLanguages { get; set; }
+        public DbSet<Book> Book { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookLanguage>().MapToStoredProcedures();
-
+            modelBuilder.Entity<Book>().MapToStoredProcedures();
         }
 
 

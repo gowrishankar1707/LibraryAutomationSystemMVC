@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookRepository.cs" />
     <Compile Include="Book_Language_Repository.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Migrations\202003111219365_Library-v1.cs" />
@@ -74,6 +75,30 @@
     <Compile Include="Migrations\202003111221554_Library-v3.cs" />
     <Compile Include="Migrations\202003111221554_Library-v3.designer.cs">
       <DependentUpon>202003111221554_Library-v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003151058535_library-v4.cs" />
+    <Compile Include="Migrations\202003151058535_library-v4.designer.cs">
+      <DependentUpon>202003151058535_library-v4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003151231304_library-v5.cs" />
+    <Compile Include="Migrations\202003151231304_library-v5.designer.cs">
+      <DependentUpon>202003151231304_library-v5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003151244438_library-v6.cs" />
+    <Compile Include="Migrations\202003151244438_library-v6.designer.cs">
+      <DependentUpon>202003151244438_library-v6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003160356451_library-v7.cs" />
+    <Compile Include="Migrations\202003160356451_library-v7.designer.cs">
+      <DependentUpon>202003160356451_library-v7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003160405380_library-v8.cs" />
+    <Compile Include="Migrations\202003160405380_library-v8.designer.cs">
+      <DependentUpon>202003160405380_library-v8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003160958139_library-v9.cs" />
+    <Compile Include="Migrations\202003160958139_library-v9.designer.cs">
+      <DependentUpon>202003160958139_library-v9.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
@@ -98,6 +123,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003111221554_Library-v3.resx">
       <DependentUpon>202003111221554_Library-v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003151058535_library-v4.resx">
+      <DependentUpon>202003151058535_library-v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003151231304_library-v5.resx">
+      <DependentUpon>202003151231304_library-v5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003151244438_library-v6.resx">
+      <DependentUpon>202003151244438_library-v6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003160356451_library-v7.resx">
+      <DependentUpon>202003160356451_library-v7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003160405380_library-v8.resx">
+      <DependentUpon>202003160405380_library-v8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003160958139_library-v9.resx">
+      <DependentUpon>202003160958139_library-v9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

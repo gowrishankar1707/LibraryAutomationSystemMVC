@@ -14,6 +14,10 @@ namespace LibraryAutomationSystem.App_Start
             AutoMapper.Mapper.Initialize(config =>
             {
                 config.CreateMap<Models.BookLanguage, BookLanguage>();
+                config.CreateMap<Entity.BookLanguage, Models.Edit_Language>();
+                config.CreateMap<Models.Edit_Language, Entity.BookLanguage>();
+                config.CreateMap<Entity.Book, Models.Edit_Book>();
+                config.CreateMap<Models.Edit_Book, Entity.Book>();
             });
         }
     }

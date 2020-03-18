@@ -51,7 +51,7 @@ namespace LibraryAutomationSystem.Controllers
                     e_Mail = user.e_Mail,
                     memberPhoneNumber = Int64.Parse(user.memberPhoneNumber),
                     role = "user",
-
+                    BookRequest=3,
                 };
 
 
@@ -61,7 +61,7 @@ namespace LibraryAutomationSystem.Controllers
             }
             return View();
         }
-        
+
         [HttpPost]
         [ActionName("Login")]
         public ActionResult Login_Post(Login login)
@@ -77,15 +77,16 @@ namespace LibraryAutomationSystem.Controllers
                 User checkUser = repository.CheckLogin(user);
                 if (checkUser.role == "admin")
                 {
-                    TempData["admin"] = user;
+                    TempData["admin"] = checkUser;
                     TempData["Login"] = "Admin";
-                    return RedirectToAction("AdminChoice","Admin");
-                
+                    return RedirectToAction("AdminChoice", "Admin");
+
                 }
                 else if (checkUser.role == "user")
                 {
-                    TempData["Login"] = user;
                     TempData["User"] = checkUser;
+                    TempData["Login"] = user;
+                  
                     return RedirectToAction("");
                 }
                 else
@@ -93,7 +94,7 @@ namespace LibraryAutomationSystem.Controllers
                     TempData["login"] = "UserName or Password incorrect";
                     return View();
                 }
-                
+
             }
             return View();
         }

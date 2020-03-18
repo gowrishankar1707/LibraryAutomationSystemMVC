@@ -53,40 +53,12 @@ namespace LibraryAutomationSystem.Entity
         [MaxLength(50)]
         public string memberAddress { get; set; }
         [Column("Role")]
+        [Required]
         public string role { get; set; }
+        [Required]
+        [Range(0,5)]
+        public byte BookRequest { get; set; }
 
     }
-
-
-    //public User(string memberName, string memberUserName, string memberPassword, DateTime memberDOB, DateTime memberDOJ, string memberSex, string memberPhoneNumber, string e_Mail, string memberAddress)
-    //{
-
-    //    this.memberName = memberName;
-    //    this.memberUserName = memberUserName;
-    //    this.memberPassword = memberPassword;
-    //    this.memberDOB = memberDOB;
-    //    this.memberDOJ = memberDOJ;
-    //    this.memberSex = memberSex;
-    //    this.memberPhoneNumber = memberPhoneNumber;
-    //    this.e_Mail = e_Mail;
-    //    this.memberAddress = memberAddress;
-    //}
-    //public User(string memberUserName, string memberPassword)
-    //{
-    //    this.memberUserName = memberUserName;
-    //    this.memberPassword = memberPassword;
-    //}
-    //public User(string memberName, string memberUserName, DateTime memberDOB, DateTime memberDOJ, string memberSex, string memberPhoneNumber, string e_Mail, string memberAddress)
-    //{
-
-    //    this.memberName = memberName;
-    //    this.memberUserName = memberUserName;
-    //    this.memberDOB = memberDOB;
-    //    this.memberDOJ = memberDOJ;
-    //    this.memberSex = memberSex;
-    //    this.memberPhoneNumber = memberPhoneNumber;
-    //    this.e_Mail = e_Mail;
-    //    this.memberAddress = memberAddress;
-    //}
 
 }

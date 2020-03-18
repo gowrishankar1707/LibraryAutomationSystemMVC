@@ -1,0 +1,44 @@
+﻿@model LibraryAutomationSystem.Models.AddBook
+
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AddBook</h2>
+
+@using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.BookTittle)
+            @Html.TextBoxFor(Model => Model.BookTittle)
+            @Html.ValidationMessageFor(Model=>Model.BookTittle)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model=>Model.Category)
+            @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select Category")
+
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model=>Model.BookLanguage)
+            @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model=>Model.AuthorName)
+            @Html.TextBoxFor(Model=>Model.AuthorName)
+            @Html.ValidationMessageFor(Model=>Model.AuthorName)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model=>Model.BookType)
+           @Html.EnumDropDownListFor(Model=>Model.BookType,"Select BookType")
+        </div>
+        <div>
+            <input type="submit" value="AddBook" />
+            @Html.ActionLink("Cancel","ViewBook","Book")
+        </div>
+    </div>
+
+
+}
+

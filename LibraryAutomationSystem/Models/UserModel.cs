@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LibraryAutomationSystem.Models
 {
-   
+
     public class UserModel
     {
 
@@ -60,6 +60,9 @@ namespace LibraryAutomationSystem.Models
         [Display(Name = "Phone Number")]
         public string memberPhoneNumber { get; set; }
 
+        //  public int PhoneNumber { get; set; }
+
+
         [Required(ErrorMessage = "Email is required")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E mail")]
@@ -71,7 +74,9 @@ namespace LibraryAutomationSystem.Models
         [Display(Name = "Address")]
         public string memberAddress { get; set; }
 
-      public string role { get; set; }
+        public string role { get; set; }
+        
+        public byte BookRequest { get; set; }
 
 
 

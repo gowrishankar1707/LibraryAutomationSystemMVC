@@ -6,13 +6,18 @@
 }
 
 <h2>Edit_Book_Language</h2>
+@using (Html.BeginForm("Update_Book_Language", "Admin", FormMethod.Post))
+{
 <div>
-    @Html.HiddenFor(Model=>Model.BookLanguageId)
+    @Html.HiddenFor(Model => Model.BookLanguageId)
     <div>
-        @Html.DisplayNameFor(Model=>Model.BookLanguageName)
-        @Html.TextBoxFor(Model=>Model.BookLanguageName,new { maxlength = 25 })
+        @Html.DisplayNameFor(Model => Model.BookLanguageName)
+        @Html.TextBoxFor(Model => Model.BookLanguageName, new { maxlength = 25 })
+        @Html.ValidationMessageFor(Model => Model.BookLanguageName)
     </div>
     <div>
         <input type="submit" value="update" />
     </div>
 </div>
+}
+

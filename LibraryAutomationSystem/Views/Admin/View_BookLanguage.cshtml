@@ -26,8 +26,8 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "", new { id = items.BookLanguageId })
-                @Html.ActionLink("Delete", "", new { id = items.BookLanguageId })
+                @Html.ActionLink("Edit", "Edit_Book_Language", new { Book_Language_Id = items.BookLanguageId })
+                @Html.ActionLink("Delete", "Delete_Book_Language", new { Book_Language_Id = items.BookLanguageId })
             </td>
         </tr>
     }

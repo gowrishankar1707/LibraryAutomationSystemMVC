@@ -97,11 +97,11 @@ namespace LibraryAutomationSystem.Controllers
         }
         [HttpPost]
         [ActionName("Add_Book")]
-        public ActionResult Add_Book_Post(Models.Book book)
+        public ActionResult Add_Book_Post(Models.AddBook book)
         {
             LibraryAutomationSystem.Entity.Book addBook = new Entity.Book()
             {
-                BookName = book.BookName,
+                BookTittle = book.BookTittle,
 
             };
             return View();
@@ -121,7 +121,7 @@ namespace LibraryAutomationSystem.Controllers
                 var addLanguage = AutoMapper.Mapper.Map<Models.BookLanguage, LibraryAutomationSystem.Entity.BookLanguage>(bookLanguage);
                 Book_Language_Repository repository = new Book_Language_Repository();
                 repository.Add_Book_Language(addLanguage);
-                return RedirectToAction("");
+                return RedirectToAction("View_BookLanguage");
             }
             return View();
         }
@@ -133,12 +133,42 @@ namespace LibraryAutomationSystem.Controllers
             ViewBag.view = languagelist;
             return View();
         }
+        [HttpGet]
         public ActionResult Edit_Book_Language(int Book_Language_Id)
         {
             Book_Language_Repository repository = new Book_Language_Repository();
             Entity.BookLanguage language = repository.Find_Book_Language_Id(Book_Language_Id);
             Models.Edit_Language edit_language = AutoMapper.Mapper.Map<Entity.BookLanguage, Models.Edit_Language>(language);
             return View(edit_language);
+        }
+        [HttpPost]
+        public ActionResult Update_Book_Language(Models.Edit_Language editLanguage)
+        {
+            if(ModelState.IsValid)
+            {
+               Entity.BookLanguage bookLanguage= AutoMapper.Mapper.Map<Models.Edit_Language, Entity.BookLanguage>(editLanguage);
+                Book_Language_Repository languageRepository = new Book_Language_Repository();
+                int result=languageRepository.Update_Book_Language(bookLanguage);
+                if(result>=1)
+                {
+                    return RedirectToAction("View_BookLanguage");
+                }
+               
+            }
+            return RedirectToAction("");
+        }
+        public ActionResult Delete_Book_Language(int Book_Language_Id)
+        {
+            Book_Language_Repository languageRepository = new Book_Language_Repository();
+            int result=languageRepository.Delete_Book_Language(Book_Language_Id);
+            if(result>=1)
+            {
+                return RedirectToAction("View_BookLanguage");
+            }
+            else
+            {
+                return View("");
+            }
         }
     }
 }
