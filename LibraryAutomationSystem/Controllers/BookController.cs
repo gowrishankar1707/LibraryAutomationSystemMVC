@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LibraryAutomationSystem.BL;
 using System.Linq;
 using System.Web;
 using LibraryAutomationSystem.DAL;
@@ -8,84 +9,102 @@ using System.Web.Mvc;
 using System.Configuration;
 namespace LibraryAutomationSystem.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
+     
+        IBookBL bookBL;
+        public BookController()
+        {
+            bookBL = new BookBL();
+        }
         // GET: Book
+        [HttpGet]
+        [OutputCache(Duration = 10)]
+        [Authorize(Roles = "admin,user")]
+        public ViewResult ViewBook()//View the Existing Book in the Database
+        {
 
+            IEnumerable<Book> book = bookBL.GetBook();
+            return View(book);
+        }
         [ActionName("AddBook")]
         [HttpGet]
-        public ActionResult AddBook_Get()
+        [OutputCache(Duration =10)]
+
+    
+        public ActionResult AddBook_Get()//Add Book View
         {
-            UserRepository repository = new UserRepository();
-            Book_Language_Repository languageRepository = new Book_Language_Repository();
-            ViewBag.Category = new SelectList(repository.GetCategory(), "CategoryId", "CategoryName");
-            ViewBag.BookLanguage = new SelectList(languageRepository.View_Book_Language(), "BookLanguageId", "BookLanguageName");
+            ICategoryBL categoryBL = new CategoryBL();
+            IBookLanguageBL bookLanguageBL = new BookLanguageBL();
+            ViewBag.Category = new SelectList(categoryBL.GetCategory(), "CategoryId", "CategoryName");
+            ViewBag.BookLanguage = new SelectList(bookLanguageBL.GetBookLanguage(), "BookLanguageId", "BookLanguageName");
             return View();
         }
 
-        [ActionName("AddBook")]
+        [ActionName("AddBook")]//Post method of Adding Book
         [HttpPost]
         public ActionResult AddBook_Post(Models.AddBook addBook)
         {
-            Entity.Book book = new Book()
+            if (ModelState.IsValid)
             {
-                BookTittle = addBook.BookTittle,
-                CategoryId = addBook.CategoryId,
-                BookLanguageId = addBook.BookLanguageId,
-                AuthorName = addBook.AuthorName,
-                BookCount = 3,
-                BookType = addBook.BookType.ToString(),
+                Entity.Book book = new Book()
+                {
+                    BookTittle = addBook.BookTittle,
+                    CategoryId = addBook.CategoryId,
+                    BookLanguageId = addBook.BookLanguageId,
+                    AuthorName = addBook.AuthorName,
+                    BookCount = 3,
+                    BookType = addBook.BookType.ToString(),
 
 
-            };
+                };
 
-            BookRepository repository = new BookRepository();
-            int result = repository.AddBook(book);
-            if (result != 0)
-            {
-                return RedirectToAction("");
+
+                int result = bookBL.AddBook(book);
+                if (result != 0)
+                {
+                    return RedirectToAction("ViewBook");
+                }
             }
             return View();
 
         }
-        [HttpGet]
-        public ViewResult ViewBook()
-        {
-            BookRepository repository = new BookRepository();
-            IEnumerable<Book> book = repository.DisplayBook();
-            return View(book);
-        }
+
         [HttpPost]
-        public ActionResult DeleteBook(int bookId)
+        [ActionName("DeleteBook")]
+        public ActionResult DeleteBook(int bookId)//Delete Book By Get The BookId
         {
-            BookRepository bookRepository = new BookRepository();
-            int result = bookRepository.RemoveBook(bookId);
-            if (result != 0)
-            {
+
+
+            if (bookBL.DeleteBook(bookId) >= 1)//Find the Book Id and Remove It
                 return RedirectToAction("ViewBook");
-            }
-            return View("ViewBook");
+            return RedirectToAction("");
         }
         [HttpGet]
-        public ActionResult EditBook(int bookId)
+        [OutputCache(CacheProfile = "1MinuteCache")]
+        public ActionResult EditBook(int bookId)//Find the Id to Edit the Book Details
         {
-            UserRepository repo = new UserRepository();
-            ViewBag.Category = new SelectList(repo.GetCategory(), "CategoryId", "CategoryName");
-            Book_Language_Repository lang = new Book_Language_Repository();
-            ViewBag.BookLanguage = new SelectList(lang.View_Book_Language(), "BookLanguageId", "BookLanguageName");
-            BookRepository bookRepository = new BookRepository();
-            Book book = bookRepository.FindBookById(bookId);
-            Models.Edit_Book findedBook = AutoMapper.Mapper.Map<Book, Models.Edit_Book>(book);
+            ICategoryBL categoryBL = new CategoryBL();
+            IBookLanguageBL bookLanguageBL = new BookLanguageBL();
+            ViewBag.Category = new SelectList(categoryBL.GetCategory(), "CategoryId", "CategoryName");//Get the Category Table as Drop Down List
+            ViewBag.BookLanguage = new SelectList(bookLanguageBL.GetBookLanguage(), "BookLanguageId", "BookLanguageName");//Get the BookLanguage Table as Drop Down List
+            Book book = bookBL.FindBookById(bookId);//Find the Book which is going to Edit
+            Models.Edit_Book findedBook = AutoMapper.Mapper.Map<Book, Models.Edit_Book>(book);//Return the Details to the View for Updation
             return View(findedBook);
         }
         [HttpPost]
-        public ActionResult UpdateBook(Models.Edit_Book editBook)
+        public ActionResult UpdateBook(Models.Edit_Book editBook)//Get the Updated Details from Model
+
         {
-            Book book= AutoMapper.Mapper.Map<Models.Edit_Book, Entity.Book>(editBook);
-            BookRepository repository = new BookRepository();
-            int result=repository.UpdateBook(book);
-            if (result >= 1)
-                return RedirectToAction("ViewBook");
+            if (ModelState.IsValid)
+            {
+                Book book = AutoMapper.Mapper.Map<Models.Edit_Book, Entity.Book>(editBook);//Map the Model to Book Entity by AutoMapper
+                BookRepository repository = new BookRepository();
+                if (bookBL.UpdateBook(book) >= 1)
+                    return RedirectToAction("ViewBook");
+            }
+
             return View();
         }
 

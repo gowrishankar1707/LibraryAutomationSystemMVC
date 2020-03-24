@@ -11,9 +11,9 @@ namespace LibraryAutomationSystem.Models
     {
         [Required]
         [Display(Name ="UserName")]
-        public string userName { get; set; }
+        public string MemberUserName { get; set; }
         [Required]
         [Display(Name = "Password")]
-        public string password { get; set; }
+        public string MemberPassword { get; set; }
     }
 }

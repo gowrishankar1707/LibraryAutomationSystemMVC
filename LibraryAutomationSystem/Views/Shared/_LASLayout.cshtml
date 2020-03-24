@@ -7,10 +7,11 @@
 </head>
 <body>
     <div>
-        @Html.ActionLink("Register", "Register", "LibraryAutomationSystem");
-        @Html.ActionLink("Login", "Login", "LibraryAutomationSystem");
+        @Html.ActionLink("Register", "Register", "Account");
+        @Html.ActionLink("Login", "Login", "Account");
     
         
+        @Html.ActionLink("View Book", "ViewBook", "Book")
         @Html.ActionLink("Home","Home","HomeLAS")
 
         @RenderBody()

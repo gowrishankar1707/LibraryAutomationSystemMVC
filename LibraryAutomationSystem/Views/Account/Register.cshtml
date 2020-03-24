@@ -1,0 +1,84 @@
+﻿@model LibraryAutomationSystem.Models.UserModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.MemberName)
+
+            @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25 })
+            @Html.ValidationMessageFor(Model=>Model.MemberName)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.MemberUserName)
+
+            @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25 })
+            @Html.ValidationMessageFor(Model => Model.MemberUserName)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.Password)
+
+            @Html.PasswordFor(Model => Model.Password, new { maxlength = 25 })
+            @Html.ValidationMessageFor(Model => Model.Password)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.MemberPassword)
+
+            @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25 })
+            @Html.ValidationMessageFor(Model => Model.MemberPassword)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.MemberDOB)
+
+            @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10 })
+            @Html.ValidationMessageFor(Model => Model.MemberDOB)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.MemberDOJ)
+
+            @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10 })
+            @Html.ValidationMessageFor(Model => Model.MemberDOJ)
+        </div>
+        <div>
+
+            @Html.DisplayNameFor(Model => Model.MemberSex)
+
+            @Html.RadioButtonFor(Model => Model.MemberSex, "Male")Male
+            @Html.RadioButtonFor(Model => Model.MemberSex, "Fe-male")Fe-male
+            @Html.ValidationMessageFor(Model => Model.MemberSex)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.MemberPhoneNumber)
+
+            @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10 })
+            @Html.ValidationMessageFor(Model => Model.MemberPhoneNumber)
+        </div>
+        <div>
+            @Html.DisplayNameFor(Model => Model.Email)
+
+            @Html.EditorFor(Model => Model.Email)
+            @Html.ValidationMessageFor(Model => Model.Email)
+        </div>
+        <div>
+
+            @Html.DisplayNameFor(Model => Model.MemberAddress)
+
+            @Html.TextAreaFor(Model => Model.MemberAddress, new { maxlength = 50 })
+            @Html.ValidationMessageFor(Model=>Model.MemberAddress)
+        </div>
+         <input type="submit" />
+        
+    </div>
+}
+
+
+
+
+

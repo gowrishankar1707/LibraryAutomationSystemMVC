@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using LibraryAutomationSystem.Entity;
 
@@ -11,7 +8,7 @@ namespace LibraryAutomationSystem.DAL
     public class BookRepository
     {
 
-        public int AddBook(Entity.Book book)
+        public int AddBook(Entity.Book book)//Add Book by
         {
             using (DBConnection dbConnection = new DBConnection())
             {
@@ -67,11 +64,13 @@ namespace LibraryAutomationSystem.DAL
                         int result = dbConnection.Database.ExecuteSqlCommand("Book_Delete @BookId", Id);
                         transaction.Commit();
                         return result;
+
                     }
                     catch
                     {
                         transaction.Rollback();
                         return 0;
+
                     }
                 }
             }
@@ -92,7 +91,7 @@ namespace LibraryAutomationSystem.DAL
                         SqlParameter AuthorName = new SqlParameter("@AuthorName", book.AuthorName);
                         SqlParameter BookCount = new SqlParameter("@BookCount", book.BookCount);
                         SqlParameter BookType = new SqlParameter("@BookType", book.BookType);
-                        int result = dbConnection.Database.ExecuteSqlCommand("Book_Update @BookId, @BookTittle,@CategoryId,@BookLanguageId,@AuthorName,@BookCount,@BookType", BookId, BookTittle, CategoryId, BookLanguageId, AuthorName, BookCount, BookType);
+                       int result= dbConnection.Database.ExecuteSqlCommand("Book_Update @BookId, @BookTittle,@CategoryId,@BookLanguageId,@AuthorName,@BookCount,@BookType", BookId, BookTittle, CategoryId, BookLanguageId, AuthorName, BookCount, BookType);
                         transaction.Commit();
                         return result;
                     }
@@ -102,7 +101,7 @@ namespace LibraryAutomationSystem.DAL
                         return 0;
                     }
                 }
-           
+
             }
         }
     }

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BookRepository.cs" />
     <Compile Include="Book_Language_Repository.cs" />
+    <Compile Include="CategoryRepository.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Migrations\202003111219365_Library-v1.cs" />
     <Compile Include="Migrations\202003111219365_Library-v1.designer.cs">
@@ -99,6 +100,10 @@
     <Compile Include="Migrations\202003160958139_library-v9.cs" />
     <Compile Include="Migrations\202003160958139_library-v9.designer.cs">
       <DependentUpon>202003160958139_library-v9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003190238188_library-v10.cs" />
+    <Compile Include="Migrations\202003190238188_library-v10.designer.cs">
+      <DependentUpon>202003190238188_library-v10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
@@ -141,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003160958139_library-v9.resx">
       <DependentUpon>202003160958139_library-v9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003190238188_library-v10.resx">
+      <DependentUpon>202003190238188_library-v10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

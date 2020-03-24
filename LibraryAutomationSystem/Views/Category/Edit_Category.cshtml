@@ -7,7 +7,7 @@
 
 <h2>Edit_Category</h2>
 
-@using (Html.BeginForm("Update_Category", "Admin", FormMethod.Post))
+@using (Html.BeginForm("Update_Category", "Category", FormMethod.Post))
 {
     @Html.HiddenFor(Model=>Model.CategoryId)
     <table>
@@ -17,7 +17,7 @@
           </td>
           <td>
               @Html.EditorFor(Model=>Model.CategoryName)
-
+              @Html.ValidationMessageFor(Model=>Model.CategoryName)
           </td>
       </tr>
         <tr>

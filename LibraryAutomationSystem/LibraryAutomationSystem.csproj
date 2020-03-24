@@ -151,7 +151,7 @@
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_LASLayout.cshtml" />
     <Content Include="Views\HomeLAS\Home.cshtml" />
-    <Content Include="Views\LibraryAutomationSystem\ViewUser.cshtml" />
+    <Content Include="Views\Account\ViewUser.cshtml" />
     <Content Include="Views\Shared\_LASPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -159,9 +159,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BookLanguageController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeLASController.cs" />
-    <Compile Include="Controllers\LibraryAutomationSystemController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,17 +189,17 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\LibraryAutomationSystem\Register.cshtml" />
-    <Content Include="Views\LibraryAutomationSystem\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Admin\ManageUser.cshtml" />
-    <Content Include="Views\Admin\Category.cshtml" />
-    <Content Include="Views\Admin\Create_Category.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category\Create_Category.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\AdminChoice.cshtml" />
-    <Content Include="Views\Admin\Edit_Category.cshtml" />
-    <Content Include="Views\Admin\Create_BookLanguage.cshtml" />
-    <Content Include="Views\Admin\View_BookLanguage.cshtml" />
-    <Content Include="Views\Admin\Edit_Book_Language.cshtml" />
+    <Content Include="Views\Category\Edit_Category.cshtml" />
+    <Content Include="Views\BookLanguage\Create_BookLanguage.cshtml" />
+    <Content Include="Views\BookLanguage\View_BookLanguage.cshtml" />
+    <Content Include="Views\BookLanguage\Edit_Book_Language.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
     <Content Include="Views\Book\ViewBook.cshtml" />
     <Content Include="Views\Book\EditBook.cshtml" />
@@ -215,6 +217,10 @@
     <Folder Include="Views\LibraryUser\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryAutomationSystem.BL\LibraryAutomationSystem.BL.csproj">
+      <Project>{2bf9c8d0-5a06-4820-82cd-824955ca0911}</Project>
+      <Name>LibraryAutomationSystem.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryAutomationSystem.DAL\LibraryAutomationSystem.DAL.csproj">
       <Project>{b9dcdf90-f32d-4e77-808c-bab0e8653e12}</Project>
       <Name>LibraryAutomationSystem.DAL</Name>

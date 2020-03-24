@@ -21,33 +21,32 @@
    {
        <tr>
            <td>
-               @user.memberName;
+               @user.MemberName;
            </td>
            <td>
-               @user.memberUserName;
+               @user.MemberUserName;
            </td>
            <td>
-               @user.memberDOB;
+               @user.MemberDOB;
            </td>
            <td>
-               @user.memberDOJ;
+               @user.MemberDOJ;
            </td>
            <td>
-               @user.memberSex;
+               @user.MemberSex;
            </td>
            <td>
-               @user.memberPhoneNumber;
+               @user.MemberPhoneNumber;
            </td>
            <td>
-               @user.e_Mail;
+               @user.Email;
            </td>
            <td>
-                @Html.DisplayFor(modelItem=>user.memberAddress)
-               @user.memberAddress;
+        
+               @user.MemberAddress;
            </td>
            <td>
-               @Html.ActionLink("Edit","Edit",new {userName=user.memberUserName } )
-               @Html.ActionLink("Delete","Delete",new{ userName=user.memberUserName})
+               @Html.ActionLink("Delete","Delete",new{ userName=user.MemberUserName})
            </td>
        </tr>
    }

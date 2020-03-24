@@ -7,14 +7,7 @@
 
 <h2>Category</h2>
 
-@Html.ActionLink("Create Category", "Create_Category", "Admin")
-
-@*@foreach(LibraryAutomationSystem.Models.Category items in (IEnumerable<LibraryAutomationSystem.Models.Category>)TempData["Category"])
-    {
-        <div>
-            @items.CategoryName
-        </div>
-    }*@
+@Html.ActionLink("Create Category", "Create_Category", "Category")
 <table border="1">
     <tr>
         <td>
@@ -26,12 +19,12 @@
 
     </tr>
 
-    @foreach (LibraryAutomationSystem.Entity.Category item in (IEnumerable<LibraryAutomationSystem.Entity.Category>)TempData["Category"])
+    @foreach (LibraryAutomationSystem.Entity.Category item in @Model)
 
     {
         <tr>
             <td>
-                @Html.
+                
                 @item.CategoryId
             </td>
 

@@ -1,0 +1,25 @@
+﻿@model LibraryAutomationSystem.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="username">
+        @Html.DisplayNameFor(Model=>Model.MemberUserName)
+        @Html.EditorFor(Model=>Model.MemberUserName)
+        @Html.ValidationMessageFor(Model=>Model.MemberUserName)
+    </div><br />
+    <div class="password">
+        @Html.DisplayNameFor(Model=>Model.MemberPassword)
+        @Html.PasswordFor(Model=>Model.MemberPassword)
+        @Html.ValidationMessageFor(Model=>Model.MemberPassword)
+    </div>
+    <div class="submit">
+        <input type="submit" />
+    </div>
+}
+

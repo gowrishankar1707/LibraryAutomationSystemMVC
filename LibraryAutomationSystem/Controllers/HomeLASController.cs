@@ -11,6 +11,7 @@ namespace LibraryAutomationSystem.Controllers
         // GET: HomeLAS
         public ActionResult Home()
         {
+            TempData["message"] = TempData["message"] as string;
             return View();
         }
     }

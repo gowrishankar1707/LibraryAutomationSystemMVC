@@ -1,93 +1,54 @@
 ﻿using LibraryAutomationSystem.Entity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using System.Threading.Tasks;
 
 namespace LibraryAutomationSystem.DAL
 {
     public class UserRepository
     {
-        DBConnection dbConnection;
-        public static List<User> userRepository = new List<User>();
-
-        public void AddUser(User user)
+        public int AddUser(User user)//Add User by User Entity
         {
-            using (dbConnection = new DBConnection())
+            using (DBConnection dbConnection = new DBConnection())
             {
                 dbConnection.Users.Add(user);
-                dbConnection.SaveChanges();
+               return dbConnection.SaveChanges();//return the save changed rows as a integer
             }
 
         }
-        public IEnumerable<User> GetUser()
+        public IEnumerable<User> GetUser()//Get the User as list
         {
-            using (dbConnection = new DBConnection())
+            using (DBConnection dbConnection = new DBConnection())
             {
-                return dbConnection.Users.ToList();
+                return dbConnection.Users.ToList();//Convert the table to list and return it
             }
         }
-        public User CheckLogin(User user)
+        public User CheckUser(User user)
         {
-            using (dbConnection = new DBConnection())
+            using (DBConnection dbConnection = new DBConnection())
             {
 
-                User checkUser = dbConnection.Users.Where(u => u.memberUserName == user.memberUserName && u.memberPassword == user.memberPassword).FirstOrDefault();
-                return checkUser;
-            }
-
-        }
-
-        public IEnumerable<Category> GetCategory()
-        {
-            using (dbConnection = new DBConnection())
-            {
-
-                return dbConnection.Categories.ToList();
-            }
-        }
-        public void AddCategory(Category category)
-        {
-            using (dbConnection = new DBConnection())
-            {
-                dbConnection.Categories.Add(category);
-                dbConnection.SaveChanges();
-            }
-        }
-        public Category Get_CategoryById(int categoryId)
-        {
-            using (dbConnection = new DBConnection())
-            {
-                return dbConnection.Categories.Find(categoryId);
-            }
-        }
-        public void Update_Category(Category category)
-        {
-            using (dbConnection = new DBConnection())
-            {
-                dbConnection.Entry(category).State = System.Data.Entity.EntityState.Modified;
-                dbConnection.SaveChanges();
-            }
-        }
-        public void Delete_Category(int CategoryId)
-        {
-
-            using (dbConnection = new DBConnection())
-            {
-                Entity.Category category = dbConnection.Categories.Find(CategoryId);
-                dbConnection.Categories.Remove(category);
-                dbConnection.SaveChanges();
-            }
-        }
-        public IEnumerable<Category> Get_Category()
-        {
-            using (dbConnection = new DBConnection())
-            {
-                return dbConnection.Categories.ToList();
+                User checkUser = dbConnection.Users.Where(u => u.MemberUserName == user.MemberUserName && u.MemberPassword == user.MemberPassword).FirstOrDefault();//Check the username and password and return the entity by using first or default
+                return checkUser;//return the logined user
             }
 
         }
+        public User FindUserById(int userId)//Find user by ID
+        {
+            using (DBConnection dbConnection = new DBConnection())
+            {
+               
+                return dbConnection.Users.Find(userId);//return the user where the userid is match
+            }
+        }
+        public int DeleteUser(int userId)
+        {
+            using (DBConnection dbConnection = new DBConnection())
+            {
+                User user = FindUserById(userId);//Find the user by Userid
+                dbConnection.Entry(user).State = System.Data.Entity.EntityState.Deleted;//Delete the User by entity state
+                return dbConnection.SaveChanges();////return the affected rows
+            }
+
+            }
     }
 }

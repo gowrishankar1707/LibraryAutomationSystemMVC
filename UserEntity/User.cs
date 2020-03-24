@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibraryAutomationSystem.Entity
 {
+    
   
     public class User
     {
@@ -19,42 +20,42 @@ namespace LibraryAutomationSystem.Entity
         [Required]
         [Column("Name")]
         [MaxLength(30)]
-        public string memberName { get; set; }
+        public string MemberName { get; set; }
         [Required]
         [Column("UserName")]
         [Index(IsUnique =true)]
         [MaxLength(25)]
-        public string memberUserName { get; set; }
+        public string MemberUserName { get; set; }
         [Required]
         [Column("Password")]
         [MaxLength(25)]
-        public string memberPassword { get; set; }
+        public string MemberPassword { get; set; }
         [Required]
         [Column("DOB")]
-        public DateTime memberDOB { get; set; }
+        public DateTime MemberDOB { get; set; }
         [Required]
         [Column("DOJ")]
-        public DateTime memberDOJ { get; set; }
+        public DateTime MemberDOJ { get; set; }
         [Required]
         [Column("Gender")]
-        public string memberSex { get; set; }
+        public string MemberSex { get; set; }
         [Required]
         [Column("PhoneNumber")]
         [Index(IsUnique =true)]
         
-        public long memberPhoneNumber { get; set; }
+        public long MemberPhoneNumber { get; set; }
         [Required]
         [Column("Email")]
         [Index(IsUnique =true)]
         [MaxLength(250)]
-        public string e_Mail { get; set; }
+        public string Email { get; set; }
         [Required]
         [Column("Address")]
         [MaxLength(50)]
-        public string memberAddress { get; set; }
+        public string MemberAddress { get; set; }
         [Column("Role")]
         [Required]
-        public string role { get; set; }
+        public string Role { get; set; }
         [Required]
         [Range(0,5)]
         public byte BookRequest { get; set; }
