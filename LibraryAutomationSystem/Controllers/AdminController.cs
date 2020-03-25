@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using LibraryAutomationSystem.DAL;
-using LibraryAutomationSystem.Models;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;using LibraryAutomationSystem.DAL;
 using System.Web.Mvc;
 using LibraryAutomationSystem.Entity;
 using LibraryAutomationSystem.BL;
@@ -13,10 +7,10 @@ namespace LibraryAutomationSystem.Controllers
 {
     public class AdminController : Controller
     {
-        IUserBL userBL;
+        IAccountBL accountBL;
         public AdminController()
         {
-            userBL = new UserBL();
+            accountBL = new AccountBL();
         }
         // GET: Admn
 
@@ -28,12 +22,12 @@ namespace LibraryAutomationSystem.Controllers
         public ActionResult ManageUser()
         {
             UserRepository repository = new UserRepository();
-            IEnumerable<User> user = userBL.ViewUser();
+            IEnumerable<User> user = accountBL.ViewUser();
             return View(user);
         }
         public ActionResult DeleteUser(int userId)
         {
-            int result = userBL.DeleteUser(userId);
+            int result = accountBL.DeleteUser(userId);
             if (result >= 1)
                 return RedirectToAction("ManageUser");
             return View();

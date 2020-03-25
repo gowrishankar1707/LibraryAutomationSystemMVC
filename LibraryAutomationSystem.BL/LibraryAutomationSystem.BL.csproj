@@ -45,7 +45,6 @@
     <Compile Include="BookLanguageBL.cs" />
     <Compile Include="CategoryBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryAutomationSystem.DAL\LibraryAutomationSystem.DAL.csproj">

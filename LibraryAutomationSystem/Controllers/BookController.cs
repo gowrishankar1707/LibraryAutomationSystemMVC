@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LibraryAutomationSystem.BL;
-using System.Linq;
-using System.Web;
 using LibraryAutomationSystem.DAL;
 using LibraryAutomationSystem.Entity;
 using System.Web.Mvc;
-using System.Configuration;
 namespace LibraryAutomationSystem.Controllers
 {
     [Authorize]

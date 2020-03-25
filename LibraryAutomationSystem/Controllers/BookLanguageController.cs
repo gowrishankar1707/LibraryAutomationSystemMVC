@@ -1,9 +1,5 @@
-﻿using LibraryAutomationSystem.DAL;
-using LibraryAutomationSystem.BL;
-using System;
+﻿using LibraryAutomationSystem.BL;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LibraryAutomationSystem.Controllers
@@ -58,7 +54,7 @@ namespace LibraryAutomationSystem.Controllers
                 return RedirectToAction("View_BookLanguage");
             return View();
         }
-        public ActionResult Delete_Book_Language(int Book_Language_Id)
+        public ActionResult Delete_Book_Language(int Book_Language_Id)//Delete BookLanguage By Id
         {
             if (bookLanguageBL.DeleteBookLanguage(Book_Language_Id) >= 1)
                 return RedirectToAction("View_BookLanguage");

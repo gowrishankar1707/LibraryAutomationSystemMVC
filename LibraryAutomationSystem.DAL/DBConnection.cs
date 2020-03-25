@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using LibraryAutomationSystem.Entity;
 
 
@@ -15,23 +10,15 @@ namespace LibraryAutomationSystem.DAL
         {
             
         }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<BookLanguage> BookLanguages { get; set; }
-        public DbSet<Book> Book { get; set; }
+        public DbSet<User> Users { get; set; }//User Dbset
+        public DbSet<Category> Categories { get; set; }//Category Dbset
+        public DbSet<BookLanguage> BookLanguages { get; set; }//BookLanguage Dbset
+        public DbSet<Book> Book { get; set; }//Book Dbset
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BookLanguage>().MapToStoredProcedures();
-            modelBuilder.Entity<Book>().MapToStoredProcedures();
+            modelBuilder.Entity<BookLanguage>().MapToStoredProcedures();//BookLanguage Stored Procedure
+            modelBuilder.Entity<Book>().MapToStoredProcedures();//Book Stored Procedure
         }
-
-
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.Entity<User>().HasIndex(c => c.e_Mail).IsUnique();        
-        //}
 
     }
 }

@@ -1,15 +1,12 @@
 ﻿using LibraryAutomationSystem.Entity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryAutomationSystem.DAL
 {
     public class CategoryRepository
     {
-        public IEnumerable<Category> GetCategory()
+        public IEnumerable<Category> GetCategory()//Get the Category To list
         {
             using (DBConnection dbConnection = new DBConnection())
             {
@@ -17,7 +14,7 @@ namespace LibraryAutomationSystem.DAL
                 return dbConnection.Categories.ToList();
             }
         }
-        public int AddCategory(Category category)
+        public int AddCategory(Category category)//Add category
         {
             using (DBConnection dbConnection = new DBConnection())
             {
@@ -25,14 +22,14 @@ namespace LibraryAutomationSystem.DAL
                 return dbConnection.SaveChanges();
             }
         }
-        public Category Get_CategoryById(int categoryId)
+        public Category Get_CategoryById(int categoryId)//Get the Category By Id
         {
             using (DBConnection dbConnection = new DBConnection())
             {
                 return dbConnection.Categories.Find(categoryId);
             }
         }
-        public int Update_Category(Category category)
+        public int Update_Category(Category category)//Update the Category
         {
             using (DBConnection dbConnection = new DBConnection())
             {
@@ -40,7 +37,7 @@ namespace LibraryAutomationSystem.DAL
                 return dbConnection.SaveChanges();
             }
         }
-        public int Delete_Category(int CategoryId)
+        public int Delete_Category(int CategoryId)//Delete the Categoty 
         {
 
             using (DBConnection dbConnection = new DBConnection())

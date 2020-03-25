@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using LibraryAutomationSystem.Entity;
-using LibraryAutomationSystem.DAL;
 using LibraryAutomationSystem.BL;
 using LibraryAutomationSystem.Models;
-
 using System.Web;
 using System.Web.Mvc;
-using AutoMapper;
 using System.Web.Security;
 
 namespace LibraryAutomationSystem.Controllers
@@ -15,7 +11,11 @@ namespace LibraryAutomationSystem.Controllers
     [HandleError]
     public class AccountController : Controller
     {
-        UserRepository repository = new UserRepository();
+        IAccountBL accountBL;
+        public AccountController()
+        {
+            accountBL = new AccountBL();
+        }
 
 
         [ActionName("Login")]
@@ -50,13 +50,17 @@ namespace LibraryAutomationSystem.Controllers
                     Email = user.Email,
                     MemberPhoneNumber = Int64.Parse(user.MemberPhoneNumber),
                     Role = Role.user.ToString(),
-                    BookRequest=3,
+                    BookRequest = 3,
                 };
 
 
-                AccountBL.AddUser(userInput);
-                TempData["message"] = "Registered successfully";
-                return RedirectToAction("Home","HomeLAS");
+                int result = accountBL.AddUser(userInput);
+                if (result >= 1)
+                {
+                    TempData["message"] = "Registered successfully";
+                    return RedirectToAction("Home", "HomeLAS");
+                }
+                return View();
             }
             return View();
         }
@@ -67,14 +71,14 @@ namespace LibraryAutomationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user= AutoMapper.Mapper.Map<Models.Login, Entity.User>(login);//Automapping the Login Model and User Entity
+                User user = AutoMapper.Mapper.Map<Models.Login, Entity.User>(login);//Automapping the Login Model and User Entity
                 //User user = new User
                 //{
                 //    MemberUserName = login.userName,
                 //    MemberPassword = login.password,                 //Manual Mapping for Login Model and User Entity
 
                 //};
-                User checkUser = AccountBL.CheckUser(user);//CheckUser is "Admin" Or "User"
+                User checkUser = accountBL.CheckUser(user);//CheckUser is "Admin" Or "User"
                 FormsAuthentication.SetAuthCookie(checkUser.MemberUserName, false);
                 var authTicket = new FormsAuthenticationTicket(1, checkUser.MemberUserName, DateTime.Now, DateTime.Now.AddMinutes(20), false, checkUser.Role);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
@@ -91,7 +95,7 @@ namespace LibraryAutomationSystem.Controllers
                 {
                     TempData["User"] = checkUser;
                     TempData["Login"] = user;
-                  
+
                     return RedirectToAction("");
                 }
                 else                               //If the username or password is does'nt match it will execute
@@ -103,6 +107,6 @@ namespace LibraryAutomationSystem.Controllers
             }
             return View();
         }
-     
+
     }
 }

@@ -2,13 +2,14 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="Site.css" />
+
 </head>
 <body>
     <div>
-        @Html.ActionLink("Register", "Register", "Account");
-        @Html.ActionLink("Login", "Login", "Account");
+        @Html.ActionLink("Register", "Register", "Account",new { @class="link"})
+        @Html.ActionLink("Login", "Login", "Account")
     
         
         @Html.ActionLink("View Book", "ViewBook", "Book")

@@ -8,7 +8,7 @@ namespace LibraryAutomationSystem.DAL
     public class BookRepository
     {
 
-        public int AddBook(Entity.Book book)//Add Book by
+        public int AddBook(Entity.Book book)//Add Book 
         {
             using (DBConnection dbConnection = new DBConnection())
             {
@@ -36,7 +36,7 @@ namespace LibraryAutomationSystem.DAL
                 }
             }
         }
-        public IEnumerable<Book> DisplayBook()
+        public IEnumerable<Book> DisplayBook()//Display Book
         {
             using (DBConnection dbConnection = new DBConnection())
             {
@@ -44,14 +44,14 @@ namespace LibraryAutomationSystem.DAL
             }
 
         }
-        public Book FindBookById(int bookId)
+        public Book FindBookById(int bookId)//Find Book
         {
             using (DBConnection dbConnection = new DBConnection())
             {
                 return dbConnection.Book.Find(bookId);
             }
         }
-        public int RemoveBook(int bookId)
+        public int RemoveBook(int bookId)//Remove Book
         {
             Book book = FindBookById(bookId);
             using (DBConnection dbConnection = new DBConnection())
@@ -76,7 +76,7 @@ namespace LibraryAutomationSystem.DAL
             }
 
         }
-        public int UpdateBook(Book book)
+        public int UpdateBook(Book book)//Update Book
         {
             using (DBConnection dbConnection = new DBConnection())
             {
