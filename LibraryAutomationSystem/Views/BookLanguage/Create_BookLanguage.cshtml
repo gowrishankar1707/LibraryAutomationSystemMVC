@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Create_BookLanguage";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Create_BookLanguage</h2>
@@ -16,6 +15,7 @@
             @Html.ValidationMessageFor(Model=>Model.BookLanguageName)
         </div>
         <div>
+            @Html.AntiForgeryToken
             <input type="submit" />
         </div>
     </div>

@@ -4,12 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem", "LibraryAutomationSystem\LibraryAutomationSystem.csproj", "{27CFB320-4CD7-44C8-9021-CF9594D15FAE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2BF9C8D0-5A06-4820-82CD-824955CA0911} = {2BF9C8D0-5A06-4820-82CD-824955CA0911}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem.Entity", "UserEntity\LibraryAutomationSystem.Entity.csproj", "{11611316-9863-4C5A-AEF4-8708547FF662}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem.DAL", "LibraryAutomationSystem.DAL\LibraryAutomationSystem.DAL.csproj", "{B9DCDF90-F32D-4E77-808C-BAB0E8653E12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem.BL", "LibraryAutomationSystem.BL\LibraryAutomationSystem.BL.csproj", "{2BF9C8D0-5A06-4820-82CD-824955CA0911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomationSystem.Common", "LibraryAutomationSystem.Common\LibraryAutomationSystem.Common.csproj", "{A5FFC3D9-21F5-477D-A4A5-031B21402D45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +38,10 @@ Global
 		{2BF9C8D0-5A06-4820-82CD-824955CA0911}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BF9C8D0-5A06-4820-82CD-824955CA0911}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BF9C8D0-5A06-4820-82CD-824955CA0911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5FFC3D9-21F5-477D-A4A5-031B21402D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FFC3D9-21F5-477D-A4A5-031B21402D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FFC3D9-21F5-477D-A4A5-031B21402D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FFC3D9-21F5-477D-A4A5-031B21402D45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

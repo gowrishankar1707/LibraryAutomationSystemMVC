@@ -4,7 +4,7 @@ using LibraryAutomationSystem.Entity;
 
 namespace LibraryAutomationSystem.DAL
 {
-    class DBConnection:DbContext
+   public class DBConnection:DbContext
     {
         public DBConnection():base("connect")
         {
@@ -14,6 +14,7 @@ namespace LibraryAutomationSystem.DAL
         public DbSet<Category> Categories { get; set; }//Category Dbset
         public DbSet<BookLanguage> BookLanguages { get; set; }//BookLanguage Dbset
         public DbSet<Book> Book { get; set; }//Book Dbset
+        public DbSet<ExceptionLogger> ExceptionLogger { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookLanguage>().MapToStoredProcedures();//BookLanguage Stored Procedure

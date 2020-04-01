@@ -1,20 +1,4 @@
-﻿
+﻿@{
 
-
-
-@{
-    string Name = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]);
-    dynamic layout;
-    switch (Name)
-    {
-        case "LibraryAutomationSystemController":
-            layout = "~/Views/Shared/_LASLayout.cshtml";
-            break;
-        case "Admin":
-            layout = "~/Views/Shared/_AdminLayout.cshtml";
-            break;
-        default:
-            layout = "~/Views/Shared/_LASLayout.cshtml";
-            break;
-    }
+    Layout = "~/Views/Shared/_LASLayout.cshtml";
 }

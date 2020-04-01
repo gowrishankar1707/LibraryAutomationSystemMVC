@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "AddBook";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>AddBook</h2>
@@ -34,6 +33,7 @@
            @Html.EnumDropDownListFor(Model=>Model.BookType,"Select BookType")
         </div>
         <div>
+            @Html.AntiForgeryToken
             <input type="submit" value="AddBook" />
             @Html.ActionLink("Cancel","ViewBook","Book")
         </div>

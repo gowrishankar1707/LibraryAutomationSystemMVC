@@ -41,9 +41,9 @@ namespace LibraryAutomationSystem.Entity
         public string MemberSex { get; set; }
         [Required]
         [Column("PhoneNumber")]
-        [Index(IsUnique =true)]
-        
-        public long MemberPhoneNumber { get; set; }
+        [Index(IsUnique = true)]
+        [MaxLength(15)]
+        public string MemberPhoneNumber { get; set; }
         [Required]
         [Column("Email")]
         [Index(IsUnique =true)]

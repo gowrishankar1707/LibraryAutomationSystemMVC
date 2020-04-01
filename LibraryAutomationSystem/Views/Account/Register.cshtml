@@ -6,45 +6,45 @@
 
 <h2>Register</h2>
 
-
+<link href="~/Content/Site.css" rel="stylesheet" />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-    <div>
+    <div class="register-container">
         <div>
             @Html.DisplayNameFor(Model => Model.MemberName)
 
-            @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25 })
-            @Html.ValidationMessageFor(Model=>Model.MemberName)
+            @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25,@class="input" })
+            @Html.ValidationMessageFor(Model=>Model.MemberName, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberUserName)
 
-            @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25 })
-            @Html.ValidationMessageFor(Model => Model.MemberUserName)
+            @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25, @class = "input" })
+            @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.Password)
 
-            @Html.PasswordFor(Model => Model.Password, new { maxlength = 25 })
+            @Html.PasswordFor(Model => Model.Password, new { maxlength = 25, @class = "input" })
             @Html.ValidationMessageFor(Model => Model.Password)
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberPassword)
 
-            @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25 })
-            @Html.ValidationMessageFor(Model => Model.MemberPassword)
+            @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25, @class = "input" })
+            @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberDOB)
 
-            @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10 })
-            @Html.ValidationMessageFor(Model => Model.MemberDOB)
+            @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10, @class = "input" })
+            @Html.ValidationMessageFor(Model => Model.MemberDOB, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberDOJ)
 
-            @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10 })
-            @Html.ValidationMessageFor(Model => Model.MemberDOJ)
+            @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10, @class = "input" })
+            @Html.ValidationMessageFor(Model => Model.MemberDOJ, "", new { @class = "error" })
         </div>
         <div>
 
@@ -52,27 +52,28 @@
 
             @Html.RadioButtonFor(Model => Model.MemberSex, "Male")Male
             @Html.RadioButtonFor(Model => Model.MemberSex, "Fe-male")Fe-male
-            @Html.ValidationMessageFor(Model => Model.MemberSex)
+            @Html.ValidationMessageFor(Model => Model.MemberSex, "", new { @class = "errorgender" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberPhoneNumber)
 
-            @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10 })
-            @Html.ValidationMessageFor(Model => Model.MemberPhoneNumber)
+            @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10, @class = "input" })
+            @Html.ValidationMessageFor(Model => Model.MemberPhoneNumber, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.Email)
 
-            @Html.EditorFor(Model => Model.Email)
-            @Html.ValidationMessageFor(Model => Model.Email)
+            @Html.EditorFor(Model => Model.Email, new { @class = "input" })
+            @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "error" })
         </div>
         <div>
 
             @Html.DisplayNameFor(Model => Model.MemberAddress)
 
-            @Html.TextAreaFor(Model => Model.MemberAddress, new { maxlength = 50 })
-            @Html.ValidationMessageFor(Model=>Model.MemberAddress)
+            @Html.TextAreaFor(Model => Model.MemberAddress,new{ maxlength = 50, @class = "input"  })
+            @Html.ValidationMessageFor(Model=>Model.MemberAddress,"",new { @class = "error" })
         </div>
+        @Html.AntiForgeryToken()
          <input type="submit" />
         
     </div>

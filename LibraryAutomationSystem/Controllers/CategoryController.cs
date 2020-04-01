@@ -1,5 +1,6 @@
 ﻿using LibraryAutomationSystem.DAL;
 using LibraryAutomationSystem.BL;
+using LibraryAutomationSystem.Models;
 using System.Web.Mvc;
 
 namespace LibraryAutomationSystem.Controllers
@@ -11,7 +12,7 @@ namespace LibraryAutomationSystem.Controllers
         {
             categoryBL = new CategoryBL();//Creates the object to the Category Bl by the Reference variable of ICategoryBl
         }
-        CategoryRepository repository = new CategoryRepository();
+        //CategoryRepository repository = new CategoryRepository();
 
         public ActionResult Category()// GET: Category
         {
@@ -28,7 +29,7 @@ namespace LibraryAutomationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                Models.Category categorylist = new Models.Category();
+                Category categorylist = new Category();
 
                 Entity.Category category = categoryBL.GetCategoryById(CategoryId);//Get the Particular Category By its Id
                 Models.Category categoryList = AutoMapper.Mapper.Map<Entity.Category, Models.Category>(category);//Automap the Category Entity to Category Model
@@ -47,9 +48,9 @@ namespace LibraryAutomationSystem.Controllers
             return View();//If result is lesser than 0 It existing at current created view
         }
         [HttpPost]
-        public ActionResult Update_Category(Models.Category category)//Update the Category By Passing the values from Model to Entity
+        public ActionResult Update_Category(Category category)//Update the Category By Passing the values from Model to Entity
         {
-            Entity.Category entityCategory = AutoMapper.Mapper.Map<Models.Category, Entity.Category>(category);
+            Entity.Category entityCategory = AutoMapper.Mapper.Map<Category, Entity.Category>(category);
             if (categoryBL.UpdateCategory(entityCategory) >= 1)//Result is greater than 0
                 return RedirectToAction("Category");
             return View();

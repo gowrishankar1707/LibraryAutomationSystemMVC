@@ -3,21 +3,40 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" type="text/css" href="Site.css" />
-
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div>
-        @Html.ActionLink("Register", "Register", "Account",new { @class="link"})
-        @Html.ActionLink("Login", "Login", "Account")
-    
-        
-        @Html.ActionLink("View Book", "ViewBook", "Book")
-        @Html.ActionLink("Home","Home","HomeLAS")
+    <div class="container">
+        <div class="links">
 
-        @RenderBody()
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Log Out", "Logout", "Account")
+            }
+            else
+            {
+                @Html.ActionLink("Register", "Register", "Account")
+                <span> | </span>
+                @Html.ActionLink("Login", "Login", "Account")
+            }
+            <span> | </span>
+            @Html.ActionLink("Home", "Home", "HomeLAS")
+        </div>
+        <div class="LeftNav">
+            <ul>
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    <li>@Html.ActionLink("ViewCategory", "Category", "Category") </li>
+                    <li>@Html.ActionLink("View Language", "View_BookLanguage", "BookLanguage")</li>
+                    <li> @Html.ActionLink("View Book", "ViewBook", "Book") </li>
+                    <li>@Html.ActionLink("ManageUser", "ManageUser", "Admin")</li>
+                }
+            </ul>
+        </div>
+        <div class="RightContent">
+            @RenderBody()
+        </div>
 
-       
     </div>
 </body>
 </html>

@@ -5,21 +5,26 @@
 }
 
 <h2>Login</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
 
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
-    <div class="username">
-        @Html.DisplayNameFor(Model=>Model.MemberUserName)
-        @Html.EditorFor(Model=>Model.MemberUserName)
-        @Html.ValidationMessageFor(Model=>Model.MemberUserName)
-    </div><br />
-    <div class="password">
-        @Html.DisplayNameFor(Model=>Model.MemberPassword)
-        @Html.PasswordFor(Model=>Model.MemberPassword)
-        @Html.ValidationMessageFor(Model=>Model.MemberPassword)
+    <div class="login-container">
+        <div class="username">
+            @Html.DisplayNameFor(Model => Model.MemberUserName)
+            @Html.TextBoxFor(Model => Model.MemberUserName)
+            @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
+        </div><br />
+        <div class="password">
+            @Html.DisplayNameFor(Model => Model.MemberPassword)
+            @Html.PasswordFor(Model => Model.MemberPassword)
+            @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
+        </div>
+        @Html.AntiForgeryToken()
+        <div class="submit">
+            <input type="submit" value="Login" />
+        </div>
     </div>
-    <div class="submit">
-        <input type="submit" />
-    </div>
+    
 }
 

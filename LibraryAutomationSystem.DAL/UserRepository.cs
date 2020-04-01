@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace LibraryAutomationSystem.DAL
 {
+
     public class UserRepository
     {
         public int AddUser(User user)//Add User by User Entity

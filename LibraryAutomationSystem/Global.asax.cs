@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using System;
+using LibraryAutomationSystem.App_Start;
 
 namespace LibraryAutomationSystem
 {
@@ -34,8 +35,8 @@ namespace LibraryAutomationSystem
     {
         public static void RegisterGlobalFilter(GlobalFilterCollection globallFilterCollection)
         {
-            globallFilterCollection.Add(new HandleErrorAttribute());
+            globallFilterCollection.Add(new CustomExceptionFilter());
         }
     }
-   
+
 }

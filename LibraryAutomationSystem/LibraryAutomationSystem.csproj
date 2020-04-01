@@ -135,8 +135,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -155,6 +153,7 @@
     <Content Include="Views\Shared\_LASPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CustomExceptionFilter.cs" />
     <Compile Include="App_Start\MapConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -213,6 +212,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admn\" />
+    <Folder Include="Views\CustomExceptionHandle\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\LibraryUser\" />
   </ItemGroup>
@@ -220,6 +220,10 @@
     <ProjectReference Include="..\LibraryAutomationSystem.BL\LibraryAutomationSystem.BL.csproj">
       <Project>{2bf9c8d0-5a06-4820-82cd-824955ca0911}</Project>
       <Name>LibraryAutomationSystem.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibraryAutomationSystem.Common\LibraryAutomationSystem.Common.csproj">
+      <Project>{a5ffc3d9-21f5-477d-a4a5-031b21402d45}</Project>
+      <Name>LibraryAutomationSystem.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryAutomationSystem.DAL\LibraryAutomationSystem.DAL.csproj">
       <Project>{b9dcdf90-f32d-4e77-808c-bab0e8653e12}</Project>

@@ -105,6 +105,18 @@
     <Compile Include="Migrations\202003190238188_library-v10.designer.cs">
       <DependentUpon>202003190238188_library-v10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003300752174_library11.cs" />
+    <Compile Include="Migrations\202003300752174_library11.designer.cs">
+      <DependentUpon>202003300752174_library11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003310159192_library-v12.cs" />
+    <Compile Include="Migrations\202003310159192_library-v12.designer.cs">
+      <DependentUpon>202003310159192_library-v12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003310201573_library-v13.cs" />
+    <Compile Include="Migrations\202003310201573_library-v13.designer.cs">
+      <DependentUpon>202003310201573_library-v13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +161,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003190238188_library-v10.resx">
       <DependentUpon>202003190238188_library-v10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003300752174_library11.resx">
+      <DependentUpon>202003300752174_library11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003310159192_library-v12.resx">
+      <DependentUpon>202003310159192_library-v12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003310201573_library-v13.resx">
+      <DependentUpon>202003310201573_library-v13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

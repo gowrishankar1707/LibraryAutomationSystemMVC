@@ -2,41 +2,45 @@
 
 @{
     ViewBag.Title = "Category";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Category</h2>
+    <h2 class="CategoryHeader">Category</h2>
+<div class="category">
 
-@Html.ActionLink("Create Category", "Create_Category", "Category")
-<table border="1">
-    <tr>
-        <td>
-            CategoryID
-        </td>
-        <td>
-            CategoryName
-        </td>
-
-    </tr>
-
-    @foreach (LibraryAutomationSystem.Entity.Category item in @Model)
-
-    {
+    @Html.ActionLink("Create Category", "Create_Category", "Category", new { @class = "CreateCategory" })
+    <table border="1">
         <tr>
             <td>
-                
-                @item.CategoryId
-            </td>
-
-            <td>
-                @item.CategoryName
+                CategoryID
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit_Category", new { CategoryId = item.CategoryId })
-                @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId },new { Onclick = "Return Confirm('Delete')" })
+                CategoryName
+            </td>
+            <td>
+                Action
             </td>
 
         </tr>
 
-    }
-</table>
+        @foreach (LibraryAutomationSystem.Entity.Category item in @Model)
+
+        {
+            <tr>
+                <td>
+
+                    @item.CategoryId
+                </td>
+
+                <td>
+                    @item.CategoryName
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit_Category", new { CategoryId = item.CategoryId })
+                    @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId }, new { Onclick = "Return Confirm('Delete')" })
+                </td>
+
+            </tr>
+
+        }
+    </table>
+</div>

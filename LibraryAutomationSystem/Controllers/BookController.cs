@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using LibraryAutomationSystem.BL;
-using LibraryAutomationSystem.DAL;
 using LibraryAutomationSystem.Entity;
+using LibraryAutomationSystem.Models;
 using System.Web.Mvc;
 namespace LibraryAutomationSystem.Controllers
 {
@@ -40,25 +40,16 @@ namespace LibraryAutomationSystem.Controllers
 
         [ActionName("AddBook")]//Post method of Adding Book
         [HttpPost]
-        public ActionResult AddBook_Post(Models.AddBook addBook)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddBook_Post(AddBook addBook)
         {
             if (ModelState.IsValid)
             {
-                Entity.Book book = new Book()
-                {
-                    BookTittle = addBook.BookTittle,
-                    CategoryId = addBook.CategoryId,
-                    BookLanguageId = addBook.BookLanguageId,
-                    AuthorName = addBook.AuthorName,
-                    BookCount = 3,
-                    BookType = addBook.BookType.ToString(),
+               
+               Book book= AutoMapper.Mapper.Map<AddBook, Book>(addBook); //Automapper for book
 
-
-                };
-
-
-                int result = bookBL.AddBook(book);
-                if (result != 0)
+                int result = bookBL.AddBook(book);//return the affected rows
+                if (result>=0)
                 {
                     return RedirectToAction("ViewBook");
                 }
@@ -71,11 +62,9 @@ namespace LibraryAutomationSystem.Controllers
         [ActionName("DeleteBook")]
         public ActionResult DeleteBook(int bookId)//Delete Book By Get The BookId
         {
-
-
-            if (bookBL.DeleteBook(bookId) >= 1)//Find the Book Id and Remove It
-                return RedirectToAction("ViewBook");
-            return RedirectToAction("");
+            bookBL.DeleteBook(bookId);//Find the Book Id and Remove It
+            return RedirectToAction("ViewBook");
+            
         }
         [HttpGet]
         [OutputCache(CacheProfile = "1MinuteCache")]
@@ -95,13 +84,16 @@ namespace LibraryAutomationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                ICategoryBL categoryBL = new CategoryBL();
+                IBookLanguageBL bookLanguageBL = new BookLanguageBL();
+                ViewBag.Category = new SelectList(categoryBL.GetCategory(), "CategoryId", "CategoryName");//Get the Category Table as Drop Down List
+                ViewBag.BookLanguage = new SelectList(bookLanguageBL.GetBookLanguage(), "BookLanguageId", "BookLanguageName");//Get the BookLanguage Table as Drop Down List
                 Book book = AutoMapper.Mapper.Map<Models.Edit_Book, Entity.Book>(editBook);//Map the Model to Book Entity by AutoMapper
-                BookRepository repository = new BookRepository();
                 if (bookBL.UpdateBook(book) >= 1)
                     return RedirectToAction("ViewBook");
             }
 
-            return View();
+            return View("EditBook",new { bookId = editBook.BookId });
         }
 
 

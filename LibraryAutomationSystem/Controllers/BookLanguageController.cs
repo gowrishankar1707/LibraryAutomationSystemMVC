@@ -20,6 +20,7 @@ namespace LibraryAutomationSystem.Controllers
         }
         [ActionName("Create_BookLanguage")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create_BookLanguage_Post(Models.BookLanguage bookLanguage)//Add the BookLanguage 
         {
             if (ModelState.IsValid)

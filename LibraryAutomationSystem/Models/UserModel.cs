@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
 namespace LibraryAutomationSystem.Models
 {
 
@@ -41,7 +37,7 @@ namespace LibraryAutomationSystem.Models
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
-        [Compare("password")]
+        [Compare("Password")]
         public string MemberPassword { get; set; }
 
 
@@ -68,8 +64,6 @@ namespace LibraryAutomationSystem.Models
         [Display(Name = "Phone Number")]
         public string MemberPhoneNumber { get; set; }
 
-        //  public int PhoneNumber { get; set; }
-
 
         [Required(ErrorMessage = "Email is required")]
         [DataType(DataType.EmailAddress)]
@@ -83,8 +77,8 @@ namespace LibraryAutomationSystem.Models
         public string MemberAddress { get; set; }
 
         public Role Role { get; set; }
-        
-        public byte BookRequest { get; set; }
+
+        public int BookRequest { get; set; }
 
 
 

@@ -2,11 +2,9 @@
 
 @{
     ViewBag.Title = "Create_Category";
-    ////Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create_Category</h2>
+<h2 class="CreateCategoryHeader">Create_Category</h2>
 @using (Html.BeginForm("Create_Category", "Category", FormMethod.Post))
 {
     <div>
@@ -21,6 +19,7 @@
         </div>
         <div>
             <input type="submit" />
+            @Html.ActionLink("Cancel","Category")
         </div>
     </div>
 }

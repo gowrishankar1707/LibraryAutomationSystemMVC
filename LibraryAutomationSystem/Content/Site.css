@@ -1,5 +1,210 @@
-﻿.link
-{
-    padding:10px;
+﻿body {
+    font-family: Arial,Arial, Helvetica, sans-serif;
+    margin: 30px;
+    padding: 0;
+    background-color: #DCDCDC;
 }
 
+.links {
+    float: right;
+    width: 30%;
+}
+
+    .links a {
+        margin-left: 40px;
+        color: black;
+        padding: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+        .links a:hover {
+            background-color: black;
+            color: white;
+            opacity: .2;
+        }
+
+        .links a:active {
+            background-color: black;
+            color: white;
+        }
+
+.box-1 {
+    float: left;
+    width: 70%;
+}
+
+.library-h2 {
+    font-size: xx-large;
+}
+
+.register-container {
+    margin-top: 50px;
+    margin-left: 500px;
+}
+
+.input {
+    display: block;
+    padding: 3px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.register-container input[type="password"] {
+    display: block;
+    padding: 3px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.register-container input[type="datetime"] {
+    display: block;
+    padding: 3px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.register-container input[type="email"] {
+    display: block;
+    padding: 3px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.register-container input[type="text"] {
+    display: block;
+    padding: 3px;
+    margin-bottom: 10px;
+    width: 50%;
+    resize: none;
+}
+
+.register-container input[type="radio"] {
+    margin-left: 20px;
+    padding: 3px;
+    margin-bottom: 15px;
+}
+
+.register-container input[type="submit"] {
+    margin-top: 20px;
+    margin-left: 210px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+    .register-container input[type="submit"]:hover {
+        background-color: black;
+        color: white;
+    }
+
+textarea {
+    resize: none;
+}
+
+.error {
+    color: red;
+    margin: 5px;
+}
+
+.errorgender {
+    color: red;
+    display: block;
+}
+
+.login-container {
+    margin: 100px;
+    margin-left: 550px;
+    margin-top: 150px;
+}
+
+    .login-container input[type="text"] {
+        display: block;
+        padding: 3px;
+        margin-bottom: 10px;
+        width: 50%;
+    }
+
+    .login-container input[type="password"] {
+        display: block;
+        padding: 3px;
+        margin-bottom: 10px;
+        width: 50%;
+    }
+
+
+    .login-container input[type="submit"] {
+        margin-top: 20px;
+        margin-left: 180px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+.LeftNav{
+    float:left;
+    height:100%;
+
+}
+.LeftNav ul{
+    
+    background-color:white;
+    margin-top:150px;
+    border-radius:8px;
+}
+.LeftNav ul li{
+    margin-right:30px;
+    margin-bottom:5px;
+    list-style:none;
+    padding:10px;
+}
+.LeftNav a{
+    text-decoration:none;
+    color:black;
+    font-size:x-large;
+
+}
+.LeftNav li:hover{
+    color:white;
+    background-color:#D3D3D3;
+    border-radius:8px;
+}
+.CategoryHeader{
+    float:left;
+    margin-left:150px;
+}
+.category{
+    float:right;
+    margin-top:110px;
+    margin-right:650px;
+}
+
+.category a{
+    padding:10px;
+    text-decoration:none;
+    color:black;
+}
+.CreateCategory{
+    margin-left:90px;
+    border:red groove;
+}
+.category a:hover{
+    color:white;
+    background-color:black;
+    border-radius:8px;
+}
+.category table tr:nth-child(even)
+{
+    background-color:lightyellow;
+}
+.category table{
+    background-color:aliceblue;
+    margin-top:20px;
+    margin-left:90px;   
+    padding:10px;
+}
+.category table th,td{
+    padding:15px;
+}
+.AddCategoryHeader{
+    float:left;
+    margin-left:150px;
+
+}
