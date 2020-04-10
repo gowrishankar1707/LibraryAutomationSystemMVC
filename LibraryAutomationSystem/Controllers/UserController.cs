@@ -5,33 +5,27 @@ using LibraryAutomationSystem.BL;
 
 namespace LibraryAutomationSystem.Controllers
 {
-    [Authorize]
-    public class AdminController : Controller
+    [Authorize(Roles ="admin")]
+    public class UserController : Controller
     {
         IAccountBL accountBL;
-        public AdminController()
+        public UserController()
         {
             accountBL = new AccountBL();
         }
         // GET: Admn
-        [Authorize]
-        public ActionResult AdminChoice()
-        {
-            User user=TempData["User"] as User;
-            TempData["Admin"] = user;
-            return View();
-        }
+   
 
-        public ActionResult ManageUser()
+        public ActionResult ManageUser()//View the user
         {
-            IEnumerable<User> user = accountBL.ViewUser();
+            IEnumerable<User> user = accountBL.ViewUser();//Return the User by list to view
             return View(user);
         }
         public ActionResult DeleteUser(int userId)
         {
             int result = accountBL.DeleteUser(userId);
             if (result >= 1)
-                return RedirectToAction("ManageUser");
+                return RedirectToAction("ManageUser");//Delete the User By id
             return View();
         }
 

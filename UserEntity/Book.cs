@@ -22,7 +22,7 @@ namespace LibraryAutomationSystem.Entity
         [MaxLength(25)]
         public string AuthorName { get; set; }
         [Required]
-
+        [Range(0,20)]
         public byte BookCount { get; set; }
         [Required]
         [MaxLength(10)]

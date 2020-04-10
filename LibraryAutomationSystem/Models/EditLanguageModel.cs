@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LibraryAutomationSystem.Models
 {
-    public class Edit_Language
+    public class EditLanguageModel
     {
         public int BookLanguageId { get; set; }
         [Required]

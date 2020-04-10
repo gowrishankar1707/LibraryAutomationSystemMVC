@@ -3,32 +3,32 @@
 @{
     ViewBag.Title = "View_BookLanguage";
 }
-
-<h2>View_BookLanguage</h2>
-@Html.ActionLink("Add Language", "Create_BookLanguage", "BookLanguage")
-
-<table border="1">
-    <tr>
-        <td>
-            Book Language
-        </td>
-    </tr>
-    @foreach (LibraryAutomationSystem.Entity.BookLanguage items in ViewBag.view)
-    {
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 class="LanguageHeader">View BookLanguage</h2>
+<div class="Language">
+    @Html.ActionLink("Add Language", "Create_BookLanguage", "BookLanguage",new { @class="AddCategoryLink"})
+    <table border="1">
         <tr>
-            <td>
-                @items.BookLanguageId
+             <td>
+                Book Language
             </td>
-
             <td>
-                @items.BookLanguageName
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit_Book_Language", new { Book_Language_Id = items.BookLanguageId })
-                @Html.ActionLink("Delete", "Delete_Book_Language", new { Book_Language_Id = items.BookLanguageId })
+                Actions
             </td>
         </tr>
-    }
+        @foreach (LibraryAutomationSystem.Entity.BookLanguage items in Model)
+        {@Html.HiddenFor(Model=>items.BookLanguageId)
+            <tr>
+                <td>
+                    @items.BookLanguageName
+                </td>
 
-</table>
+                <td>
+                    @Html.ActionLink("Edit", "Edit_Book_Language", new { bookLanguageId = items.BookLanguageId })
+                    @Html.ActionLink("Delete", "Delete_Book_Language", new { bookLanguageId = items.BookLanguageId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

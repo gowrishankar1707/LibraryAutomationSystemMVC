@@ -4,63 +4,69 @@
     ViewBag.Title = "ViewBook";
 }
 
-<h2>ViewBook</h2>
+<h2 class="ViewBookHeader">ViewBook</h2>
+<div class="ViewBook">
 
-@Html.ActionLink("AddBook", "AddBook","Book")
-<table border="1">
-  
-    <tr>
-        <td>
-            BookId
-        </td>
-        <td>
-            BookTittle
-        </td>
-        <td>
-            Category
-        </td>
-        <td>
-            BookLanguage
-        </td>
-        <td>
-            AuthorName
-        </td>
-        <td>BookCount
-        </td>
-        <td>
-            BookType
-        </td>
-    </tr>
-    @foreach (LibraryAutomationSystem.Entity.Book items in @Model)
-    {
+    @Html.ActionLink("AddBook", "AddBook", "Book",new { @class="AddBookLink"})
+    <table border="1">
+
         <tr>
             <td>
-                @items.BookId
+                BookId
             </td>
             <td>
-                @items.BookTittle
+                BookTittle
             </td>
             <td>
-                @items.Category.CategoryName
+                Category
             </td>
             <td>
-                @items.BookLanguage.BookLanguageName
+                BookLanguage
             </td>
             <td>
-                @items.AuthorName
+                AuthorName
             </td>
             <td>
-                @items.BookCount
+                BookCount
             </td>
             <td>
-                @items.BookType
+                BookType
             </td>
             <td>
-                @Html.ActionLink("EditBook", "EditBook", new { bookId=items.BookId})
-                @Html.ActionLink("DeleteBook", "DeleteBook", new { bookId=items.BookId})
+                Actions
             </td>
         </tr>
+        @foreach (LibraryAutomationSystem.Entity.Book items in @Model)
+        {
+            <tr>
+                <td>
+                    @items.BookId
+                </td>
+                <td>
+                    @items.BookTittle
+                </td>
+                <td>
+                    @items.Category.CategoryName
+                </td>
+                <td>
+                    @items.BookLanguage.BookLanguageName
+                </td>
+                <td>
+                    @items.AuthorName
+                </td>
+                <td>
+                    @items.BookCount
+                </td>
+                <td>
+                    @items.BookType
+                </td>
+                <td>
+                    @Html.ActionLink("EditBook", "EditBook", new { bookId = items.BookId })
+                    @Html.ActionLink("DeleteBook", "DeleteBook", new { bookId = items.BookId })
+                </td>
+            </tr>
 
-    }
-</table>
+        }
+    </table>
+</div>
 

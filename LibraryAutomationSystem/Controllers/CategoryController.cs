@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace LibraryAutomationSystem.Controllers
 {
+    [Authorize(Roles = "admin,user")]
     public class CategoryController : Controller
     {
         ICategoryBL categoryBL;
@@ -12,8 +13,7 @@ namespace LibraryAutomationSystem.Controllers
         {
             categoryBL = new CategoryBL();//Creates the object to the Category Bl by the Reference variable of ICategoryBl
         }
-        //CategoryRepository repository = new CategoryRepository();
-
+        [Authorize(Roles = "admin,user")]
         public ActionResult Category()// GET: Category
         {
             var category = categoryBL.GetCategory();//Get the Category and stored in dynamic datatype
@@ -21,18 +21,20 @@ namespace LibraryAutomationSystem.Controllers
         }
         [HttpGet]
         [ActionName("Create_Category")]
+        [Authorize(Roles = "admin")]
         public ActionResult Create_Category_Get()//Get Method of Create Categories
         {
             return View();
         }
-        public ActionResult Edit_Category(int CategoryId)//Get the Particular Category By Id
+        [Authorize(Roles = "admin")]
+        public ActionResult Edit_Category(int categoryId)//Get the Particular Category By Id
         {
             if (ModelState.IsValid)
             {
-                Category categorylist = new Category();
+                CategoryModel categorylist = new CategoryModel();
 
-                Entity.Category category = categoryBL.GetCategoryById(CategoryId);//Get the Particular Category By its Id
-                Models.Category categoryList = AutoMapper.Mapper.Map<Entity.Category, Models.Category>(category);//Automap the Category Entity to Category Model
+                Entity.Category category = categoryBL.GetCategoryById(categoryId);//Get the Particular Category By its Id
+                Models.CategoryModel categoryList = AutoMapper.Mapper.Map<Entity.Category, Models.CategoryModel>(category);//Automap the Category Entity to Category Model
                 return View(categoryList);//Pass the Details to the View to Show the Existing Details
             }
             return View();
@@ -40,29 +42,32 @@ namespace LibraryAutomationSystem.Controllers
 
         [HttpPost]
         [ActionName("Create_Category")]
-        public ActionResult Create_Category_Post(Models.Category category)
+        public ActionResult Create_Category_Post(Models.CategoryModel category)
         {
-            Entity.Category entityCategory=AutoMapper.Mapper.Map<Models.Category, Entity.Category>(category);
+            Entity.Category entityCategory = AutoMapper.Mapper.Map<Models.CategoryModel, Entity.Category>(category);
             if (categoryBL.AddCategory(entityCategory) >= 1)//If the result is greater than 1 return to Categories View
                 return RedirectToAction("Category");
             return View();//If result is lesser than 0 It existing at current created view
         }
         [HttpPost]
-        public ActionResult Update_Category(Category category)//Update the Category By Passing the values from Model to Entity
+        public ActionResult Update_Category(CategoryModel category)//Update the Category By Passing the values from Model to Entity
         {
-            Entity.Category entityCategory = AutoMapper.Mapper.Map<Category, Entity.Category>(category);
-            if (categoryBL.UpdateCategory(entityCategory) >= 1)//Result is greater than 0
-                return RedirectToAction("Category");
-            return View();
+            if (ModelState.IsValid)
+            {
+                Entity.Category entityCategory = AutoMapper.Mapper.Map<CategoryModel, Entity.Category>(category);
+                if (categoryBL.UpdateCategory(entityCategory) >= 1)//Result is greater than 0
+                    return RedirectToAction("Category");
+            }
+            return RedirectToAction("Edit_Category", new { categoryId = category.CategoryId });//Return to edit if the model state is failed
 
 
         }
 
-        public ActionResult Delete_Category(int CategoryID)//Delete the Category By CategoryId
+        public ActionResult Delete_Category(int categoryID)//Delete the Category By CategoryId
         {
-            if (categoryBL.DeleteCategory(CategoryID) >= 1)//If result is Greator than  it will return to the Category
+            if (categoryBL.DeleteCategory(categoryID) >= 1)//If result is Greator than  it will return to the Category
                 return RedirectToAction("Category");
-            return View();
+            return RedirectToAction("Edit_Category", new { categoryId = categoryID });
         }
     }
 }

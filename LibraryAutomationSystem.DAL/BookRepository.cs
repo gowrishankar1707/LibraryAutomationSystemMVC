@@ -16,16 +16,16 @@ namespace LibraryAutomationSystem.DAL
                 {
                     try
                     {
-                        SqlParameter BookTittle = new SqlParameter("@BookTittle", book.BookTittle);
-                        SqlParameter CategoryId = new SqlParameter("@CategoryId", book.CategoryId);
-                        SqlParameter BookLanguageId = new SqlParameter("@BookLanguageId", book.BookLanguageId);
-                        SqlParameter AuthorName = new SqlParameter("@AuthorName", book.AuthorName);
-                        SqlParameter BookCount = new SqlParameter("@BookCount", book.BookCount);
-                        SqlParameter BookType = new SqlParameter("@BookType", book.BookType);
-                        int result = dbConnection.Database.ExecuteSqlCommand("Book_Insert @BookTittle, @CategoryId, @BookLanguageId, @AuthorName, @BookCount, @BookType", BookTittle, CategoryId, BookLanguageId, AuthorName, BookCount, BookType);
-
+                        //SqlParameter BookTittle = new SqlParameter("@BookTittle", book.BookTittle);
+                        //SqlParameter CategoryId = new SqlParameter("@CategoryId", book.CategoryId);
+                        //SqlParameter BookLanguageId = new SqlParameter("@BookLanguageId", book.BookLanguageId);
+                        //SqlParameter AuthorName = new SqlParameter("@AuthorName", book.AuthorName);
+                        //SqlParameter BookCount = new SqlParameter("@BookCount", book.BookCount);
+                        //SqlParameter BookType = new SqlParameter("@BookType", book.BookType);
+                        //int result = dbConnection.Database.ExecuteSqlCommand("Book_Insert @BookTittle, @CategoryId, @BookLanguageId, @AuthorName, @BookCount, @BookType", BookTittle, CategoryId, BookLanguageId, AuthorName, BookCount, BookType);
+                        dbConnection.Entry(book).State = System.Data.Entity.EntityState.Added;//Add the book using Entity State
                         transaction.Commit();
-                        return result;
+                        return dbConnection.SaveChanges();
                     }
                     catch
                     {
@@ -53,18 +53,19 @@ namespace LibraryAutomationSystem.DAL
         }
         public int RemoveBook(int bookId)//Remove Book
         {
-            Book book = FindBookById(bookId);
+
             using (DBConnection dbConnection = new DBConnection())
             {
                 using (var transaction = dbConnection.Database.BeginTransaction())
                 {
                     try
                     {
-                        SqlParameter Id = new SqlParameter("@BookId", book.BookId);
-                        int result = dbConnection.Database.ExecuteSqlCommand("Book_Delete @BookId", Id);
+                        //    SqlParameter Id = new SqlParameter("@BookId", book.BookId);
+                        //    int result = dbConnection.Database.ExecuteSqlCommand("Book_Delete @BookId", Id);
+                        Book book = FindBookById(bookId);
+                        dbConnection.Entry(book).State = System.Data.Entity.EntityState.Deleted;//Delete the book using deleted entity state
                         transaction.Commit();
-                        return result;
-
+                        return dbConnection.SaveChanges();
                     }
                     catch
                     {
@@ -84,16 +85,17 @@ namespace LibraryAutomationSystem.DAL
                 {
                     try
                     {
-                        SqlParameter BookId = new SqlParameter("@BookId", book.BookId);
-                        SqlParameter BookTittle = new SqlParameter("@BookTittle", book.BookTittle);
-                        SqlParameter CategoryId = new SqlParameter("@CategoryId", book.CategoryId);
-                        SqlParameter BookLanguageId = new SqlParameter("@BookLanguageId", book.BookLanguageId);
-                        SqlParameter AuthorName = new SqlParameter("@AuthorName", book.AuthorName);
-                        SqlParameter BookCount = new SqlParameter("@BookCount", book.BookCount);
-                        SqlParameter BookType = new SqlParameter("@BookType", book.BookType);
-                       int result= dbConnection.Database.ExecuteSqlCommand("Book_Update @BookId, @BookTittle,@CategoryId,@BookLanguageId,@AuthorName,@BookCount,@BookType", BookId, BookTittle, CategoryId, BookLanguageId, AuthorName, BookCount, BookType);
+                        //SqlParameter BookId = new SqlParameter("@BookId", book.BookId);
+                        //SqlParameter BookTittle = new SqlParameter("@BookTittle", book.BookTittle);
+                        //SqlParameter CategoryId = new SqlParameter("@CategoryId", book.CategoryId);
+                        //SqlParameter BookLanguageId = new SqlParameter("@BookLanguageId", book.BookLanguageId);
+                        //SqlParameter AuthorName = new SqlParameter("@AuthorName", book.AuthorName);
+                        //SqlParameter BookCount = new SqlParameter("@BookCount", book.BookCount);
+                        //SqlParameter BookType = new SqlParameter("@BookType", book.BookType);
+                        //int result = dbConnection.Database.ExecuteSqlCommand("Book_Update @BookId, @BookTittle,@CategoryId,@BookLanguageId,@AuthorName,@BookCount,@BookType", BookId, BookTittle, CategoryId, BookLanguageId, AuthorName, BookCount, BookType);
+                        dbConnection.Entry(book).State = System.Data.Entity.EntityState.Modified;//Update the book by using modified state
                         transaction.Commit();
-                        return result;
+                        return dbConnection.SaveChanges();
                     }
                     catch
                     {

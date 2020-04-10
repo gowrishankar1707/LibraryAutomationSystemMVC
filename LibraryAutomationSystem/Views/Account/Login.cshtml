@@ -1,4 +1,4 @@
-﻿@model LibraryAutomationSystem.Models.Login
+﻿@model LibraryAutomationSystem.Models.LoginModel
 
 @{
     ViewBag.Title = "Login";
@@ -12,12 +12,12 @@
     <div class="login-container">
         <div class="username">
             @Html.DisplayNameFor(Model => Model.MemberUserName)
-            @Html.TextBoxFor(Model => Model.MemberUserName)
+            @Html.TextBoxFor(Model => Model.MemberUserName,new { autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
         </div><br />
         <div class="password">
             @Html.DisplayNameFor(Model => Model.MemberPassword)
-            @Html.PasswordFor(Model => Model.MemberPassword)
+            @Html.PasswordFor(Model => Model.MemberPassword, new { autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
         </div>
         @Html.AntiForgeryToken()

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace LibraryAutomationSystem.Models
 {
-    public class Category
+    public class CategoryModel
     {
 
         public int CategoryId { get; set; }

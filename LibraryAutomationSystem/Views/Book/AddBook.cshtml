@@ -1,44 +1,56 @@
-﻿@model LibraryAutomationSystem.Models.AddBook
+﻿@model LibraryAutomationSystem.Models.AddBookModel
 
 @{
     ViewBag.Title = "AddBook";
 }
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div class="AddBookContainer">
+    <h2 class="AddBookHeader">AddBook</h2>
+    <div class="AddBook">
+        @using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
+        {
 
-<h2>AddBook</h2>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookTittle)
+                @Html.TextBoxFor(Model => Model.BookTittle, new { maxlength = 25, autocomplete = "off" })
+                @Html.ValidationMessageFor(Model => Model.BookTittle, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.Category)
+                @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select Category")
+                @Html.ValidationMessageFor(Model => Model.CategoryId, "", new { @class = "error" })
 
-@using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
-{
-    <div>
-        <div>
-            @Html.DisplayNameFor(Model => Model.BookTittle)
-            @Html.TextBoxFor(Model => Model.BookTittle)
-            @Html.ValidationMessageFor(Model=>Model.BookTittle)
-        </div>
-        <div>
-            @Html.DisplayNameFor(Model=>Model.Category)
-           @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select Category")
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookLanguage)
+                @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
+                @Html.ValidationMessageFor(Model => Model.BookLanguageId, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.AuthorName)
+                @Html.TextBoxFor(Model => Model.AuthorName, new { maxlength = 25, autocomplete = "off" })
+                @Html.ValidationMessageFor(Model => Model.AuthorName, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookType)
+                @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType")
+                @Html.ValidationMessageFor(Model => Model.BookType, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookCount)
+                @Html.EditorFor(Model => Model.BookCount)
+                @Html.ValidationMessageFor(Model => Model.BookCount, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Add Book" />
+                <input type="button" value="Cancel" onclick='window.location="@Url.Action("ViewBook","Book")";' />
+            </div>
 
-        </div>
-        <div>
-            @Html.DisplayNameFor(Model=>Model.BookLanguage)
-            @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
-        </div>
-        <div>
-            @Html.DisplayNameFor(Model=>Model.AuthorName)
-            @Html.TextBoxFor(Model=>Model.AuthorName)
-            @Html.ValidationMessageFor(Model=>Model.AuthorName)
-        </div>
-        <div>
-            @Html.DisplayNameFor(Model=>Model.BookType)
-           @Html.EnumDropDownListFor(Model=>Model.BookType,"Select BookType")
-        </div>
-        <div>
-            @Html.AntiForgeryToken
-            <input type="submit" value="AddBook" />
-            @Html.ActionLink("Cancel","ViewBook","Book")
-        </div>
+
+
+        }
     </div>
+</div>
 
-
-}
 

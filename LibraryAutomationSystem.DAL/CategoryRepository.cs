@@ -18,7 +18,7 @@ namespace LibraryAutomationSystem.DAL
         {
             using (DBConnection dbConnection = new DBConnection())
             {
-                dbConnection.Categories.Add(category);
+                dbConnection.Entry(category).State=System.Data.Entity.EntityState.Added;//Add the category by using Entit state Added
                 return dbConnection.SaveChanges();
             }
         }
@@ -33,7 +33,7 @@ namespace LibraryAutomationSystem.DAL
         {
             using (DBConnection dbConnection = new DBConnection())
             {
-                dbConnection.Entry(category).State = System.Data.Entity.EntityState.Modified;
+                dbConnection.Entry(category).State = System.Data.Entity.EntityState.Modified;//Modified the Category by using Entity state modified
                 return dbConnection.SaveChanges();
             }
         }
@@ -43,7 +43,7 @@ namespace LibraryAutomationSystem.DAL
             using (DBConnection dbConnection = new DBConnection())
             {
                 Entity.Category category = dbConnection.Categories.Find(CategoryId);
-                dbConnection.Categories.Remove(category);
+                dbConnection.Entry(category).State = System.Data.Entity.EntityState.Deleted;//Delete the Category by using Entity state:Deleted
                 return dbConnection.SaveChanges();
             }
         }

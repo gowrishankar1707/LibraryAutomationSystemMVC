@@ -6,24 +6,24 @@ using System.Web;
 
 namespace LibraryAutomationSystem.Models
 {
-    public class Edit_Book
+    public class EditBookModel
     {
-      
+
         public int BookId { get; set; }
         [Required]
         public string BookTittle { get; set; }
-
+        [Required(ErrorMessage ="Category should be select")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
+        public CategoryModel Category { get; set; }
+        [Required(ErrorMessage ="BookLanguage should be select")]
         public int BookLanguageId { get; set; }
-        public BookLanguage BookLanguage { get; set; }
+        public BookLanguageModel BookLanguage { get; set; }
         [Required]
+        [RegularExpression("^[A-Z][A-Za-z]*$",ErrorMessage ="Author Name first letter should be in capital letter and it does'nt accept numbers")]
         public string AuthorName { get; set; }
         [Required]
-
         public byte BookCount { get; set; }
         [Required]
-        public  BookType BookType { get; set; }
+        public BookType BookType { get; set; }
     }
 }

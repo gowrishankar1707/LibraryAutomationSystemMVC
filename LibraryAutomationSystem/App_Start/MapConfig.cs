@@ -9,16 +9,16 @@ namespace LibraryAutomationSystem.App_Start
         {
             AutoMapper.Mapper.Initialize(config =>
             {
-                config.CreateMap<Models.Login, Entity.User>();
-                config.CreateMap<Models.BookLanguage,Entity.BookLanguage>();
-                config.CreateMap<Entity.BookLanguage, Models.Edit_Language>();
-                config.CreateMap<Models.Edit_Language, Entity.BookLanguage>();
-                config.CreateMap<Entity.Book, Models.Edit_Book>();
-                config.CreateMap<Models.Edit_Book, Entity.Book>();
-                config.CreateMap<Entity.Category, Models.Category>();
-                config.CreateMap<Models.Category, Entity.Category>();
-                config.CreateMap<UserModel, User>();
-                config.CreateMap<AddBook, Book>();
+                config.CreateMap<Models.LoginModel, Entity.User>();
+                config.CreateMap<Models.BookLanguageModel,Entity.BookLanguage>();
+                config.CreateMap<Entity.BookLanguage, Models.EditLanguageModel>();
+                config.CreateMap<Models.EditLanguageModel, Entity.BookLanguage>();
+                config.CreateMap<Entity.Book, Models.EditBookModel>();
+                config.CreateMap<Models.EditBookModel, Entity.Book>();
+                config.CreateMap<Entity.Category, Models.CategoryModel>();
+                config.CreateMap<Models.CategoryModel, Entity.Category>();
+                config.CreateMap<RegistrationModel, User>();
+                config.CreateMap<AddBookModel, Book>();
             });
         }
     }

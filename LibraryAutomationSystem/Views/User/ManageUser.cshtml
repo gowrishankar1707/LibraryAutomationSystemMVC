@@ -1,12 +1,13 @@
-﻿@model LibraryAutomationSystem.Entity.User
-
+﻿
+@model IEnumerable<LibraryAutomationSystem.Entity.User>
 @{
-    ViewBag.Title = "ViewUser";
+    ViewBag.Title = "ManageUser";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
 <div class="ViewUserContainer">
     <h2 class="ViewUserHeader">View User</h2>
     <div class="ViewUser">
+
         <table border="1">
             <tr>
                 <td>Name</td>
@@ -19,8 +20,9 @@
                 <td>Address</td>
                 <td>Actions</td>
             </tr>
-            @foreach (LibraryAutomationSystem.Entity.User user in (List<LibraryAutomationSystem.Entity.User>)ViewData["user"])
+            @foreach (LibraryAutomationSystem.Entity.User user in @Model)
             {
+                @Html.HiddenFor(Model => user.Id)
                 <tr>
                     <td>
                         @user.MemberName
@@ -44,14 +46,14 @@
                         @user.Email
                     </td>
                     <td>
-
                         @user.MemberAddress
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "DeleteUser", new { userName = user.MemberUserName })
+                        @Html.ActionLink("Delete", "DeleteUser", new { userId = user.Id })
                     </td>
                 </tr>
             }
         </table>
-    </div>
+
+        </div>
 </div>

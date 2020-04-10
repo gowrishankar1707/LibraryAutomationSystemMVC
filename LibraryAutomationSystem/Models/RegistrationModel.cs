@@ -11,7 +11,7 @@ namespace LibraryAutomationSystem.Models
     }
     
 
-    public class UserModel
+    public class RegistrationModel
     {
 
 
@@ -42,13 +42,13 @@ namespace LibraryAutomationSystem.Models
 
 
         [Required(ErrorMessage = "Date of Birth is required")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
         public DateTime MemberDOB { get; set; }
 
 
         [Required(ErrorMessage = "Date of Joining is required")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         [Display(Name = "Date of Joining")]
         public DateTime MemberDOJ { get; set; }
 

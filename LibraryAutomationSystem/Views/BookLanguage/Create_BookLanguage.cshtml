@@ -1,22 +1,23 @@
-﻿@model LibraryAutomationSystem.Models.BookLanguage
+﻿@model LibraryAutomationSystem.Models.BookLanguageModel
 
 @{
     ViewBag.Title = "Create_BookLanguage";
 }
 
-<h2>Create_BookLanguage</h2>
+<h2 class="AddLanguageHeader">Create BookLanguage</h2>
 
 @using (Html.BeginForm("Create_BookLanguage", "BookLanguage", FormMethod.Post))
 {
-    <div>
+    <div class="AddLanguage">
         <div>
-            @Html.DisplayNameFor(Model=>Model.BookLanguageName)
-            @Html.TextBoxFor(Model => Model.BookLanguageName, new{  maxlength=15})
-            @Html.ValidationMessageFor(Model=>Model.BookLanguageName)
+            @Html.DisplayNameFor(Model => Model.BookLanguageName)
+            @Html.TextBoxFor(Model => Model.BookLanguageName, new { maxlength = 15, autocomplete = "off" })
+            @Html.ValidationMessageFor(Model => Model.BookLanguageName, "", new { @class = "error" })
         </div>
         <div>
-            @Html.AntiForgeryToken
+            @Html.AntiForgeryToken()
             <input type="submit" />
+            <input type="button" value="Cancel" onclick='window.location="@Url.Action("View_BookLanguage","BookLanguage")";' />
         </div>
     </div>
 }

@@ -1,13 +1,13 @@
-﻿@model LibraryAutomationSystem.Models.Edit_Language
+﻿@model LibraryAutomationSystem.Models.EditLanguageModel
 
 @{
     ViewBag.Title = "Edit_Book_Language";
 }
-
-<h2>Edit_Book_Language</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 class="EditLanguageHeader">Edit Book Language</h2>
 @using (Html.BeginForm("Update_Book_Language", "BookLanguage", FormMethod.Post))
 {
-<div>
+<div class="EditLanguage">
     @Html.HiddenFor(Model => Model.BookLanguageId)
     <div>
         @Html.DisplayNameFor(Model => Model.BookLanguageName)
@@ -16,6 +16,7 @@
     </div>
     <div>
         <input type="submit" value="update" />
+        <input type="button" value="Cancel" onclick='window.location="@Url.Action("View_BookLanguage","BookLanguage")";' />
     </div>
 </div>
 }

@@ -1,25 +1,21 @@
-﻿@model LibraryAutomationSystem.Models.Category
-
+﻿@model LibraryAutomationSystem.Models.CategoryModel
 @{
     ViewBag.Title = "Create_Category";
 }
-
-<h2 class="CreateCategoryHeader">Create_Category</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
 @using (Html.BeginForm("Create_Category", "Category", FormMethod.Post))
 {
-    <div>
+    <h2 class="AddCategoryHeader">Add Category</h2>
+    <div class="AddCategory">
         <div>
-            @Html.DisplayNameFor(Model=>Model.CategoryName)
-            @Html.TextBoxFor(Model=>Model.CategoryName,new { maxlength=50})
-            @Html.ValidationMessageFor(Model=>Model.CategoryName)
+            @Html.DisplayNameFor(Model => Model.CategoryName)
+            @Html.TextBoxFor(Model => Model.CategoryName, new { maxlength = 50, autocomplete = "off" })
+            @Html.ValidationMessageFor(Model => Model.CategoryName, "",  new { @class = "error" })
 
         </div>
         <div>
-            @Html.ActionLink("Back","Category","Admin")
-        </div>
-        <div>
-            <input type="submit" />
-            @Html.ActionLink("Cancel","Category")
+            <input type="submit"  />
+            <input type="button" value="Cancel" onclick='window.location="@Url.Action("Category","Category")";' />
         </div>
     </div>
 }

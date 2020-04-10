@@ -1,4 +1,4 @@
-﻿@model LibraryAutomationSystem.Models.UserModel
+﻿@model LibraryAutomationSystem.Models.RegistrationModel
 
 @{
     ViewBag.Title = "Register";
@@ -13,37 +13,36 @@
         <div>
             @Html.DisplayNameFor(Model => Model.MemberName)
 
-            @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25,@class="input" })
-            @Html.ValidationMessageFor(Model=>Model.MemberName, "", new { @class = "error" })
+            @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25, @class = "input", autocomplete = "off" })
+            @Html.ValidationMessageFor(Model => Model.MemberName, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberUserName)
 
-            @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25, @class = "input" })
+            @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25, @class = "input", autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.Password)
 
-            @Html.PasswordFor(Model => Model.Password, new { maxlength = 25, @class = "input" })
-            @Html.ValidationMessageFor(Model => Model.Password)
+            @Html.PasswordFor(Model => Model.Password, new { maxlength = 25, @class = "input", autocomplete = "off" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberPassword)
 
-            @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25, @class = "input" })
+            @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25, @class = "input", autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberDOB)
 
-            @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10, @class = "input" })
+            @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10, @class = "input", autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberDOB, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.MemberDOJ)
 
-            @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10, @class = "input" })
+            @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10, @class = "input", autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberDOJ, "", new { @class = "error" })
         </div>
         <div>
@@ -57,25 +56,25 @@
         <div>
             @Html.DisplayNameFor(Model => Model.MemberPhoneNumber)
 
-            @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10, @class = "input" })
+            @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10, @class = "input", autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.MemberPhoneNumber, "", new { @class = "error" })
         </div>
         <div>
             @Html.DisplayNameFor(Model => Model.Email)
 
-            @Html.EditorFor(Model => Model.Email, new { @class = "input" })
+            @Html.TextBoxFor(Model => Model.Email, new { @class = "input", autocomplete = "off" })
             @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "error" })
         </div>
         <div>
 
             @Html.DisplayNameFor(Model => Model.MemberAddress)
 
-            @Html.TextAreaFor(Model => Model.MemberAddress,new{ maxlength = 50, @class = "input"  })
-            @Html.ValidationMessageFor(Model=>Model.MemberAddress,"",new { @class = "error" })
+            @Html.TextAreaFor(Model => Model.MemberAddress, new { maxlength = 50, @class = "input", autocomplete = "off" })
+            @Html.ValidationMessageFor(Model => Model.MemberAddress, "", new { @class = "error" })
         </div>
         @Html.AntiForgeryToken()
-         <input type="submit" />
-        
+        <input type="submit" />
+
     </div>
 }
 

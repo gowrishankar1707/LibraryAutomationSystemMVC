@@ -1,36 +1,24 @@
-﻿@model LibraryAutomationSystem.Models.Category
+﻿@model LibraryAutomationSystem.Models.CategoryModel
 
 @{
     ViewBag.Title = "Edit_Category";
 }
-
-<h2>Edit_Category</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 class="EditCategoryHeader">Edit Category</h2>
 
 @using (Html.BeginForm("Update_Category", "Category", FormMethod.Post))
 {
-    @Html.HiddenFor(Model=>Model.CategoryId)
-    <table>
-      <tr>
-          <td>
-              @Html.LabelFor(Model=>Model.CategoryName)
-          </td>
-          <td>
-              @Html.EditorFor(Model=>Model.CategoryName)
-              @Html.ValidationMessageFor(Model=>Model.CategoryName)
-          </td>
-      </tr>
-        <tr>
-            <td>
-                @Html.ActionLink("Back","Category","Admin")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" />
-            </td>
-        </tr>
-      
-
-    </table>
+    @Html.HiddenFor(Model => Model.CategoryId)
+    <div class="EditCategory">
+        <div>
+            @Html.LabelFor(Model => Model.CategoryName)
+            @Html.EditorFor(Model => Model.CategoryName)
+            @Html.ValidationMessageFor(Model => Model.CategoryName)
+        </div>
+        <div>
+            <input type="submit" />
+            <input type="button" value="Cancel" onclick='window.location="@Url.Action("Category","Category")";' />
+        </div>
+    </div>
 }
 

@@ -156,7 +156,7 @@
     <Compile Include="App_Start\CustomExceptionFilter.cs" />
     <Compile Include="App_Start\MapConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookLanguageController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -166,13 +166,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddBook.cs" />
-    <Compile Include="Models\BookLanguage.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Edit_Book.cs" />
-    <Compile Include="Models\Edit_Language.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\AddBookModel.cs" />
+    <Compile Include="Models\BookLanguageModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\EditBookModel.cs" />
+    <Compile Include="Models\EditLanguageModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,11 +190,9 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Admin\ManageUser.cshtml" />
+    <Content Include="Views\User\ManageUser.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Category\Create_Category.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\AdminChoice.cshtml" />
     <Content Include="Views\Category\Edit_Category.cshtml" />
     <Content Include="Views\BookLanguage\Create_BookLanguage.cshtml" />
     <Content Include="Views\BookLanguage\View_BookLanguage.cshtml" />

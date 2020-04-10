@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LibraryAutomationSystem.Models
 {
-    public class Login
+    public class LoginModel
     {
         [Required]
         [Display(Name ="UserName")]

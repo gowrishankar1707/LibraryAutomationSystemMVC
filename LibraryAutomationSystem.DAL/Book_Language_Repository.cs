@@ -19,7 +19,7 @@ namespace LibraryAutomationSystem.DAL
 
         }
 
-        public int Add_Book_Language(BookLanguage book_Language)//add the book language and return the affected rows as result
+        public int Add_Book_Language(BookLanguage bookLanguage)//add the book language and return the affected rows as result
         {
 
             using (DBConnection dbConnection = new DBConnection())
@@ -28,10 +28,14 @@ namespace LibraryAutomationSystem.DAL
                 {
                     try
                     {
-                        SqlParameter LanguageName = new SqlParameter("@Language_Name", book_Language.BookLanguageName);
-                        int result = dbConnection.Database.ExecuteSqlCommand("BookLanguage_Insert @Language_Name", LanguageName);//use the sqlparameter to add the book language 
-                        transaction.Commit();//commit the entire transaction
-                        return result;//return the affected result
+                        //SqlParameter LanguageName = new SqlParameter("@Language_Name", book_Language.BookLanguageName);
+                        //int result = dbConnection.Database.ExecuteSqlCommand("BookLanguage_Insert @Language_Name", LanguageName);//use the sqlparameter to add the book language 
+                        //transaction.Commit();//commit the entire transaction
+                        //return result;//return the affected result
+                        dbConnection.Entry(bookLanguage).State = System.Data.Entity.EntityState.Added;//Add New entity using Entity state.
+                        transaction.Commit();
+                        return dbConnection.SaveChanges();
+
                     }
                     catch (Exception)
                     {
@@ -57,12 +61,12 @@ namespace LibraryAutomationSystem.DAL
                 {
                     try
                     {
-                        SqlParameter languageName = new SqlParameter("@Language_Name", bookLanguage.BookLanguageName);
-                        SqlParameter languageId = new SqlParameter("@Language_Id", bookLanguage.BookLanguageId);
-                        int result = dbConnection.Database.ExecuteSqlCommand("BookLanguage_Update @Language_Id,@Language_Name", languageId, languageName);
+                        //SqlParameter languageName = new SqlParameter("@Language_Name", bookLanguage.BookLanguageName);
+                        //SqlParameter languageId = new SqlParameter("@Language_Id", bookLanguage.BookLanguageId);
+                        //int result = dbConnection.Database.ExecuteSqlCommand("BookLanguage_Update @Language_Id,@Language_Name", languageId, languageName);
+                        dbConnection.Entry(bookLanguage).State = System.Data.Entity.EntityState.Modified;//update the entity by using entity state
                         transaction.Commit();//Commit the changes permanently if the rows is updated
-                        return result;//return the affected rows
-
+                        return dbConnection.SaveChanges();//return the affected rows
                     }
                     catch (Exception)
                     {
@@ -73,7 +77,7 @@ namespace LibraryAutomationSystem.DAL
                 }
             }
         }
-        public int Delete_Book_Language(int Book_Language_Id)
+        public int Delete_Book_Language(int bookLanguageId)
         {
             using (DBConnection dbConnection = new DBConnection())//Dispose the objects if the task is completed 
             {
@@ -81,10 +85,12 @@ namespace LibraryAutomationSystem.DAL
                 {
                     try
                     {
-                        SqlParameter Id = new SqlParameter("@Language_Id", Book_Language_Id);
-                        int result = dbConnection.Database.ExecuteSqlCommand("BookLanguage_Delete @Language_Id", Id);//Execute the command by pass the sqlparameter and parameter name
-                        transaction.Commit();//Commit the changes to the underlying database
-                        return result;//Return the affected rows
+                        //SqlParameter Id = new SqlParameter("@Language_Id", Book_Language_Id);
+                        //int result = dbConnection.Database.ExecuteSqlCommand("BookLanguage_Delete @Language_Id", Id);//Execute the command by pass the sqlparameter and parameter name
+                        //transaction.Commit();//Commit the changes to the underlying database
+                        BookLanguage bookLanguage = Find_Book_Language_Id(bookLanguageId);
+                        dbConnection.Entry(bookLanguage).State = System.Data.Entity.EntityState.Deleted;
+                        return dbConnection.SaveChanges();//Return the affected rows
                     }
                     catch
                     {

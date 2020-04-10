@@ -47,36 +47,36 @@
     display: block;
     padding: 3px;
     margin-bottom: 10px;
-    width: 50%;
+    width: 200px;
 }
 
 .register-container input[type="password"] {
     display: block;
-    padding: 3px;
+    width: 200px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    width: 50%;
 }
 
-.register-container input[type="datetime"] {
+.register-container input[type=date] {
     display: block;
-    padding: 3px;
+    width: 200px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    width: 50%;
 }
 
 .register-container input[type="email"] {
     display: block;
-    padding: 3px;
+    width: 205px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    width: 50%;
+    height: 20px;
 }
 
 .register-container input[type="text"] {
     display: block;
-    padding: 3px;
+    width: 200px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    width: 50%;
-    resize: none;
 }
 
 .register-container input[type="radio"] {
@@ -87,7 +87,7 @@
 
 .register-container input[type="submit"] {
     margin-top: 20px;
-    margin-left: 210px;
+    margin-left: 65px;
     padding: 10px;
     border-radius: 8px;
 }
@@ -99,6 +99,7 @@
 
 textarea {
     resize: none;
+    width: 200px;
 }
 
 .error {
@@ -121,90 +122,472 @@ textarea {
         display: block;
         padding: 3px;
         margin-bottom: 10px;
-        width: 50%;
+        width: 200px;
     }
 
     .login-container input[type="password"] {
         display: block;
         padding: 3px;
         margin-bottom: 10px;
-        width: 50%;
+        width: 200px;
     }
 
 
     .login-container input[type="submit"] {
         margin-top: 20px;
-        margin-left: 180px;
+        margin-left: 120px;
         padding: 10px;
         border-radius: 8px;
     }
-.LeftNav{
-    float:left;
-    height:100%;
 
-}
-.LeftNav ul{
-    
-    background-color:white;
-    margin-top:150px;
-    border-radius:8px;
-}
-.LeftNav ul li{
-    margin-right:30px;
-    margin-bottom:5px;
-    list-style:none;
-    padding:10px;
-}
-.LeftNav a{
-    text-decoration:none;
-    color:black;
-    font-size:x-large;
+    .login-container input[type=submit]:hover {
+        color: white;
+        background-color: black;
+    }
 
-}
-.LeftNav li:hover{
-    color:white;
-    background-color:#D3D3D3;
-    border-radius:8px;
-}
-.CategoryHeader{
-    float:left;
-    margin-left:150px;
-}
-.category{
-    float:right;
-    margin-top:110px;
-    margin-right:650px;
+.LeftNav {
+    float: left;
+    height: 100%;
 }
 
-.category a{
-    padding:10px;
-    text-decoration:none;
-    color:black;
+    .LeftNav ul {
+        background-color: white;
+        margin-top: 150px;
+        border-radius: 8px;
+    }
+
+        .LeftNav ul li {
+            margin-right: 30px;
+            margin-bottom: 5px;
+            list-style: none;
+            padding: 10px;
+        }
+
+    .LeftNav a {
+        text-decoration: none;
+        color: black;
+        font-size: x-large;
+    }
+
+    .LeftNav li:hover {
+        color: white;
+        background-color: #D3D3D3;
+        border-radius: 8px;
+    }
+
+.CategoryHeader {
+    float: right;
+    margin-right: 350px;
+    margin-top: 90px;
 }
-.CreateCategory{
-    margin-left:90px;
-    border:red groove;
+
+.category {
+    float: right;
+    margin-top: 50px;
+    margin-right: 650px;
 }
-.category a:hover{
-    color:white;
-    background-color:black;
-    border-radius:8px;
+
+    .category a {
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+.CreateCategory {
+    margin-left: 90px;
+    border: red double;
+    border-radius: 8px;
 }
-.category table tr:nth-child(even)
-{
+
+.category a:hover {
+    color: white;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.category table tr:nth-child(even) {
+    background-color: lightyellow;
+}
+
+.category table {
+    background-color: aliceblue;
+    margin-top: 20px;
+    margin-left: 90px;
+    padding: 10px;
+}
+
+    .category table th, td {
+        padding: 15px;
+    }
+
+.AddCategoryHeader {
+    margin-top: 150px;
+    margin-right: 300px;
+    float: right;
+}
+
+.AddCategory {
+    float: right;
+    margin-top: 20px;
+    margin-right: 800px;
+}
+
+    .AddCategory input[type="text"] {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+        width: 200px;
+    }
+
+    .AddCategory input[type="submit"] {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .AddCategory input[type=button] {
+        margin-left: 50px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .AddCategory input[type="submit"]:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .AddCategory input[type=button]:hover {
+        color: white;
+        background-color: black;
+    }
+
+.EditCategoryHeader {
+    float: right;
+    margin-right: 350px;
+    margin-top: 90px;
+}
+
+.EditCategory {
+    float: right;
+    margin-top: 30px;
+    margin-right: 830px;
+}
+
+    .EditCategory input[type=text] {
+        width: 200px;
+        margin-top: 20px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .EditCategory input[type=button] {
+        margin-left: 50px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .EditCategory input[type=submit] {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+.LanguageHeader {
+    float: right;
+    margin-right: 350px;
+    margin-top: 90px;
+}
+
+.Language {
+    float: right;
+    margin-top: 50px;
+    margin-right: 750px;
+}
+
+    .Language table {
+        background-color: aliceblue;
+        margin-top: 20px;
+        margin-left: 90px;
+        padding: 10px;
+    }
+
+        .Language table td, th {
+            padding: 15px;
+        }
+
+    .Language a {
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+    }
+
+.AddCategoryLink {
+    margin-left: 100px;
+    margin-bottom: 50px;
+    border: red double;
+    border-radius: 8px;
+}
+
+.Language a:hover {
+    color: white;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.Language table tr:nth-child(even) {
+    background-color: lightyellow;
+}
+
+.AddLanguageHeader {
+    float: right;
+    margin-right: 250px;
+    margin-top: 150px;
+}
+
+.AddLanguage {
+    float: right;
+    margin-top: 20px;
+    margin-right: 880px;
+}
+
+    .AddLanguage input[type=text] {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+        width: 200px;
+    }
+
+    .AddLanguage input[type=submit] {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .AddLanguage input[type=button] {
+        padding: 10px;
+        border-radius: 8px;
+        margin-left: 50px;
+    }
+
+    .AddLanguage input[type=submit]:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .AddLanguage input[type=button]:hover {
+        color: white;
+        background-color: black;
+    }
+
+.EditLanguageHeader {
+    float: right;
+    margin-right: 250px;
+    margin-top: 150px;
+}
+
+.EditLanguage {
+    float: right;
+    margin-top: 20px;
+    margin-right: 800px;
+}
+
+    .EditLanguage input[type=text] {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 200px;
+    }
+
+    .EditLanguage input[type=submit] {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .EditLanguage input[type=button] {
+        padding: 10px;
+        border-radius: 8px;
+        margin-left: 50px;
+    }
+
+    .EditLanguage input[type=submit]:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .EditLanguage input[type=button]:hover {
+        color: white;
+        background-color: black;
+    }
+
+.ViewBookHeader {
+    float: right;
+    margin-right: 200px;
+    margin-top: 50px;
+}
+
+.ViewBook {
+    float: right;
+    margin-top: 20px;
+    margin-right: 150px;
+}
+
+.AddBookLink {
+    border: red double;
+    border-radius: 8px;
+}
+
+.ViewBook a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+    .ViewBook a:hover {
+        color: white;
+        background-color: black;
+        border-radius: 8px;
+    }
+
+.ViewBook table {
+    background-color: lightblue;
+    margin-top: 30px;
+}
+
+    .ViewBook table tr:nth-child(even) {
+        background-color: lightyellow;
+    }
+
+.AddBookContainer {
+    float: right;
+    margin-right: 300px;
+    margin-top: 50px;
+}
+
+
+.AddBook input[type=text] {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.AddBook select {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 25px;
+    font-size: medium;
+}
+
+.AddBook input[type=number] {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.AddBook input[type=submit] {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.AddBook input[type=button] {
+    border-radius: 8px;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.AddBook input[type=submit]:hover {
+    color: white;
+    background-color: black;
+    transition-timing-function: ease;
+}
+
+.AddBook input[type=button]:hover {
+    color: white;
+    background-color: black;
+    transition-timing-function: ease;
+}
+
+.EditBookContainer {
+    float: right;
+    margin-right: 300px;
+    margin-top: 50px;
+}
+
+.EditBook input[type=text] {
+    display: block;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.EditBook input[type=number] {
+    display: block;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.EditBook select {
+    display: block;
+    height: 25px;
+    font-size: medium;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.EditBook input[type=submit] {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.EditBook input[type=button] {
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: 20px;
+}
+
+.EditBook input[type=submit]:hover {
+    color: white;
+    background-color: black;
+}
+
+.EditBook input[type=button]:hover {
+    color: white;
+    background-color: black;
+}
+
+.ViewUserContainer {
+    float: left;
+    margin-left: 80px;
+}
+
+.ViewUser table {
+    background-color: lightblue;
+}
+.ViewUser table td:nth-child(even){
     background-color:lightyellow;
-}
-.category table{
-    background-color:aliceblue;
-    margin-top:20px;
-    margin-left:90px;   
-    padding:10px;
-}
-.category table th,td{
-    padding:15px;
-}
-.AddCategoryHeader{
-    float:left;
-    margin-left:150px;
 
+}
+
+
+
+.ViewUserContainer a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border: groove;
+    border-color: black;
+    border-radius: 8px;
+}
+
+    .ViewUserContainer a:hover {
+        color: white;
+        background-color: black;
+        border-radius: 8px;
+        border-color: yellow;
+    }
+
+.ViewUserHeader {
+    margin-left: 45%;
 }

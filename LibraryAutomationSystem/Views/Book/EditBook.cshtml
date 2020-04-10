@@ -1,43 +1,51 @@
-﻿@model LibraryAutomationSystem.Models.Edit_Book
+﻿@model LibraryAutomationSystem.Models.EditBookModel
 
 @{
     ViewBag.Title = "EditBook";
 }
+<div class="EditBookContainer">
+    <h2 class="EditBookHeader">Edit Book</h2>
+    @using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
+    {
+        <div class="EditBook">
+            <div>
+                @Html.HiddenFor(Model => Model.BookId)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookTittle)
+                @Html.TextBoxFor(Model => Model.BookTittle, new { maxlength = 25 })
+                @Html.ValidationMessageFor(Model => Model.BookTittle)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.Category)
+                @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select BookLanguage")
+                @Html.ValidationMessageFor(Model => Model.CategoryId)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookLanguage)
+                @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
+                @Html.ValidationMessageFor(Model => Model.BookLanguageId)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.AuthorName)
+                @Html.TextBoxFor(Model => Model.AuthorName, new { maxlength = 25 })
+                @Html.ValidationMessageFor(Model => Model.AuthorName)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookCount)
+                @Html.EditorFor(Model => Model.BookCount)
+                @Html.ValidationMessageFor(Model => Model.BookCount)
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookType)
+                @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType")
+                @Html.ValidationMessageFor(Model => Model.BookType)
+            </div>
+            <div>
+                <input type="submit" value="Update" />
+                <input type="button" value="Cancel" onclick='window.location="@Url.Action("ViewBook","Book")";' />
+            </div>
+        </div>
+    }
 
-<h2>EditBook</h2>
-@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
-{
-<div>
-    <div>
-        @Html.HiddenFor(Model => Model.BookId)
-    </div>
-    <div>
-        @Html.DisplayNameFor(Model => Model.BookTittle)
-        @Html.TextBoxFor(Model => Model.BookTittle)
-    </div>
-    <div>
-        @Html.DisplayNameFor(Model => Model.Category)
-        @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select BookLanguage")
-    </div>
-    <div>
-        @Html.DisplayNameFor(Model => Model.BookLanguage)
-        @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
-    </div>
-    <div>
-        @Html.DisplayNameFor(Model => Model.AuthorName)
-        @Html.TextBoxFor(Model => Model.AuthorName)
-    </div>
-    <div>
-        @Html.HiddenFor(Model => Model.BookCount)
-
-    </div>
-    <div>
-        @Html.DisplayNameFor(Model => Model.BookType);
-        @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType")
-    </div>
-    <div>
-        <input type="submit" value="Update" />
-    </div>
 </div>
-}
-

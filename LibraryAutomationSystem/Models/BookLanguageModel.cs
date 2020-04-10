@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 namespace LibraryAutomationSystem.Models
 {
-    public class BookLanguage
+    public class BookLanguageModel
     {
         public int BookLanguageId { get; set; }
         [Required]
