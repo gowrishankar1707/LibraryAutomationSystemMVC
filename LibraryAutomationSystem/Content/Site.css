@@ -302,11 +302,17 @@ textarea {
     margin-right: 750px;
 }
 
+   
+
     .Language table {
         background-color: aliceblue;
         margin-top: 20px;
         margin-left: 90px;
         padding: 10px;
+    }
+    .Language table tr:nth-child(even)
+    {
+        background-color:black;
     }
 
         .Language table td, th {
@@ -332,9 +338,7 @@ textarea {
     border-radius: 8px;
 }
 
-.Language table tr:nth-child(even) {
-    background-color: lightyellow;
-}
+
 
 .AddLanguageHeader {
     float: right;
@@ -565,10 +569,10 @@ textarea {
 .ViewUser table {
     background-color: lightblue;
 }
-.ViewUser table td:nth-child(even){
-    background-color:lightyellow;
 
-}
+    .ViewUser table td:nth-child(even) {
+        background-color: lightyellow;
+    }
 
 
 

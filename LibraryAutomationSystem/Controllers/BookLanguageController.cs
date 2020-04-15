@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace LibraryAutomationSystem.Controllers
 {
-    [Authorize(Roles ="admin,user")]
+    [Authorize(Roles = "admin,user")]
     public class BookLanguageController : Controller
     {
         IBookLanguageBL bookLanguageBL;
@@ -15,7 +15,7 @@ namespace LibraryAutomationSystem.Controllers
         // GET: BookLanguage
         [HttpGet]
         [ActionName("Create_BookLanguage")]
-        [Authorize(Roles ="admin")]
+        [Authorize(Roles = "admin")]
         public ActionResult Create_BookLanguage_Get()//Get request of CreateBookLanguage
         {
             return View();
@@ -35,14 +35,14 @@ namespace LibraryAutomationSystem.Controllers
             return View();
         }
         [HttpGet]
-        [Authorize(Roles ="admin,user")]
+        [Authorize(Roles = "admin,user")]
         public ActionResult View_BookLanguage()//View the BookLanguage
         {
             IEnumerable<Entity.BookLanguage> languagelist = bookLanguageBL.GetBookLanguage();
             return View(languagelist);
         }
         [HttpGet]
-        [Authorize(Roles ="admin")]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit_Book_Language(int bookLanguageId)//Edit the book language by its Id
         {
             Entity.BookLanguage language = bookLanguageBL.FindBookLanguageById(bookLanguageId);//Get the Book Language Entity by Its Id
@@ -60,11 +60,12 @@ namespace LibraryAutomationSystem.Controllers
             }
             return RedirectToAction("Edit_Book_Language", new { bookLanguageId = editLanguage.BookLanguageId });//Modelstate is false return to Edit Book
         }
+        [HttpGet]
         public ActionResult Delete_Book_Language(int bookLanguageId)//Delete BookLanguage By Id
         {
-            if (bookLanguageBL.DeleteBookLanguage(bookLanguageId) >= 1)
-                return RedirectToAction("View_BookLanguage");
-            return View();
+            int a = bookLanguageBL.DeleteBookLanguage(bookLanguageId);
+            return RedirectToAction("View_BookLanguage");
+
         }
     }
 }

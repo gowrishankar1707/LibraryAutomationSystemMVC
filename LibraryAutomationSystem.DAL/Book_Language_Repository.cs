@@ -90,6 +90,7 @@ namespace LibraryAutomationSystem.DAL
                         //transaction.Commit();//Commit the changes to the underlying database
                         BookLanguage bookLanguage = Find_Book_Language_Id(bookLanguageId);
                         dbConnection.Entry(bookLanguage).State = System.Data.Entity.EntityState.Deleted;
+                        transaction.Commit();
                         return dbConnection.SaveChanges();//Return the affected rows
                     }
                     catch

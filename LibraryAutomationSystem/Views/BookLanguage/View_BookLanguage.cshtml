@@ -4,6 +4,7 @@
     ViewBag.Title = "View_BookLanguage";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Content/Library.js"></script>
 <h2 class="LanguageHeader">View BookLanguage</h2>
 <div class="Language">
     @Html.ActionLink("Add Language", "Create_BookLanguage", "BookLanguage",new { @class="AddCategoryLink"})
@@ -25,7 +26,7 @@
 
                 <td>
                     @Html.ActionLink("Edit", "Edit_Book_Language", new { bookLanguageId = items.BookLanguageId })
-                    @Html.ActionLink("Delete", "Delete_Book_Language", new { bookLanguageId = items.BookLanguageId })
+                    @Html.ActionLink("Delete", "Delete_Book_Language", new { bookLanguageId = items.BookLanguageId },new {  onclick = "return delete_Function('"+ items.BookLanguageName+"');" })
                 </td>
             </tr>
         }

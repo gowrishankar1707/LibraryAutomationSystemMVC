@@ -4,6 +4,7 @@
     ViewBag.Title = "ManageUser";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Content/Library.js"></script>
 <div class="ViewUserContainer">
     <h2 class="ViewUserHeader">View User</h2>
     <div class="ViewUser">
@@ -49,7 +50,7 @@
                         @user.MemberAddress
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "DeleteUser", new { userId = user.Id })
+                        @Html.ActionLink("Delete", "DeleteUser", new { userId = user.Id }, new { onclick = "return delete_Function('" + user.MemberUserName + "');" })
                     </td>
                 </tr>
             }

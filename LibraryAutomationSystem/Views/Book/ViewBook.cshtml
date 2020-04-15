@@ -2,8 +2,9 @@
 
 @{
     ViewBag.Title = "ViewBook";
-}
-
+    }
+    <link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Content/Library.js"></script>
 <h2 class="ViewBookHeader">ViewBook</h2>
 <div class="ViewBook">
 
@@ -62,7 +63,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("EditBook", "EditBook", new { bookId = items.BookId })
-                    @Html.ActionLink("DeleteBook", "DeleteBook", new { bookId = items.BookId })
+                    @Html.ActionLink("DeleteBook", "DeleteBook", new { bookId = items.BookId },new {onclick= "return delete_Function('"+items.BookTittle+"');" })
                 </td>
             </tr>
 

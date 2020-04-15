@@ -135,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Library.js" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -149,7 +150,6 @@
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_LASLayout.cshtml" />
     <Content Include="Views\HomeLAS\Home.cshtml" />
-    <Content Include="Views\Account\ViewUser.cshtml" />
     <Content Include="Views\Shared\_LASPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
