@@ -1,597 +1,291 @@
 ﻿body {
     font-family: Arial,Arial, Helvetica, sans-serif;
-    margin: 30px;
+    margin:0px auto;
     padding: 0;
-    background-color: #DCDCDC;
+    background-color: 	#FFFFFF;
+}
+.headerContainer{
+    font-size:xx-large;
+    font-weight:bolder;
+    display:flex;
+
+}
+.navContainer{
+    margin:2% 2%;
+}
+.links{
+    display:flex;
+    
+}
+.links a{
+    
+    text-decoration:none;
+    color:black;
+    padding:20px;
+    flex:auto;
+    text-align:center;
+    align-items:center;
+    background-color:	#7FFF00;
+    border-right:1px solid black;
+    
+}
+.links a:last-child{
+    border-right:none;
+}
+.links a:hover{
+   background-color:#75eb00;
+}
+.mainContainerForNav{
+    display:flex;
+}
+.LeftNav ul{
+    list-style-type:none;
+}
+.LeftNav ul  a{
+    text-decoration:none;
+    color:black;
 }
 
-.links {
-    float: right;
-    width: 30%;
+.login_container{
+    margin-top:20px;    
+    border-color:black;
+    width:400px;
+    border:1px solid blue;
+    box-shadow:0px 10px 10px -6px #777372;
+    border-radius:4px;
+    position:relative;
+    display:flex;
+    flex-direction:column; 
+    margin: 10% 100%;
+    flex:1 0 auto;
+}
+.login_container:hover
+{
+    box-shadow:10px 10px 10px -8px grey;
+}
+.login-body{
+    padding:20px;
+}
+.login_Header
+{
+    font-weight:bolder;
+    color:white;
+    background-color:blueviolet;
+    padding:20px;
+    border-radius:4px 4px 0px 0px;
+    font-size:larger;
+
 }
 
-    .links a {
-        margin-left: 40px;
-        color: black;
-        padding: 10px;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-
-        .links a:hover {
-            background-color: black;
-            color: white;
-            opacity: .2;
-        }
-
-        .links a:active {
-            background-color: black;
-            color: white;
-        }
-
-.box-1 {
-    float: left;
-    width: 70%;
-}
-
-.library-h2 {
-    font-size: xx-large;
-}
-
-.register-container {
-    margin-top: 50px;
-    margin-left: 500px;
-}
-
-.input {
-    display: block;
-    padding: 3px;
-    margin-bottom: 10px;
-    width: 200px;
-}
-
-.register-container input[type="password"] {
-    display: block;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.register-container input[type=date] {
-    display: block;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.register-container input[type="email"] {
-    display: block;
-    width: 205px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 20px;
-}
-
-.register-container input[type="text"] {
-    display: block;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.register-container input[type="radio"] {
-    margin-left: 20px;
-    padding: 3px;
-    margin-bottom: 15px;
-}
-
-.register-container input[type="submit"] {
-    margin-top: 20px;
-    margin-left: 65px;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-    .register-container input[type="submit"]:hover {
-        background-color: black;
-        color: white;
-    }
-
-textarea {
-    resize: none;
-    width: 200px;
-}
-
-.error {
-    color: red;
-    margin: 5px;
-}
-
-.errorgender {
-    color: red;
-    display: block;
-}
-
-.login-container {
-    margin: 100px;
-    margin-left: 550px;
-    margin-top: 150px;
-}
-
-    .login-container input[type="text"] {
-        display: block;
-        padding: 3px;
-        margin-bottom: 10px;
-        width: 200px;
-    }
-
-    .login-container input[type="password"] {
-        display: block;
-        padding: 3px;
-        margin-bottom: 10px;
-        width: 200px;
-    }
-
-
-    .login-container input[type="submit"] {
-        margin-top: 20px;
-        margin-left: 120px;
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .login-container input[type=submit]:hover {
-        color: white;
-        background-color: black;
-    }
-
-.LeftNav {
-    float: left;
-    height: 100%;
-}
-
-    .LeftNav ul {
-        background-color: white;
-        margin-top: 150px;
-        border-radius: 8px;
-    }
-
-        .LeftNav ul li {
-            margin-right: 30px;
-            margin-bottom: 5px;
-            list-style: none;
-            padding: 10px;
-        }
-
-    .LeftNav a {
-        text-decoration: none;
-        color: black;
-        font-size: x-large;
-    }
-
-    .LeftNav li:hover {
-        color: white;
-        background-color: #D3D3D3;
-        border-radius: 8px;
-    }
-
-.CategoryHeader {
-    float: right;
-    margin-right: 350px;
-    margin-top: 90px;
-}
-
-.category {
-    float: right;
-    margin-top: 50px;
-    margin-right: 650px;
-}
-
-    .category a {
-        padding: 10px;
-        text-decoration: none;
-        color: black;
-    }
-
-.CreateCategory {
-    margin-left: 90px;
-    border: red double;
-    border-radius: 8px;
-}
-
-.category a:hover {
-    color: white;
-    background-color: black;
-    border-radius: 8px;
-}
-
-.category table tr:nth-child(even) {
-    background-color: lightyellow;
-}
-
-.category table {
-    background-color: aliceblue;
-    margin-top: 20px;
-    margin-left: 90px;
-    padding: 10px;
-}
-
-    .category table th, td {
-        padding: 15px;
-    }
-
-.AddCategoryHeader {
-    margin-top: 150px;
-    margin-right: 300px;
-    float: right;
-}
-
-.AddCategory {
-    float: right;
-    margin-top: 20px;
-    margin-right: 800px;
-}
-
-    .AddCategory input[type="text"] {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: block;
-        width: 200px;
-    }
-
-    .AddCategory input[type="submit"] {
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .AddCategory input[type=button] {
-        margin-left: 50px;
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .AddCategory input[type="submit"]:hover {
-        color: white;
-        background-color: black;
-    }
-
-    .AddCategory input[type=button]:hover {
-        color: white;
-        background-color: black;
-    }
-
-.EditCategoryHeader {
-    float: right;
-    margin-right: 350px;
-    margin-top: 90px;
-}
-
-.EditCategory {
-    float: right;
-    margin-top: 30px;
-    margin-right: 830px;
-}
-
-    .EditCategory input[type=text] {
-        width: 200px;
-        margin-top: 20px;
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .EditCategory input[type=button] {
-        margin-left: 50px;
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .EditCategory input[type=submit] {
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-.LanguageHeader {
-    float: right;
-    margin-right: 350px;
-    margin-top: 90px;
-}
-
-.Language {
-    float: right;
-    margin-top: 50px;
-    margin-right: 750px;
-}
-
+.form-control{
+    display:block;
    
+    height: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+     box-shadow: 0 5px 6px -6px black;
+     margin-top:10px;
+     margin-right:10px;
+}
+.login-body input[type=text],input[type=password]{
+     width: 300px;
+}
+.form-control:focus
+{
+    outline:none;
+     box-shadow: 1px 1px 4px grey;
+}
+.form-group{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.login-footer{
+    margin-top:5px;
+    display:flex;
 
-    .Language table {
-        background-color: aliceblue;
-        margin-top: 20px;
-        margin-left: 90px;
-        padding: 10px;
+    justify-content:space-around;
+ 
+}
+.login-button{
+    padding:6px 12px;
+   cursor:pointer;
+   border-radius:4px;
+   border:1px solid transparent;
+   font-size:medium;
+  color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    font-weight:normal;
+     width:200px;
+}
+.login-button:hover{
+    background-color:	#FF6347;
+}
+.error{
+    color:red;
+}
+.Register-Infromation{
+    text-align:center;
+    margin:20px 0px 20px 0px;
+    color:blue;
+    text-decoration:underline;
+}
+.Register-sub-panel{
+    display:flex;
+    justify-content:space-around;
+}
+.Register-Button{
+    padding:5px;
+   cursor:pointer;
+   border-radius:4px;
+   border:1px solid transparent;
+   font-size:medium;
+  color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    font-weight:normal; width:200px;
+}
+.Register-Button:hover{
+    background-color:#FF6347;
+}
+.HeaderTogglePanel{
+    text-align:center;
+    padding:6px 12px 6px 12px;
+    background-color:#7FFF00;
+    margin-top:-7px;
+    cursor:pointer;
+    display:none;
+}
+.HeaderTogglePanel:hover{
+    background-color:#75eb00;
+}
+@media all and (max-width:580px)
+{
+    .headerContainer{
+        justify-content:space-around;
     }
-    .Language table tr:nth-child(even)
-    {
-        background-color:black;
+    .HeaderTogglePanel{
+        display:inline;
     }
+    .links{
+        flex-direction:column;    
 
-        .Language table td, th {
-            padding: 15px;
-        }
-
-    .Language a {
-        text-decoration: none;
-        color: black;
-        padding: 10px;
     }
-
-.AddCategoryLink {
-    margin-left: 100px;
-    margin-bottom: 50px;
-    border: red double;
-    border-radius: 8px;
-}
-
-.Language a:hover {
-    color: white;
-    background-color: black;
-    border-radius: 8px;
-}
-
-
-
-.AddLanguageHeader {
-    float: right;
-    margin-right: 250px;
-    margin-top: 150px;
-}
-
-.AddLanguage {
-    float: right;
-    margin-top: 20px;
-    margin-right: 880px;
-}
-
-    .AddLanguage input[type=text] {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: block;
-        width: 200px;
+    .links a{
+        border-right:none;
+        border-bottom:1px solid black;
+         
     }
-
-    .AddLanguage input[type=submit] {
-        padding: 10px;
-        border-radius: 8px;
+    .links a:last-child{
+        border-bottom:none;
     }
-
-    .AddLanguage input[type=button] {
-        padding: 10px;
-        border-radius: 8px;
-        margin-left: 50px;
+    .login_container {
+       margin:0% -7%;
     }
+}
+.Register-panel{
+    max-width:  calc(100% - 100px);
+    margin:0px auto;
+    border:1px solid blue;
+    border-radius:4px 4px 0px 0px;
+    box-shadow: 0px 3px 10px violet;
+    
+    
+}
+.Register-panel:hover
+{
+    box-shadow:0px 3px 10px grey;
+}
+.Register-Header{
+    display:flex;
+    flex-flow:column wrap;
+    font-weight:bolder;
+    color:white;
+    background-color:blueviolet;
+    padding:20px;
+    border-radius:4px 4px 0px 0px;
+    font-size:larger;
 
-    .AddLanguage input[type=submit]:hover {
-        color: white;
-        background-color: black;
+}
+.Register-Body{
+    display:flex;
+    flex-flow:row wrap;
+    padding:40px;
+}
+.Register-Body input[type=password],input[type=text],textarea,input[type=date],input[type=email],input[type=number]
+{
+    width:200px;
+}
+.Register-Body textarea{
+    height:50px;
+    
+}
+input[type=date]{
+    display:block;
+    
+    height: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+     box-shadow: 0 5px 6px -6px black;
+     margin-top:10px;
+    margin-right:40px;
+}
+input[type=date]:focus{
+    outline:none;
+}
+.Register-Gender{
+    margin-left:10px;
+    margin-right:22px;
+    position:relative;
+    margin-top:20px;
+}
+.Register-Footer{
+    display:flex;
+
+    justify-content:space-around;
+    margin-bottom:10px;
+}
+.Register-Button{
+    width:200px;
+}
+.error{
+    
+    color:black;
+    max-width:100px;
+    overflow:scroll;
+    color:red;
+    height:60px;
+    width:200px;
+
+}
+.Register-Gender error{
+    display:block;
+}
+@media all and (max-width:580px)
+{
+    .Register-panel{
+        display:flex;
+        flex-flow:column nowrap;
+        margin:0px auto;
+
     }
-
-    .AddLanguage input[type=button]:hover {
-        color: white;
-        background-color: black;
-    }
-
-.EditLanguageHeader {
-    float: right;
-    margin-right: 250px;
-    margin-top: 150px;
 }
+.sideBarContainer{
 
-.EditLanguage {
-    float: right;
-    margin-top: 20px;
-    margin-right: 800px;
 }
-
-    .EditLanguage input[type=text] {
-        display: block;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        width: 200px;
-    }
-
-    .EditLanguage input[type=submit] {
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .EditLanguage input[type=button] {
-        padding: 10px;
-        border-radius: 8px;
-        margin-left: 50px;
-    }
-
-    .EditLanguage input[type=submit]:hover {
-        color: white;
-        background-color: black;
-    }
-
-    .EditLanguage input[type=button]:hover {
-        color: white;
-        background-color: black;
-    }
-
-.ViewBookHeader {
-    float: right;
-    margin-right: 200px;
-    margin-top: 50px;
+.LeftNav ul li{
+    padding:5px 10px;
+    margin:5px 0px;
 }
-
-.ViewBook {
-    float: right;
-    margin-top: 20px;
-    margin-right: 150px;
-}
-
-.AddBookLink {
-    border: red double;
-    border-radius: 8px;
-}
-
-.ViewBook a {
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-}
-
-    .ViewBook a:hover {
-        color: white;
-        background-color: black;
-        border-radius: 8px;
-    }
-
-.ViewBook table {
-    background-color: lightblue;
-    margin-top: 30px;
-}
-
-    .ViewBook table tr:nth-child(even) {
-        background-color: lightyellow;
-    }
-
-.AddBookContainer {
-    float: right;
-    margin-right: 300px;
-    margin-top: 50px;
-}
-
-
-.AddBook input[type=text] {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 200px;
-}
-
-.AddBook select {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 200px;
-    height: 25px;
-    font-size: medium;
-}
-
-.AddBook input[type=number] {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 200px;
-}
-
-.AddBook input[type=submit] {
-    border-radius: 8px;
-    padding: 10px;
-}
-
-.AddBook input[type=button] {
-    border-radius: 8px;
-    padding: 10px;
-    margin-left: 30px;
-}
-
-.AddBook input[type=submit]:hover {
-    color: white;
-    background-color: black;
-    transition-timing-function: ease;
-}
-
-.AddBook input[type=button]:hover {
-    color: white;
-    background-color: black;
-    transition-timing-function: ease;
-}
-
-.EditBookContainer {
-    float: right;
-    margin-right: 300px;
-    margin-top: 50px;
-}
-
-.EditBook input[type=text] {
-    display: block;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.EditBook input[type=number] {
-    display: block;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.EditBook select {
-    display: block;
-    height: 25px;
-    font-size: medium;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.EditBook input[type=submit] {
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.EditBook input[type=button] {
-    padding: 10px;
-    border-radius: 8px;
-    margin-left: 20px;
-}
-
-.EditBook input[type=submit]:hover {
-    color: white;
-    background-color: black;
-}
-
-.EditBook input[type=button]:hover {
-    color: white;
-    background-color: black;
-}
-
-.ViewUserContainer {
-    float: left;
-    margin-left: 80px;
-}
-
-.ViewUser table {
-    background-color: lightblue;
-}
-
-    .ViewUser table td:nth-child(even) {
-        background-color: lightyellow;
-    }
-
-
-
-.ViewUserContainer a {
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    border: groove;
-    border-color: black;
-    border-radius: 8px;
-}
-
-    .ViewUserContainer a:hover {
-        color: white;
-        background-color: black;
-        border-radius: 8px;
-        border-color: yellow;
-    }
-
-.ViewUserHeader {
-    margin-left: 45%;
+.LeftNav ul li a:hover
+{
+    color:blue;
 }

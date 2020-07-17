@@ -143,9 +143,11 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\jquery-1.10.2.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="scripts\jquery-3.5.1.js" />
+    <Content Include="scripts\jquery-3.5.1.min.js" />
+    <Content Include="scripts\jquery-3.5.1.slim.js" />
+    <Content Include="scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_LASLayout.cshtml" />
@@ -185,7 +187,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -200,6 +201,8 @@
     <Content Include="Views\Book\AddBook.cshtml" />
     <Content Include="Views\Book\ViewBook.cshtml" />
     <Content Include="Views\Book\EditBook.cshtml" />
+    <Content Include="scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="scripts\jquery-3.5.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

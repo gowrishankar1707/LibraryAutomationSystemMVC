@@ -4,39 +4,66 @@
 <head>
     <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/scripts/jquery-3.5.1.js"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="links">
+<body class="boddyContainer">
+    <header class="headerContainer">Atheneum
+    <div class="HeaderTogglePanel">
+        ☰
+    </div>
+    </header>
 
+    <nav class="navContainer">
+        <div class="links">
+            @Html.ActionLink("Home", "Home", "HomeLAS")
             @if (Request.IsAuthenticated)
             {
                 @Html.ActionLink("Log Out", "Logout", "Account")
             }
             else
             {
-                @Html.ActionLink("Register", "Register", "Account")
-                <span> | </span>
-                @Html.ActionLink("Login", "Login", "Account")
-            }
-            <span> | </span>
-            @Html.ActionLink("Home", "Home", "HomeLAS")
-        </div>
-        <div class="LeftNav">
-            <ul>
-                @if (HttpContext.Current.User.IsInRole("admin"))
-                {
-                    <li>@Html.ActionLink("ViewCategory", "Category", "Category") </li>
-                    <li>@Html.ActionLink("View Language", "View_BookLanguage", "BookLanguage")</li>
-                    <li> @Html.ActionLink("View Book", "ViewBook", "Book") </li>
-                    <li>@Html.ActionLink("ManageUser", "ManageUser", "User")</li>
-                }
-            </ul>
-        </div>
-        <div class="RightContent">
-            @RenderBody()
-        </div>
 
-    </div>
+                    @Html.ActionLink("Login", "Login", "Account")
+            }
+           @Html.ActionLink("About","","")
+        </div>
+    </nav>
+    <main class="mainContainerForNav">
+        <aside class="sideBarContainer">
+            <div class="LeftNav">
+                <ul>
+                    @if (HttpContext.Current.User.IsInRole("admin"))
+                    {
+
+                        <li>@Html.ActionLink("ViewCategory", "Category", "Category") </li>
+                        <li>@Html.ActionLink("View Language", "View_BookLanguage", "BookLanguage")</li>
+                        <li> @Html.ActionLink("View Book", "ViewBook", "Book") </li>
+                        <li>@Html.ActionLink("ManageUser", "ManageUser", "User")</li>
+                    }
+                </ul>
+            </div>
+        </aside>
+
+        <main class="mainContainerForContent">
+            <div class="maincontentContainer">
+                @RenderBody()
+            </div>
+        </main>
+    </main>
+    <footer class="footerContainer">
+        <div class="footerContainer firstDiv">
+            <p class="copyRights">This Website is manage by <span class="copyRightsSpan"><i>Aspire Systems</i></span></p>
+        </div>
+    </footer>
+
+
 </body>
 </html>
+<script>
+    $(document).ready(function ()
+    {
+        $(".HeaderTogglePanel").click(function () {
+            $(".links").css("display", "flex");
+        });
+    });
+</script>

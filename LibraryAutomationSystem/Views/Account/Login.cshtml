@@ -4,27 +4,58 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
 <link href="~/Content/Site.css" rel="stylesheet" />
+<html>
+<head>
+    <script src="~/scripts/jquery-3.5.1.js"></script>
+</head>
 
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{
-    <div class="login-container">
-        <div class="username">
-            @Html.DisplayNameFor(Model => Model.MemberUserName)
-            @Html.TextBoxFor(Model => Model.MemberUserName,new { autocomplete = "off" })
-            @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
-        </div><br />
-        <div class="password">
-            @Html.DisplayNameFor(Model => Model.MemberPassword)
-            @Html.PasswordFor(Model => Model.MemberPassword, new { autocomplete = "off" })
-            @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
-        </div>
-        @Html.AntiForgeryToken()
-        <div class="submit">
-            <input type="submit" value="Login" />
-        </div>
+
+
+<body class="login">
+
+    <div class="login_container">
+        <header class="login_Header">
+            Login Genius
+        </header>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-body" }))
+            {
+
+            <div class="form-group">
+                @Html.DisplayNameFor(Model => Model.MemberUserName)
+                @Html.TextBoxFor(Model => Model.MemberUserName, new { @id = "userName", autocomplete = "off", @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(Model => Model.MemberPassword)
+                @Html.PasswordFor(Model => Model.MemberPassword, new { @id = "password", autocomplete = "off", @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
+            </div>
+            @Html.AntiForgeryToken()
+            <div class="login-footer">
+                <input type="submit" value="Login" class="login-button" id="submit" />
+            </div>
+            <hr />
+            <div class="Register-Infromation">If you are new Click Below</div>
+                <div class="Register-sub-panel">
+                    <input type="button" name="Register" class="Register-Button" value="Register" />
+                </div>
+
+        }
     </div>
-    
-}
 
+   
+
+   
+</body>
+
+</html>
+<script>
+        $(document).ready(function () {
+            $(".Register-Button").click(function()
+            {
+                window.location.href = "@Url.Action("Register","Account")";
+            })
+         
+        });
+</script>

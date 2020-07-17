@@ -36,7 +36,7 @@ namespace LibraryAutomationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                user.BookRequest =StaticInformation.BookRequest ;
+                user.BookRequest =StaticInformation.bookRequest ;//Each User has Book Request of 3
                 User userInput = AutoMapper.Mapper.Map<RegistrationModel, User>(user);
 
                 int result = accountBL.AddUser(userInput);
@@ -48,12 +48,17 @@ namespace LibraryAutomationSystem.Controllers
             }
             return View();
         }
-
+        //[HttpPost]
+        ////[ActionName("Login")]//Post Method of Login 
+        //[ValidateAntiForgeryToken]
         [HttpPost]
-        [ActionName("Login")]//Post Method of Login
+        
+        
+        [ActionName("Login")]
         [ValidateAntiForgeryToken]
-        public ActionResult Login_Post(LoginModel login)
+        public ActionResult Validate_User(LoginModel login)
         {
+            //LoginModel login = new LoginModel {MemberUserName=userName,MemberPassword=password };
             if (ModelState.IsValid)
             {
                 User user = AutoMapper.Mapper.Map<Models.LoginModel, Entity.User>(login);//Automapping the Login Model and User Entity
@@ -62,10 +67,13 @@ namespace LibraryAutomationSystem.Controllers
                 var authTicket = new FormsAuthenticationTicket(1, checkUser.MemberUserName, DateTime.Now, DateTime.Now.AddMinutes(20), false, checkUser.Role);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 HttpContext.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket));
-                if (checkUser.Role == Role.admin.ToString())//"True" if the  logined user is "Admin"                
-                    return RedirectToAction( "Home", "HomeLAS");
-                else if (checkUser.Role ==Role.user.ToString())//"True" if the Logined user is "User"           
-                    return RedirectToAction("");
+                if (checkUser.Role == Role.admin.ToString())//"True" if the  logined user is "Admin"   
+                {
+
+                    return RedirectToAction("Home","HomeLAS");
+                }
+                else if (checkUser.Role == Role.user.ToString())//"True" if the Logined user is "User"           
+                    return Json(new { data = StaticInformation.user }, JsonRequestBehavior.AllowGet);
             }
             return View();
         }
