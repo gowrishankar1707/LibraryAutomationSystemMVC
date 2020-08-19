@@ -7,7 +7,11 @@
     <script src="~/scripts/jquery-3.5.1.js"></script>
 </head>
 <body class="boddyContainer">
-    <header class="headerContainer">Atheneum
+    <header class="headerContainer">
+      <h1> Atheneum</h1>  
+    <div class="SearchBoxContainer">
+        <input type="text" placeholder="Search..." class="searchBox" />
+    </div>
     <div class="HeaderTogglePanel">
         ☰
     </div>
@@ -28,10 +32,10 @@
            @Html.ActionLink("About","","")
         </div>
     </nav>
-    <main class="mainContainerForNav">
+    <main class="mainContainer">
         <aside class="sideBarContainer">
             <div class="LeftNav">
-                <ul>
+                <ul class="mainLeftNav">
                     @if (HttpContext.Current.User.IsInRole("admin"))
                     {
 
@@ -44,8 +48,14 @@
             </div>
         </aside>
 
-        <main class="mainContainerForContent">
+        <main>
             <div class="maincontentContainer">
+                @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                    <div class="adminSearchBoxContainer">
+                        <input type="text" placeholder="Search...." class="adminSearchBox" />
+                    </div>
+                }
                 @RenderBody()
             </div>
         </main>

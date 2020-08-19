@@ -1,21 +1,66 @@
-﻿body {
+﻿*{
+    box-sizing:border-box;
     font-family: Arial,Arial, Helvetica, sans-serif;
+}
+/*
+    BODY PART
+*/
+body {
+    
     margin:0px auto;
     padding: 0;
     background-color: 	#FFFFFF;
+    padding:20px;
 }
+/*
+    ****************************** HEADER PART*********************
+*/
 .headerContainer{
-    font-size:xx-large;
-    font-weight:bolder;
     display:flex;
-
+    justify-content:space-between;
+    margin-bottom:10px;
+    
 }
-.navContainer{
-    margin:2% 2%;
+.headerContainer h1{
+    font-weight:300;
+    margin:0;
+    padding:0;
+}
+.headerContainer text{
+    font-weight:300;
+}
+.SearchBoxContainer input[type=text]
+{
+    width:300px;
+     padding: 6px;
+    height:auto;
+  
+  font-size:17px;
+}
+.SearchBoxContainer input[type=text]:focus{
+     outline:none;
+    border:1px solid #a9a9a9;
+    box-shadow:0 2px 3px #a9a9a9;
+}
+/*
+    ***********************************************MAIN CONTENTAINER PART*****************
+*/
+
+.mainContainer{
+    display:flex;
+}
+.mainContainer main{
+    flex:auto;
+}
+/*
+    ***********************************NAV PART***************************
+*/
+.navContainer {
+      margin-top: 2vh;
 }
 .links{
     display:flex;
-    
+     
 }
 .links a{
     
@@ -24,7 +69,6 @@
     padding:20px;
     flex:auto;
     text-align:center;
-    align-items:center;
     background-color:	#7FFF00;
     border-right:1px solid black;
     
@@ -35,9 +79,7 @@
 .links a:hover{
    background-color:#75eb00;
 }
-.mainContainerForNav{
-    display:flex;
-}
+
 .LeftNav ul{
     list-style-type:none;
 }
@@ -45,9 +87,19 @@
     text-decoration:none;
     color:black;
 }
-
+/*
+    ********************************* MAIN CONTENT CONTAINER PART *******************
+*/
+.maincontentContainer{
+    margin-top:5vh;
+}
+/*
+    ****************************************LOGIN PART************************************
+*/
 .login_container{
-    margin-top:20px;    
+    top:50%;
+    left:50%;
+    transform:translate(-20%,0);   
     border-color:black;
     width:400px;
     border:1px solid blue;
@@ -66,6 +118,9 @@
 .login-body{
     padding:20px;
 }
+/*
+    *****************************************LOGIN HEADER*******************************
+*/
 .login_Header
 {
     font-weight:bolder;
@@ -76,11 +131,13 @@
     font-size:larger;
 
 }
-
+/*
+    **************************LOGIN FORM CONTROL***************************************
+*/
 .form-control{
     display:block;
    
-    height: 20px;
+    height: 35px;
     padding: 6px 12px;
     font-size: 14px;
     color: #555;
@@ -91,6 +148,9 @@
      margin-top:10px;
      margin-right:10px;
 }
+/*
+    *************************************LOGIN BODY ELEMENTS********************************
+*/
 .login-body input[type=text],input[type=password]{
      width: 300px;
 }
@@ -103,6 +163,9 @@
     margin-top:15px;
     margin-bottom:15px;
 }
+/*
+    ******************************************LOGIN FOOTER***********************
+*/
 .login-footer{
     margin-top:5px;
     display:flex;
@@ -144,29 +207,34 @@
    border-radius:4px;
    border:1px solid transparent;
    font-size:medium;
-  color: #fff;
+    color: #fff;
     background-color: #f0ad4e;
-    border-color: #eea236;
+    border-color: #fff;
     font-weight:normal; width:200px;
 }
 .Register-Button:hover{
-    background-color:#FF6347;
-}
+       background-color:	#FF6347;
+}   
 .HeaderTogglePanel{
     text-align:center;
     padding:6px 12px 6px 12px;
-    background-color:#7FFF00;
-    margin-top:-7px;
+    background-color:#fff;
+    color:black;
     cursor:pointer;
     display:none;
 }
 .HeaderTogglePanel:hover{
-    background-color:#75eb00;
+     border-radius:40px;
+     background-color:		#ADFF2F;
 }
+/*
+    ********************************************MEDIA QUERIES FOR LOGIN,REGISTER AND LAYOUT************************
+*/
 @media all and (max-width:580px)
 {
     .headerContainer{
         justify-content:space-around;
+        align-items:center;
     }
     .HeaderTogglePanel{
         display:inline;
@@ -184,12 +252,21 @@
         border-bottom:none;
     }
     .login_container {
-       margin:0% -7%;
+       left:0%;
+       transform:translate(-90%,0);
+    }
+     .Register-panel{
+        display:flex;
+        flex-flow:column nowrap;
+        transform:translate(12%,2%);
+
     }
 }
+/*
+    *********************************************REGISTER PART*************************************
+*/
 .Register-panel{
     max-width:  calc(100% - 100px);
-    margin:0px auto;
     border:1px solid blue;
     border-radius:4px 4px 0px 0px;
     box-shadow: 0px 3px 10px violet;
@@ -200,6 +277,9 @@
 {
     box-shadow:0px 3px 10px grey;
 }
+/*
+    ****************************************************REGISTER HEADER********************************
+*/
 .Register-Header{
     display:flex;
     flex-flow:column wrap;
@@ -211,11 +291,17 @@
     font-size:larger;
 
 }
+/*
+    **************************************REGISTER BODY*****************************
+*/
 .Register-Body{
     display:flex;
     flex-flow:row wrap;
     padding:40px;
 }
+/*
+********************************************** REGISTER BODY ELEMETNS*************************
+    */
 .Register-Body input[type=password],input[type=text],textarea,input[type=date],input[type=email],input[type=number]
 {
     width:200px;
@@ -227,7 +313,7 @@
 input[type=date]{
     display:block;
     
-    height: 20px;
+    height: 35px;
     padding: 6px 12px;
     font-size: 14px;
     color: #555;
@@ -239,6 +325,7 @@ input[type=date]{
     margin-right:40px;
 }
 input[type=date]:focus{
+    height:35px;
     outline:none;
 }
 .Register-Gender{
@@ -247,45 +334,64 @@ input[type=date]:focus{
     position:relative;
     margin-top:20px;
 }
+/*
+    ********************************REGISTER FOOTER******************************
+*/
 .Register-Footer{
     display:flex;
-
     justify-content:space-around;
     margin-bottom:10px;
 }
 .Register-Button{
     width:200px;
 }
+/*
+    *************************** VALIDATION ERROR MESSAGE*******************************
+*/
 .error{
     
     color:black;
     max-width:100px;
     overflow:scroll;
     color:red;
-    height:60px;
+    height:50px;
     width:200px;
 
 }
+.gender{
+    display:block;
+    width:250px;
+    overflow:hidden;
+}
+
 .Register-Gender error{
     display:block;
 }
-@media all and (max-width:580px)
-{
-    .Register-panel{
-        display:flex;
-        flex-flow:column nowrap;
-        margin:0px auto;
-
-    }
-}
-.sideBarContainer{
-
-}
+/*
+    ***********************************LEFT NAV PART*******************************
+*/
 .LeftNav ul li{
     padding:5px 10px;
     margin:5px 0px;
 }
-.LeftNav ul li a:hover
+.mainLeftNav li a:hover
 {
     color:blue;
 }
+/*
+    *********************************** ADMIN SEARCH BOX************************
+ */
+.adminSearchBoxContainer input[type=text]{
+    margin-left: 50%;
+    transform: translateX(-80%);
+     width:300px;
+     padding: 6px;
+    height:auto;
+  font-size:17px;
+}
+.adminSearchBoxContainer input[type=text]:focus{
+    outline:none;
+    border:1px solid #a9a9a9;
+    box-shadow:0 2px 3px #a9a9a9;
+}
+
