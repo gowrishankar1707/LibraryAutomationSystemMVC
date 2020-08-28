@@ -83,6 +83,7 @@ namespace LibraryAutomationSystem.Controllers
             return View(findedBook);
         }
         [HttpPost]
+        [ActionName("EditBook")]
         public ActionResult UpdateBook(Models.EditBookModel editBook)//Get the Updated Details from Model
         {
             ICategoryBL categoryBL = new CategoryBL();
@@ -97,7 +98,7 @@ namespace LibraryAutomationSystem.Controllers
                     return RedirectToAction("ViewBook");//If update successfully It returns to View Book
             }
 
-            return View("EditBook", new { bookId = editBook.BookId });//If modelstate is false it returns to Edit View
+            return View(editBook);//If modelstate is false it returns to Edit View
         }
 
 

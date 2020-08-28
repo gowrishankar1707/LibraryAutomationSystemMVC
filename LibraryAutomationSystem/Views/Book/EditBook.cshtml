@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "EditBook";
 }
-<div class="EditBookContainer">
-    <h2 class="EditBookHeader">Edit Book</h2>
-    @using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
+<div class="EditBookContainer row container" >
+    <h2 class="Heading">Edit&mdash;Book</h2>
+    @using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
     {
         <div class="EditBook">
             <div>
@@ -13,37 +13,37 @@
             </div>
             <div>
                 @Html.DisplayNameFor(Model => Model.BookTittle)
-                @Html.TextBoxFor(Model => Model.BookTittle, new { maxlength = 25 })
-                @Html.ValidationMessageFor(Model => Model.BookTittle)
+                @Html.TextBoxFor(Model => Model.BookTittle, new { maxlength = 25,@class="form-control" })
+                @Html.ValidationMessageFor(Model => Model.BookTittle, "", new { @class = "error" })
             </div>
             <div>
                 @Html.DisplayNameFor(Model => Model.Category)
-                @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select BookLanguage")
+                @Html.DropDownListFor(Model => Model.CategoryId, ViewBag.Category as SelectList, "Select BookLanguage", new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.CategoryId)
             </div>
             <div>
                 @Html.DisplayNameFor(Model => Model.BookLanguage)
-                @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage")
+                @Html.DropDownListFor(Model => Model.BookLanguageId, ViewBag.BookLanguage as SelectList, "Select BookLanguage", new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.BookLanguageId)
             </div>
             <div>
                 @Html.DisplayNameFor(Model => Model.AuthorName)
-                @Html.TextBoxFor(Model => Model.AuthorName, new { maxlength = 25 })
-                @Html.ValidationMessageFor(Model => Model.AuthorName)
+                @Html.TextBoxFor(Model => Model.AuthorName, new { maxlength = 25, @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.AuthorName, "", new { @class = "error" })
             </div>
             <div>
                 @Html.DisplayNameFor(Model => Model.BookCount)
-                @Html.EditorFor(Model => Model.BookCount)
-                @Html.ValidationMessageFor(Model => Model.BookCount)
+                @Html.TextBoxFor(Model => Model.BookCount,new { @class = "form-control", maxlength = 3 })
+                @Html.ValidationMessageFor(Model => Model.BookCount, "", new { @class = "error" })
             </div>
             <div>
                 @Html.DisplayNameFor(Model => Model.BookType)
-                @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType")
-                @Html.ValidationMessageFor(Model => Model.BookType)
+                @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType", new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.BookType, "", new { @class = "error" })
             </div>
             <div>
-                <input type="submit" value="Update" />
-                <input type="button" value="Cancel" onclick='window.location="@Url.Action("ViewBook","Book")";' />
+                <input type="submit" value="Update" class="btn link" />
+                <input type="button" value="Cancel" class="btn link"  onclick='window.location="@Url.Action("ViewBook","Book")";' />
             </div>
         </div>
     }

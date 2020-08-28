@@ -8,13 +8,18 @@
 </head>
 <body class="boddyContainer">
     <header class="headerContainer">
-      <h1> Atheneum</h1>  
-    <div class="SearchBoxContainer">
-        <input type="text" placeholder="Search..." class="searchBox" />
-    </div>
-    <div class="HeaderTogglePanel">
-        ☰
-    </div>
+        <div class="HeaderTogglePanel clearfix" id="toggle-open">
+            ☰
+        </div>
+        <div class="row">
+            <div class="main-heading clear-fix">
+                <h1> Atheneum</h1>
+            </div>
+            <div class="SearchBoxContainer clear-fix">
+                <input type="text" placeholder="Search..." class="searchBox" />
+            </div>
+        </div>
+   
     </header>
 
     <nav class="navContainer">
@@ -34,17 +39,18 @@
     </nav>
     <main class="mainContainer">
         <aside class="sideBarContainer">
-            <div class="LeftNav">
-                <ul class="mainLeftNav">
+            <div class="LeftNav">              
+                <div class="mainLeftNav">
+                    <a href="#" class="toggle-close" id="toggle-close">&times;</a>
                     @if (HttpContext.Current.User.IsInRole("admin"))
                     {
 
-                        <li>@Html.ActionLink("ViewCategory", "Category", "Category") </li>
-                        <li>@Html.ActionLink("View Language", "View_BookLanguage", "BookLanguage")</li>
-                        <li> @Html.ActionLink("View Book", "ViewBook", "Book") </li>
-                        <li>@Html.ActionLink("ManageUser", "ManageUser", "User")</li>
+                        @Html.ActionLink("ViewCategory", "Category", "Category")
+                        @Html.ActionLink("View Language", "View_BookLanguage", "BookLanguage")
+                         @Html.ActionLink("View Book", "ViewBook", "Book")
+                        @Html.ActionLink("ManageUser", "ManageUser", "User")
                     }
-                </ul>
+                </div>
             </div>
         </aside>
 
@@ -72,8 +78,12 @@
 <script>
     $(document).ready(function ()
     {
-        $(".HeaderTogglePanel").click(function () {
-            $(".links").css("display", "flex");
+        $("#toggle-open").click(function () {
+            $(".mainLeftNav").css("width", "15%");
         });
+        $("#toggle-close").click(function () {
+            $(".mainLeftNav").css("width", "0%");
+        });
+
     });
 </script>

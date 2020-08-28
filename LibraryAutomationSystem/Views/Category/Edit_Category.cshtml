@@ -4,20 +4,20 @@
     ViewBag.Title = "Edit_Category";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
-<h2 class="EditCategoryHeader">Edit Category</h2>
+<h2 class="Heading">Edit&mdash;Category</h2>
 
 @using (Html.BeginForm("Update_Category", "Category", FormMethod.Post))
 {
     @Html.HiddenFor(Model => Model.CategoryId)
-    <div class="EditCategory">
+    <div class="EditCategoryContainer row container">
         <div>
             @Html.LabelFor(Model => Model.CategoryName)
-            @Html.EditorFor(Model => Model.CategoryName)
+            @Html.TextBoxFor(Model => Model.CategoryName,new { @class="form-control" })
             @Html.ValidationMessageFor(Model => Model.CategoryName)
         </div>
         <div>
-            <input type="submit" />
-            <input type="button" value="Cancel" onclick='window.location="@Url.Action("Category","Category")";' />
+            <input type="submit" class="btn link"  />
+            <input type="button" value="Cancel" class="link btn" onclick='window.location="@Url.Action("Category","Category")";' />
         </div>
     </div>
 }

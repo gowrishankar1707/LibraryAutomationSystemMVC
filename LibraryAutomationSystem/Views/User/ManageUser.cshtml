@@ -5,21 +5,21 @@
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
 <script src="~/Content/Library.js"></script>
-<div class="ViewUserContainer">
-    <h2 class="ViewUserHeader">View User</h2>
-    <div class="ViewUser">
+<div class="row">
+    <h2 class="Heading">View&mdash;User</h2>
+    <div class="ViewUserContainer">
 
-        <table border="1">
+        <table>
             <tr>
-                <td>Name</td>
-                <td>UserName</td>
-                <td>DOB</td>
-                <td>DOJ</td>
-                <td>Sex</td>
-                <td>PhoneNumber</td>
-                <td>Email</td>
-                <td>Address</td>
-                <td>Actions</td>
+                <th>Name</th>
+                <th>UserName</th>
+                <th>DOB</th>
+                <th>DOJ</th>
+                <th>Sex</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
             </tr>
             @foreach (LibraryAutomationSystem.Entity.User user in @Model)
             {
@@ -50,7 +50,7 @@
                         @user.MemberAddress
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "DeleteUser", new { userId = user.Id }, new { onclick = "return delete_Function('" + user.MemberUserName + "');" })
+                        @Html.ActionLink("Delete", "DeleteUser", new { userId = user.Id }, new { onclick = "return delete_Function('" + user.MemberUserName + "');",@class="link btn" })
                     </td>
                 </tr>
             }

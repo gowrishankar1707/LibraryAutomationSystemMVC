@@ -5,44 +5,45 @@
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
 <script src="~/Content/Library.js"></script>
+<div class="row">
+    <h2 class="Heading">Category</h2>
+    <div class="categoryContainer">
 
-  <h2 class="CategoryHeader">Category</h2>     
-<div class="category">
-   
-    @Html.ActionLink("Create Category", "Create_Category", "Category", new { @class = "CreateCategory" })
-    <table border="1">
-        <tr>
-            <td>
-                CategoryID
-            </td>
-            <td>
-                CategoryName
-            </td>
-            <td>
-                Action
-            </td>
-
-        </tr>
-
-        @foreach (LibraryAutomationSystem.Entity.Category item in @Model)
-
-        {
+        @Html.ActionLink("Create Category", "Create_Category", "Category", new { @class = "addCategory btn" })
+        <table  class="table">
             <tr>
-                <td>
-
-                    @item.CategoryId
-                </td>
-
-                <td>
-                    @item.CategoryName
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit_Category", new { CategoryId = item.CategoryId })
-                    @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId }, new { onclick= "return delete_Function('"+item.CategoryName+"');" })
-                </td>
+                <th>
+                    CategoryID
+                </th>
+                <th>
+                    CategoryName
+                </th>
+                <th>
+                    Action
+                </th>
 
             </tr>
 
-        }
-    </table>
+            @foreach (LibraryAutomationSystem.Entity.Category item in @Model)
+
+            {
+                <tr>
+                    <td>
+
+                        @item.CategoryId
+                    </td>
+
+                    <td>
+                        @item.CategoryName
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit_Category", new {CategoryId = item.CategoryId },new {@class="link btn" })
+                        @Html.ActionLink("Delete", "Delete_Category", new { CategoryId = item.CategoryId }, new { onclick = "return delete_Function('" + item.CategoryName + "');",@class="link btn" })
+                    </td>
+
+                </tr>
+
+            }
+        </table>
+    </div>
 </div>

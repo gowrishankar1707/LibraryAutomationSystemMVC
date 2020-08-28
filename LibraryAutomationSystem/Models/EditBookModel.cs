@@ -22,6 +22,7 @@ namespace LibraryAutomationSystem.Models
         [RegularExpression("^[A-Z][A-Za-z]*$",ErrorMessage ="Author Name first letter should be in capital letter and it does'nt accept numbers")]
         public string AuthorName { get; set; }
         [Required]
+        [RegularExpression("[1-100]",ErrorMessage ="Book count should be in number")]
         public byte BookCount { get; set; }
         [Required]
         public BookType BookType { get; set; }

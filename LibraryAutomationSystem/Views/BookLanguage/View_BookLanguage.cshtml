@@ -5,31 +5,33 @@
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
 <script src="~/Content/Library.js"></script>
-<h2 class="LanguageHeader">View BookLanguage</h2>
-<div class="Language">
-    @Html.ActionLink("Add Language", "Create_BookLanguage", "BookLanguage",new { @class="AddCategoryLink"})
-    <table border="1">
-        <tr>
-             <td>
-                Book Language
-            </td>
-            <td>
-                Actions
-            </td>
-        </tr>
-        @foreach (LibraryAutomationSystem.Entity.BookLanguage items in Model)
-        {@Html.HiddenFor(Model=>items.BookLanguageId)
+<div class="row">
+    <h2 class="Heading">View Book&mdash;Language</h2>
+    <div class="Language">
+        @Html.ActionLink("Add Language", "Create_BookLanguage", "BookLanguage", new { @class = "link btn" })
+        <table>
             <tr>
-                <td>
-                    @items.BookLanguageName
-                </td>
-
-                <td>
-                    @Html.ActionLink("Edit", "Edit_Book_Language", new { bookLanguageId = items.BookLanguageId })
-                    @Html.ActionLink("Delete", "Delete_Book_Language", new { bookLanguageId = items.BookLanguageId },new {  onclick = "return delete_Function('"+ items.BookLanguageName+"');" })
-                </td>
+                <th>
+                    Book Language
+                </th>
+                <th>
+                    Actions
+                </th>
             </tr>
-        }
+            @foreach (LibraryAutomationSystem.Entity.BookLanguage items in Model)
+            {@Html.HiddenFor(Model => items.BookLanguageId)
+                <tr>
+                    <td>
+                        @items.BookLanguageName
+                    </td>
 
-    </table>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit_Book_Language", new { bookLanguageId = items.BookLanguageId }, new { @class = "link btn" })
+                        @Html.ActionLink("Delete", "Delete_Book_Language", new { bookLanguageId = items.BookLanguageId }, new { onclick = "return delete_Function('" + items.BookLanguageName + "');", @class = "link btn" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
 </div>

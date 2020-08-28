@@ -5,17 +5,17 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 @using (Html.BeginForm("Create_Category", "Category", FormMethod.Post))
 {
-    <h2 class="AddCategoryHeader">Add Category</h2>
-    <div class="AddCategory">
+    <h2 class="Heading">Add&mdash;Category</h2>
+    <div class="AddCategoryContainer row container">
         <div>
             @Html.DisplayNameFor(Model => Model.CategoryName)
-            @Html.TextBoxFor(Model => Model.CategoryName, new { maxlength = 50, autocomplete = "off" })
+            @Html.TextBoxFor(Model => Model.CategoryName, new { maxlength = 50, autocomplete = "off",@class="form-control" })
             @Html.ValidationMessageFor(Model => Model.CategoryName, "",  new { @class = "error" })
 
         </div>
         <div>
-            <input type="submit"  />
-            <input type="button" value="Cancel" onclick='window.location="@Url.Action("Category","Category")";' />
+            <input type="submit" class="link btn" />
+            <input type="button" class="link btn"  value="Cancel" onclick='window.location="@Url.Action("Category","Category")";' />
         </div>
     </div>
 }

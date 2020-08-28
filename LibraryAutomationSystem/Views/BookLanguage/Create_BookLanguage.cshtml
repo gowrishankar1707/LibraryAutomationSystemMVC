@@ -4,20 +4,20 @@
     ViewBag.Title = "Create_BookLanguage";
 }
 
-<h2 class="AddLanguageHeader">Create BookLanguage</h2>
+<h2 class="Heading">Create&mdash;BookLanguage</h2>
 
 @using (Html.BeginForm("Create_BookLanguage", "BookLanguage", FormMethod.Post))
 {
-    <div class="AddLanguage">
+    <div class="AddLanguagecontainer row container">
         <div>
             @Html.DisplayNameFor(Model => Model.BookLanguageName)
-            @Html.TextBoxFor(Model => Model.BookLanguageName, new { maxlength = 15, autocomplete = "off" })
+            @Html.TextBoxFor(Model => Model.BookLanguageName, new { maxlength = 15, autocomplete = "off",@class="form-control" })
             @Html.ValidationMessageFor(Model => Model.BookLanguageName, "", new { @class = "error" })
         </div>
         <div>
             @Html.AntiForgeryToken()
-            <input type="submit" />
-            <input type="button" value="Cancel" onclick='window.location="@Url.Action("View_BookLanguage","BookLanguage")";' />
+            <input type="submit" class="link btn" />
+            <input type="button" class="link btn"  value="Cancel" onclick='window.location="@Url.Action("View_BookLanguage","BookLanguage")";' />
         </div>
     </div>
 }

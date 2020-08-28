@@ -4,19 +4,19 @@
     ViewBag.Title = "Edit_Book_Language";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
-<h2 class="EditLanguageHeader">Edit Book Language</h2>
+<h2 class="Heading">Edit Book&mdash;Language</h2>
 @using (Html.BeginForm("Update_Book_Language", "BookLanguage", FormMethod.Post))
 {
-<div class="EditLanguage">
+<div class="EditLanguageContainer row container">
     @Html.HiddenFor(Model => Model.BookLanguageId)
     <div>
         @Html.DisplayNameFor(Model => Model.BookLanguageName)
-        @Html.TextBoxFor(Model => Model.BookLanguageName, new { maxlength = 25 })
+        @Html.TextBoxFor(Model => Model.BookLanguageName, new { maxlength = 25,@class="form-control" })
         @Html.ValidationMessageFor(Model => Model.BookLanguageName)
     </div>
     <div>
-        <input type="submit" value="update" />
-        <input type="button" value="Cancel" onclick='window.location="@Url.Action("View_BookLanguage","BookLanguage")";' />
+        <input type="submit" value="update" class="btn link"/>
+        <input type="button" value="Cancel" class="btn link"  onclick='window.location="@Url.Action("View_BookLanguage","BookLanguage")";' />
     </div>
 </div>
 }

@@ -1,4 +1,10 @@
-﻿*{
+﻿/*
+    blue color:#2874f0
+    orange color:#f0ad4e
+    light grey color: #E4E4E4
+*/
+
+*{
     box-sizing:border-box;
     font-family: Arial,Arial, Helvetica, sans-serif;
 }
@@ -11,16 +17,80 @@ body {
     padding: 0;
     background-color: 	#FFFFFF;
     padding:20px;
+    font-size:18px;
+}
+/*
+   **********************REUSABLE CONTENTS******************
+*/
+.btn{
+    display:inline-block;
+    font-size:medium;
+     background-color: #f0ad4e;
+    border-color: #eea236;
+    font-weight:normal;
+     padding:6px 12px;
+   cursor:pointer;
+   border-radius:4px;
+   border:1px solid transparent;
+   font-size:medium;
+  color: #fff;
+  transition:background-color 0.4s; 
+}
+
+.btn:focus,
+.btn:hover{
+    outline:1px solid #f0ad4e;
+    background-color:	#FF6347;
+}
+.clear-fix{zoom:1}
+.clearfix:after{
+    clear:both;
+    content:'.';
+    display:block;
+    visibility:hidden;
+    height:0;
+}
+.row{
+    max-width:1140px;
+    margin:0 auto;
+}
+h1{
+    margin:0;
+}
+.link{
+    text-decoration:none;
+}
+.Heading{
+    margin-top: 10px;
+    margin-bottom:20px;
+    text-align:center;
+    text-transform:uppercase;
+}
+.container input[type=text]
+{
+    margin-bottom:10px;
+}
+/*
+    *************************************   HEADINGS    **************************************
+*/
+h2{
+    font-weight:300;
+    font-size:180%;
+    margin:0;
+    padding:0;
+}
+h2::after{
+    display:block;
+    height:2.5px;
+    background-color:#f0ad4e;
+    content:"";
+    width:200px;
+    margin:10px auto 0 auto;
 }
 /*
     ****************************** HEADER PART*********************
 */
-.headerContainer{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-    
-}
+
 .headerContainer h1{
     font-weight:300;
     margin:0;
@@ -29,18 +99,42 @@ body {
 .headerContainer text{
     font-weight:300;
 }
+.SearchBoxContainer{
+    float:right;
+}
 .SearchBoxContainer input[type=text]
 {
     width:300px;
      padding: 6px;
     height:auto;
-  
+    margin:0;
   font-size:17px;
 }
 .SearchBoxContainer input[type=text]:focus{
      outline:none;
     border:1px solid #a9a9a9;
     box-shadow:0 2px 3px #a9a9a9;
+}
+.main-heading{
+    float:left;
+}
+.HeaderTogglePanel{
+    text-align:center;
+    padding:6px 12px 6px 12px;
+    background-color:#fff;
+    color:#000;
+    cursor:pointer;
+    font-size:xx-large;
+    transition: background-color 0.2s, color 0.5s;
+    float:left;
+    border-radius:40px;
+    position:absolute;
+    top:15px;
+}
+.HeaderTogglePanel:hover{
+     
+     background-color:#2874f0;
+     color:#fff;
 }
 /*
     ***********************************************MAIN CONTENTAINER PART*****************
@@ -56,7 +150,7 @@ body {
     ***********************************NAV PART***************************
 */
 .navContainer {
-      margin-top: 2vh;
+     margin-top: 3.5%;
 }
 .links{
     display:flex;
@@ -65,19 +159,20 @@ body {
 .links a{
     
     text-decoration:none;
-    color:black;
+    color:#fff;
     padding:20px;
     flex:auto;
     text-align:center;
-    background-color:	#7FFF00;
+    background-color:	#2874f0;
     border-right:1px solid black;
+    transition: background-color 0.5s;
     
 }
 .links a:last-child{
     border-right:none;
 }
 .links a:hover{
-   background-color:#75eb00;
+   background-color:#7A80FF;
 }
 
 .LeftNav ul{
@@ -97,19 +192,18 @@ body {
     ****************************************LOGIN PART************************************
 */
 .login_container{
-    top:50%;
-    left:50%;
-    transform:translate(-20%,0);   
-    border-color:black;
+    
+     margin-top: 5%;
+    margin-left: 40%;
     width:400px;
-    border:1px solid blue;
+    border:1px solid #2874f0;
     box-shadow:0px 10px 10px -6px #777372;
     border-radius:4px;
     position:relative;
     display:flex;
     flex-direction:column; 
-    margin: 10% 100%;
-    flex:1 0 auto;
+    transition: box-shadow 0.4s;
+
 }
 .login_container:hover
 {
@@ -123,16 +217,18 @@ body {
 */
 .login_Header
 {
+    width:100%;
     font-weight:bolder;
     color:white;
-    background-color:blueviolet;
+    background-color:#2874f0;
     padding:20px;
     border-radius:4px 4px 0px 0px;
     font-size:larger;
+    border: 1px solid #4F56F0;
 
 }
 /*
-    **************************LOGIN FORM CONTROL***************************************
+    **************************  FORM CONTROL    ***************************************
 */
 .form-control{
     display:block;
@@ -144,9 +240,7 @@ body {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-     box-shadow: 0 5px 6px -6px black;
-     margin-top:10px;
-     margin-right:10px;
+     box-shadow: 0 5px 6px -6px black;  
 }
 /*
     *************************************LOGIN BODY ELEMENTS********************************
@@ -174,26 +268,15 @@ body {
  
 }
 .login-button{
-    padding:6px 12px;
-   cursor:pointer;
-   border-radius:4px;
-   border:1px solid transparent;
-   font-size:medium;
-  color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236;
-    font-weight:normal;
-     width:200px;
+    width:200px;
 }
-.login-button:hover{
-    background-color:	#FF6347;
-}
+
 .error{
     color:red;
 }
 .Register-Infromation{
     text-align:center;
-    margin:20px 0px 20px 0px;
+    margin:20px auto;
     color:blue;
     text-decoration:underline;
 }
@@ -202,39 +285,16 @@ body {
     justify-content:space-around;
 }
 .Register-Button{
-    padding:5px;
-   cursor:pointer;
-   border-radius:4px;
-   border:1px solid transparent;
-   font-size:medium;
-    color: #fff;
-    background-color: #f0ad4e;
-    border-color: #fff;
-    font-weight:normal; width:200px;
-}
-.Register-Button:hover{
-       background-color:	#FF6347;
+    width:200px;
 }   
-.HeaderTogglePanel{
-    text-align:center;
-    padding:6px 12px 6px 12px;
-    background-color:#fff;
-    color:black;
-    cursor:pointer;
-    display:none;
-}
-.HeaderTogglePanel:hover{
-     border-radius:40px;
-     background-color:		#ADFF2F;
-}
+
 /*
     ********************************************MEDIA QUERIES FOR LOGIN,REGISTER AND LAYOUT************************
 */
 @media all and (max-width:580px)
 {
-    .headerContainer{
-        justify-content:space-around;
-        align-items:center;
+    .navContainer{
+        margin-top:10%;
     }
     .HeaderTogglePanel{
         display:inline;
@@ -252,8 +312,7 @@ body {
         border-bottom:none;
     }
     .login_container {
-       left:0%;
-       transform:translate(-90%,0);
+       margin-left:5%;
     }
      .Register-panel{
         display:flex;
@@ -267,7 +326,7 @@ body {
 */
 .Register-panel{
     max-width:  calc(100% - 100px);
-    border:1px solid blue;
+    border:1px solid #2874f0;
     border-radius:4px 4px 0px 0px;
     box-shadow: 0px 3px 10px violet;
     
@@ -285,7 +344,7 @@ body {
     flex-flow:column wrap;
     font-weight:bolder;
     color:white;
-    background-color:blueviolet;
+    background-color:#2874f0;
     padding:20px;
     border-radius:4px 4px 0px 0px;
     font-size:larger;
@@ -370,13 +429,46 @@ input[type=date]:focus{
 /*
     ***********************************LEFT NAV PART*******************************
 */
-.LeftNav ul li{
-    padding:5px 10px;
-    margin:5px 0px;
+.mainLeftNav{
+    top:0;
+    margin:0;
+    padding:5px 0px;
+     height: 100%; 
+    position: fixed; 
+  z-index: 1;
+  width:0;
+  overflow-x: hidden;
+    padding-top: 60px; 
+  transition: 0.5s;
+  background-color:#2874f0;
 }
-.mainLeftNav li a:hover
+.mainLeftNav a{
+     margin: 10px 2px;
+    border-bottom:2px solid transparent;
+    transition: border-bottom 0.4s;
+    color:#fff;
+    display:block;
+    text-transform:uppercase;
+    padding: 10px 10px 1px 10px;
+   
+}
+.mainLeftNav a{
+    text-decoration:none;
+    color:#fff;
+}
+.mainLeftNav a:hover
 {
-    color:blue;
+    border-bottom:2px solid #f0ad4e;
+}
+.toggle-close{
+    font-size:xx-large;
+    left: 80%;
+    top: 2%;
+    position: absolute;
+    z-index:2;
+    transition: visibility 2s;
+    text-decoration:none;
+    color:#fff;
 }
 /*
     *********************************** ADMIN SEARCH BOX************************
@@ -394,4 +486,61 @@ input[type=date]:focus{
     border:1px solid #a9a9a9;
     box-shadow:0 2px 3px #a9a9a9;
 }
+/*
+    **************************************  CATEGORY PART   *****************************
+*/
 
+.addCategory{
+
+    text-decoration:none;
+    margin-bottom:10px;
+}
+/*
+    **********************************  FORMAT  TABLE  **************************************
+*/
+table{
+    border-radius:8px;
+    border-collapse:collapse;
+    width:100%;
+    margin-top:10px;
+}
+table th{
+    background-color:#2874f0;
+    font-weight:300;
+    color:#fff;
+    padding:5px 10px;
+    text-transform:uppercase;
+    
+}
+table th:first-child{
+    border-radius:8px 0px 0px 0px;
+}
+table th:last-child{
+    border-radius:0px 8px 0px 0px;
+}
+table tr td{
+    padding:5px 10px;
+    text-align:center;
+}
+th,td{
+    border-bottom:2px solid #555;
+}
+tr{
+    transition:background-color 0.4s;
+}
+tr:hover{
+    background-color:#E4E4E4;
+}
+/*
+    ***************************************************     ADD BOOK   **********************************************
+
+*/
+.AddBookContainer select{
+    margin-bottom:10px;
+}
+/*
+    *************************************************   EDIT BOOT   ******************************************************
+*/
+.EditBookContainer select{
+    margin-bottom:10px;
+}
