@@ -50,6 +50,7 @@ namespace LibraryAutomationSystem.Controllers
             return View(edit_language);
         }
         [HttpPost]
+        [ActionName("Edit_Book_Language")]
         public ActionResult Update_Book_Language(Models.EditLanguageModel editLanguage)//Update the Book 
         {
             if (ModelState.IsValid)
@@ -58,7 +59,7 @@ namespace LibraryAutomationSystem.Controllers
                 if (bookLanguageBL.UpdateBookLanguage(bookLanguage) >= 1)
                     return RedirectToAction("View_BookLanguage");
             }
-            return RedirectToAction("Edit_Book_Language", new { bookLanguageId = editLanguage.BookLanguageId });//Modelstate is false return to Edit Book
+            return View(editLanguage);//Modelstate is false return to Edit Book
         }
         [HttpGet]
         public ActionResult Delete_Book_Language(int bookLanguageId)//Delete BookLanguage By Id

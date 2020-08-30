@@ -50,6 +50,7 @@ namespace LibraryAutomationSystem.Controllers
             return View();//If result is lesser than 0 It existing at current created view
         }
         [HttpPost]
+        [ActionName("Edit_Category")]
         public ActionResult Update_Category(CategoryModel category)//Update the Category By Passing the values from Model to Entity
         {
             if (ModelState.IsValid)
@@ -58,7 +59,7 @@ namespace LibraryAutomationSystem.Controllers
                 if (categoryBL.UpdateCategory(entityCategory) >= 1)//Result is greater than 0
                     return RedirectToAction("Category");
             }
-            return RedirectToAction("Edit_Category", new { categoryId = category.CategoryId });//Return to edit if the model state is failed
+            return View(category);//Return to edit if the model state is failed
 
 
         }

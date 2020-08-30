@@ -22,18 +22,32 @@ body {
 /*
    **********************REUSABLE CONTENTS******************
 */
+.row{
+    max-width:1140px;
+    margin:0 auto;
+}
+.form-control{
+    display:block;
+   
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 100%;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+     box-shadow: 0 5px 6px -6px black;  
+
+}
 .btn{
     display:inline-block;
-    font-size:medium;
      background-color: #f0ad4e;
-    border-color: #eea236;
-    font-weight:normal;
      padding:6px 12px;
    cursor:pointer;
+   border:1px solid  #f0ad4e;
    border-radius:4px;
-   border:1px solid transparent;
-   font-size:medium;
   color: #fff;
+  font-size:110%;
   transition:background-color 0.4s; 
 }
 
@@ -41,6 +55,7 @@ body {
 .btn:hover{
     outline:1px solid #f0ad4e;
     background-color:	#FF6347;
+    border:1px solid #FF6347;
 }
 .clear-fix{zoom:1}
 .clearfix:after{
@@ -50,29 +65,24 @@ body {
     visibility:hidden;
     height:0;
 }
-.row{
-    max-width:1140px;
-    margin:0 auto;
-}
-h1{
-    margin:0;
-}
+
 .link{
     text-decoration:none;
 }
-.Heading{
-    margin-top: 10px;
-    margin-bottom:20px;
-    text-align:center;
-    text-transform:uppercase;
-}
+
 .container input[type=text]
 {
     margin-bottom:10px;
 }
+.error{
+    color:red;
+}
 /*
     *************************************   HEADINGS    **************************************
 */
+h1{
+    margin:0;
+}
 h2{
     font-weight:300;
     font-size:180%;
@@ -86,6 +96,12 @@ h2::after{
     content:"";
     width:200px;
     margin:10px auto 0 auto;
+}
+.Heading{
+    margin-top: 10px;
+    margin-bottom:20px;
+    text-align:center;
+    text-transform:uppercase;
 }
 /*
     ****************************** HEADER PART*********************
@@ -227,21 +243,7 @@ h2::after{
     border: 1px solid #4F56F0;
 
 }
-/*
-    **************************  FORM CONTROL    ***************************************
-*/
-.form-control{
-    display:block;
-   
-    height: 35px;
-    padding: 6px 12px;
-    font-size: 14px;
-    color: #555;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-     box-shadow: 0 5px 6px -6px black;  
-}
+
 /*
     *************************************LOGIN BODY ELEMENTS********************************
 */
@@ -271,9 +273,7 @@ h2::after{
     width:200px;
 }
 
-.error{
-    color:red;
-}
+
 .Register-Infromation{
     text-align:center;
     margin:20px auto;
