@@ -35,11 +35,15 @@
                     BookType
                 </th>
                 <th>
+                    Image
+                </th>
+                <th>
                     Actions
                 </th>
             </tr>
             @foreach (LibraryAutomationSystem.Entity.Book items in @Model)
             {
+                items.BookImagePath = Path.Combine("~/Images/",items.BookImagePath);
                 <tr>
                     <td>
                         @items.BookId
@@ -63,8 +67,12 @@
                         @items.BookType
                     </td>
                     <td>
-                        @Html.ActionLink("EditBook", "EditBook", new { bookId = items.BookId }, new { @class = "link btn" })
-                        @Html.ActionLink("DeleteBook", "DeleteBook", new { bookId = items.BookId }, new { onclick = "return delete_Function('" + items.BookTittle + "');", @class = "link btn" })
+                        @Html.ActionLink("Edit", "EditBook", new { bookId = items.BookId }, new { @class = "link btn" })
+                        @Html.ActionLink("Delete", "DeleteBook", new { bookId = items.BookId }, new { onclick = "return delete_Function('" + items.BookTittle + "');", @class = "link btn" })
+                       
+                    </td>
+                    <td>
+                        <img src="@Url.Content(items.BookImagePath )" />
                     </td>
                 </tr>
 

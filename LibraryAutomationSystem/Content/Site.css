@@ -522,6 +522,19 @@ table tr td{
     padding:5px 10px;
     text-align:center;
 }
+tr td a{
+    margin:5px;
+}
+tr td img{
+    display:inline-block;
+    height:100px;
+    width:100px;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+tr td img:hover{
+    box-shadow: 0 2px 8px #555;
+    transform:translateY(-5px);
+}
 th,td{
     border-bottom:2px solid #555;
 }
@@ -538,9 +551,26 @@ tr:hover{
 .AddBookContainer select{
     margin-bottom:10px;
 }
+.AddBookContainer input[type=file]{
+    display:block;
+    padding: 6px 12px;
+    font-size: 100%;
+    color: #555;
+    margin-bottom:5px; 
+}
 /*
     *************************************************   EDIT BOOT   ******************************************************
 */
 .EditBookContainer select{
     margin-bottom:10px;
+}
+.EditBookContainer img{
+    height:100px;
+    width: 100px;
+    display:block;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+.EditBookContainer img:hover{
+      box-shadow: 0 2px 8px #555;
+    transform:translateY(-5px);
 }

@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.Web;
 
 namespace LibraryAutomationSystem.Models
 {
@@ -12,7 +14,7 @@ namespace LibraryAutomationSystem.Models
 
         [Required]
 
-        [RegularExpression("^[A-Z][a-zA-Z]*$", ErrorMessage = "Book name should no be in correct format")]
+        [RegularExpression("^[A-Z][a-zA-Z]*$", ErrorMessage = "Book name should be in letters and First letter should be in cappital")]
         public string BookTittle { get; set; }
         [Required]
         public int CategoryId { get; set; }
@@ -22,13 +24,18 @@ namespace LibraryAutomationSystem.Models
         public BookLanguageModel BookLanguage { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z][a-zA-Z]*$", ErrorMessage = "Author Name not be in correct format")]
+        [RegularExpression("^[A-Z][a-zA-Z]*$", ErrorMessage = "Author name should be in letters and First letter should be in cappital")]
         public string AuthorName { get; set; }
         [Required]
         [Range(0,20,ErrorMessage ="BookShould be within 0 to 20")]
         public byte BookCount { get; set; }
         [Required(ErrorMessage ="Booktype should not be select category")]
         public BookType BookType { get; set; }
+        [DisplayName("Upload path")]
+        public string BookImagePath { get; set; }
+        
+
+        public HttpPostedFileBase ImageFile { get; set; }
 
     }
 }

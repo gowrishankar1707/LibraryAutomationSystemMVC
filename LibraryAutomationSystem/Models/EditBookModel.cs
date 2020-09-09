@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -26,5 +27,10 @@ namespace LibraryAutomationSystem.Models
         public byte BookCount { get; set; }
         [Required]
         public BookType BookType { get; set; }
+        [DisplayName("Upload Image")]
+        public string BookImagePath { get; set; }
+        /*posted files filename and extension are identified by this httpposted file base*/
+
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

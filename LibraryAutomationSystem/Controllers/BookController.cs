@@ -3,6 +3,9 @@ using LibraryAutomationSystem.BL;
 using LibraryAutomationSystem.Entity;
 using LibraryAutomationSystem.Models;
 using System.Web.Mvc;
+using System.IO;
+using System;
+
 namespace LibraryAutomationSystem.Controllers
 {
     [Authorize(Roles = "admin,user")]
@@ -47,13 +50,21 @@ namespace LibraryAutomationSystem.Controllers
             IBookLanguageBL bookLanguageBL = new BookLanguageBL();
             ViewBag.Category = new SelectList(categoryBL.GetCategory(), "CategoryId", "CategoryName");
             ViewBag.BookLanguage = new SelectList(bookLanguageBL.GetBookLanguage(), "BookLanguageId", "BookLanguageName");
+            /********   Declared filename and extension to store the exact image path in the database        *************************/
+            string fileName = Path.GetFileNameWithoutExtension(addBook.ImageFile.FileName);
+            string extension = Path.GetExtension(addBook.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            addBook.BookImagePath = fileName;
+
             if (ModelState.IsValid)
             {
-
+                
                 Book book = AutoMapper.Mapper.Map<AddBookModel, Book>(addBook); //Automapper for book
                 int result = bookBL.AddBook(book);//return the affected rows
                 if (result >= 0)
                 {
+                    fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    addBook.ImageFile.SaveAs(fileName);
                     return RedirectToAction("ViewBook");
                 }
             }
@@ -80,22 +91,48 @@ namespace LibraryAutomationSystem.Controllers
             ViewBag.BookLanguage = new SelectList(bookLanguageBL.GetBookLanguage(), "BookLanguageId", "BookLanguageName");//Get the BookLanguage Table as Drop Down List
             Book book = bookBL.FindBookById(bookId);//Find the Book which is going to Edit
             Models.EditBookModel findedBook = AutoMapper.Mapper.Map<Book, Models.EditBookModel>(book);//Return the Details to the View for Updation
+            TempData["Imagepath"] = findedBook.BookImagePath;
             return View(findedBook);
         }
         [HttpPost]
         [ActionName("EditBook")]
         public ActionResult UpdateBook(Models.EditBookModel editBook)//Get the Updated Details from Model
         {
+            string fileName=null;
+            string extension;
+            /********** Declared variabls for file processing   ******************* */
             ICategoryBL categoryBL = new CategoryBL();
             IBookLanguageBL bookLanguageBL = new BookLanguageBL();
             ViewBag.Category = new SelectList(categoryBL.GetCategory(), "CategoryId", "CategoryName");//Get the Category Table as Drop Down List
             ViewBag.BookLanguage = new SelectList(bookLanguageBL.GetBookLanguage(), "BookLanguageId", "BookLanguageName");//Get the BookLanguage Table as Drop Down List
-            if (ModelState.IsValid)
+            if(editBook.ImageFile==null)
+            {
+                editBook.BookImagePath = Convert.ToString( TempData["Imagepath"]);
+            }
+            else 
+            {
+                 fileName = Path.GetFileNameWithoutExtension(editBook.ImageFile.FileName);
+                 extension = Path.GetExtension(editBook.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                editBook.BookImagePath = fileName;
+            }
+            
+            if (ModelState.IsValid) 
             {
 
                 Book book = AutoMapper.Mapper.Map<Models.EditBookModel, Entity.Book>(editBook);//Map the Model to Book Entity by AutoMapper
+
+
                 if (bookBL.UpdateBook(book) >= 1)
+                {
+                    if (editBook.ImageFile != null)
+                    {
+                        fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                        editBook.ImageFile.SaveAs(fileName);
+                    }
+
                     return RedirectToAction("ViewBook");//If update successfully It returns to View Book
+                }
             }
 
             return View(editBook);//If modelstate is false it returns to Edit View

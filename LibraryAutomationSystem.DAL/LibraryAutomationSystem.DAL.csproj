@@ -117,6 +117,18 @@
     <Compile Include="Migrations\202003310201573_library-v13.designer.cs">
       <DependentUpon>202003310201573_library-v13.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009020615351_library_v14.cs" />
+    <Compile Include="Migrations\202009020615351_library_v14.designer.cs">
+      <DependentUpon>202009020615351_library_v14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009020626298_library_v15.cs" />
+    <Compile Include="Migrations\202009020626298_library_v15.designer.cs">
+      <DependentUpon>202009020626298_library_v15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009021129471_library_v16.cs" />
+    <Compile Include="Migrations\202009021129471_library_v16.designer.cs">
+      <DependentUpon>202009021129471_library_v16.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,6 +184,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003310201573_library-v13.resx">
       <DependentUpon>202003310201573_library-v13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009020615351_library_v14.resx">
+      <DependentUpon>202009020615351_library_v14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009020626298_library_v15.resx">
+      <DependentUpon>202009020626298_library_v15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009021129471_library_v16.resx">
+      <DependentUpon>202009021129471_library_v16.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

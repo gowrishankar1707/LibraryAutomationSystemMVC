@@ -7,7 +7,7 @@
 <div class="row">
     <h2 class="Heading">Add&mdash;Book</h2>
     <div class="AddBookContainer container">
-        @using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
+        @using (Html.BeginForm("AddBook", "Book", FormMethod.Post,new { enctype="multipart/form-data" }))
         {
 
             <div>
@@ -40,6 +40,10 @@
                 @Html.DisplayNameFor(Model => Model.BookCount)
                 @Html.TextBoxFor(Model => Model.BookCount, new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.BookCount, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model => Model.BookImagePath)
+                <input type="file" name="ImageFile" />
             </div>
             <div>
                 @Html.AntiForgeryToken()

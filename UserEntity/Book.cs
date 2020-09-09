@@ -24,9 +24,9 @@ namespace LibraryAutomationSystem.Entity
         [Required]
         [Range(0,20)]
         public byte BookCount { get; set; }
-        [Required]
         [MaxLength(10)]
         public string BookType { get; set; }
+        public string BookImagePath { get; set; }
        
 
     }

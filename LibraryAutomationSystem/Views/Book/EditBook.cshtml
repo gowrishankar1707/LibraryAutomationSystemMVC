@@ -5,9 +5,11 @@
 }
 <div class="EditBookContainer row container" >
     <h2 class="Heading">Edit&mdash;Book</h2>
-    @using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
+    @using (Html.BeginForm("EditBook", "Book", FormMethod.Post,new { enctype="multipart/form-data"}))
     {
+        Model.BookImagePath = Path.Combine("~/Images/", Model.BookImagePath);
         <div class="EditBook">
+            <img src="@Url.Content(Model.BookImagePath )" />
             <div>
                 @Html.HiddenFor(Model => Model.BookId)
             </div>
@@ -40,6 +42,11 @@
                 @Html.DisplayNameFor(Model => Model.BookType)
                 @Html.EnumDropDownListFor(Model => Model.BookType, "Select BookType", new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.BookType, "", new { @class = "error" })
+            </div>
+            <div>
+                @Html.DisplayNameFor(Model=>Model.BookImagePath )
+                <img src="@Url.Content(Model.BookImagePath )"  />
+                <input type="file" name="ImageFile" />
             </div>
             <div>
                 <input type="submit" value="Update" class="btn link" />
