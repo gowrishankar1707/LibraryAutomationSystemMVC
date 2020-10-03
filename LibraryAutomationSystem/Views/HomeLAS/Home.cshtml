@@ -1,9 +1,41 @@
-﻿
+﻿@model IEnumerable<LibraryAutomationSystem.Entity.Book>
+
 @{
     ViewBag.Title = "Home";
-
     Layout = "~/Views/Shared/_LASLayout.cshtml";
-
 }
+<section class="section-bookshowcase row">
+    @foreach (LibraryAutomationSystem.Entity.Book items in @Model)
+    {
 
+        @Html.HiddenFor(Model => items.BookId)
+        @Html.HiddenFor(Model => items.BookLanguageId)
+        @Html.HiddenFor(Model => items.CategoryId)
+        <div class="bookShowCase">
+            <div class="bookImage">
+                <img src="@Url.Content("~/Images/"+items.BookImagePath )" />
+            </div>
+            <div>
+                <ul class="bookaccessories">
+                    <li><ion-icon name="reader" class="icons-small"></ion-icon> <h3>@items.BookTittle</h3></li>
+                    <li><ion-icon name="person" class="icons-small"></ion-icon>BookAuthor:&nbsp;@items.AuthorName</li>
+                    <li><ion-icon name="library" class="icons-small"></ion-icon>@items.BookLanguage.BookLanguageName </li>
+                    <li>
+                        <span>
+                            @if ((items.BookCount) > 0)
+                            {
+                                <ion-icon name="checkmark" class="icons-small"></ion-icon>
+                            }Book count:&nbsp;@items.BookCount
+                        </span> &nbsp; <span><ion-icon name="layers" class="icons-small"></ion-icon>Book Category:&nbsp;@Html.DisplayFor(Model => items.Category.CategoryName)</span>
+                    </li>
 
+                </ul>
+            </div>
+            <div class="bookingActions">
+                <input type="button" value="Book Now" class="btn" />
+                <input type="button" value="Book Later" class="btn" />
+            </div>
+        </div>
+
+    }
+</section>

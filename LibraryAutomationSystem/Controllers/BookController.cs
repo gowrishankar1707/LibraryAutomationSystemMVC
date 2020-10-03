@@ -8,7 +8,7 @@ using System;
 
 namespace LibraryAutomationSystem.Controllers
 {
-    [Authorize(Roles = "admin,user")]
+    
     public class BookController : Controller
     {
 
@@ -20,7 +20,6 @@ namespace LibraryAutomationSystem.Controllers
         // GET: Book
         [HttpGet]
         [OutputCache(Duration = 10)]
-        [Authorize(Roles = "admin,user")]
         public ViewResult ViewBook()//View the Existing Book in the Database
         {
 
