@@ -36,15 +36,15 @@ namespace LibraryAutomationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                user.BookRequest =StaticInformation.bookRequest ;//Each User has Book Request of 3
-                User userInput = AutoMapper.Mapper.Map<RegistrationModel, User>(user);
+                    user.BookRequest = StaticInformation.bookRequest;//Each User has Book Request of 3
+                    User userInput = AutoMapper.Mapper.Map<RegistrationModel, User>(user);
 
-                int result = accountBL.AddUser(userInput);
-                if (result >= 1)
-                {
-                    return RedirectToAction("Home", "HomeLAS");
-                }
-                return View();
+                    int result = accountBL.AddUser(userInput);
+                    if (result >= 1)
+                    {
+                        return RedirectToAction("Home", "HomeLAS");
+                    }
+                    return View();
             }
             return View();
         }

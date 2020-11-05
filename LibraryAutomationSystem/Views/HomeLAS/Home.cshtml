@@ -32,7 +32,11 @@
                 </ul>
             </div>
             <div class="bookingActions">
-                <input type="button" value="Book Now" class="btn" />
+                @using (Html.BeginForm())
+                {
+                    <input type="button" value="Book Now" class="btn" />
+                }
+
                 <input type="button" value="Book Later" class="btn" />
             </div>
         </div>

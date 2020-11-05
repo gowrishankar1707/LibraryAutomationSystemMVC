@@ -84,15 +84,25 @@ body {
     margin:0px 5px;
     color:#f0ad4e;
 }
-/*
+.icons-big {
+    font-size: 150%;
+    vertical-align: middle;
+    display: inline-block;
+    transition: color 0.4s , transform 0.4s ;
+    cursor:pointer;
+}
+    .icons-big:hover {
+        color: #2874f0;
+        transform: rotateY(180deg);
+    }
+    /*
     *************************************   HEADINGS    **************************************
 */
-
-h1,h3,h4{
-    margin:0;
-    padding:0;
-    font-weight:300;
-}
+    h1, h3, h4 {
+        margin: 0;
+        padding: 0;
+        font-weight: 300;
+    }
 
 h2{
     font-weight:300;
@@ -122,6 +132,21 @@ h3{
     ****************************** HEADER PART*********************
 */
 
+.main-heading {
+    display: inline-block;
+    margin:0px 10px;
+
+}
+
+.SearchBoxContainer {
+    display: inline-block;
+    margin: 0px 200px;
+}
+
+.cart {
+    display: inline-block;
+    margin: 0px 0px 0px 200px;
+}
 .headerContainer h1{
     font-weight:300;
     margin:0;
@@ -129,9 +154,6 @@ h3{
 }
 .headerContainer text{
     font-weight:300;
-}
-.SearchBoxContainer{
-    float:right;
 }
 .SearchBoxContainer input[type=text]
 {
@@ -145,9 +167,6 @@ h3{
      outline:none;
     border:1px solid #a9a9a9;
     box-shadow:0 2px 3px #a9a9a9;
-}
-.main-heading{
-    float:left;
 }
 .HeaderTogglePanel{
     text-align:center;
@@ -167,12 +186,12 @@ h3{
      background-color:#2874f0;
      color:#fff;
 }
+
 /*
     ***********************************************MAIN CONTENTAINER PART*****************
 */
-
-.mainContainer{
-    display:flex;
+.mainContainer {
+    display: flex;
 }
 .mainContainer main{
     flex:auto;
@@ -181,7 +200,7 @@ h3{
     ***********************************NAV PART***************************
 */
 .navContainer {
-     margin-top: 3.5%;
+    margin-top: 1.5%;
 }
 .links{
     display:flex;
