@@ -5,6 +5,7 @@ using LibraryAutomationSystem.Models;
 using System.Web.Mvc;
 using System.IO;
 using System;
+using UserEntity;
 
 namespace LibraryAutomationSystem.Controllers
 {
@@ -13,9 +14,11 @@ namespace LibraryAutomationSystem.Controllers
     {
 
         IBookBL bookBL;
+        IUserBL userBL;
         public BookController()
         {
             bookBL = new BookBL();
+            userBL = new UserBL();
         }
         // GET: Book
         [HttpGet]
@@ -72,6 +75,7 @@ namespace LibraryAutomationSystem.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles ="admin")]
         [ActionName("DeleteBook")]
         public ActionResult DeleteBook(int bookId)//Delete Book By Get The BookId
         {
@@ -137,7 +141,66 @@ namespace LibraryAutomationSystem.Controllers
             return View(editBook);//If modelstate is false it returns to Edit View
         }
 
+        [HttpPost]
+        [Authorize(Roles = "user")]
+        public ActionResult GetBook(string userName,int bookId)
+        {
+           
+            Book book = GetBook(bookId);
+           int id= userBL.GetUserId(userName);
+            BookOrder bookOrder = new BookOrder();
+            bookOrder.Id = id;
+            bookOrder.BookId = bookId;
+            bookOrder.BookTittle = book.BookTittle;
+            bookOrder.AuthorName = book.AuthorName;
+            bookOrder.ImagePath = book.BookImagePath;
+            bookOrder.RequestedDate = DateTime.Now.Date;
+            
+             
+            int result=   bookBL.PlaceBookRequest(bookOrder); //Place the Request to the BookOrderTable
+            if (result > 0)
+            {
+                TempData["RequestMessage"] = "Request Book Successfully";
+                return RedirectToAction("Home", "HomeLAS");
+            }
+            else
+            {
+                TempData["RequestMessage"] = "Request Book not Successfully";
+                return RedirectToAction("Home", "HomeLAS");
 
+            }
+        }
+         [Authorize(Roles ="admin")]
+        public ActionResult RequestedUser()//Get the Requested user 
+        {
+            IEnumerable<BookOrder> bookOrders = bookBL.GetRequestedUser();
+            return View(bookOrders);
+        }
+        [Authorize(Roles ="admin")]
+        public ActionResult ReceivedBook(int bookOrderId)
+        {
+            BookOrder bookOrder = bookBL.GetBookOrderById(bookOrderId);
+            bookOrder.BookReceivedDate = DateTime.Now.Date;
+            int result=bookBL.UpdateReceivedDateInBookOrder(bookOrder);
+            if(result>0)
+            {
+                TempData["UpdateReceiveDate"] = "Received Date Updated Successfully";
+                return RedirectToAction("ReceivedBook", "Book");
+            }
+            else
+            {
+                TempData["UpdateReceiveDate"] = "Received Date Updated unSuccessfully";
+                return RedirectToAction("ReceivedBook", "Book");
+            }
+
+           
+        }
+        [NonAction]
+        public Book GetBook(int bookId)
+        {
+            return bookBL.FindBookById(bookId);
+        }
+      
 
 
     }

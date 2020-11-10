@@ -129,6 +129,30 @@
     <Compile Include="Migrations\202009021129471_library_v16.designer.cs">
       <DependentUpon>202009021129471_library_v16.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011050805161_library_v19.cs" />
+    <Compile Include="Migrations\202011050805161_library_v19.designer.cs">
+      <DependentUpon>202011050805161_library_v19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011050806187_library_v20.cs" />
+    <Compile Include="Migrations\202011050806187_library_v20.designer.cs">
+      <DependentUpon>202011050806187_library_v20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011090852565_library_v201.cs" />
+    <Compile Include="Migrations\202011090852565_library_v201.designer.cs">
+      <DependentUpon>202011090852565_library_v201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011090936374_library_v21.cs" />
+    <Compile Include="Migrations\202011090936374_library_v21.designer.cs">
+      <DependentUpon>202011090936374_library_v21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011100624400_library_v22.cs" />
+    <Compile Include="Migrations\202011100624400_library_v22.designer.cs">
+      <DependentUpon>202011100624400_library_v22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011101039102_library_v23.cs" />
+    <Compile Include="Migrations\202011101039102_library_v23.designer.cs">
+      <DependentUpon>202011101039102_library_v23.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +217,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009021129471_library_v16.resx">
       <DependentUpon>202009021129471_library_v16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011050805161_library_v19.resx">
+      <DependentUpon>202011050805161_library_v19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011050806187_library_v20.resx">
+      <DependentUpon>202011050806187_library_v20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011090852565_library_v201.resx">
+      <DependentUpon>202011090852565_library_v201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011090936374_library_v21.resx">
+      <DependentUpon>202011090936374_library_v21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011100624400_library_v22.resx">
+      <DependentUpon>202011100624400_library_v22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011101039102_library_v23.resx">
+      <DependentUpon>202011101039102_library_v23.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

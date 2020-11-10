@@ -8,9 +8,6 @@
     @foreach (LibraryAutomationSystem.Entity.Book items in @Model)
     {
 
-        @Html.HiddenFor(Model => items.BookId)
-        @Html.HiddenFor(Model => items.BookLanguageId)
-        @Html.HiddenFor(Model => items.CategoryId)
         <div class="bookShowCase">
             <div class="bookImage">
                 <img src="@Url.Content("~/Images/"+items.BookImagePath )" />
@@ -32,14 +29,25 @@
                 </ul>
             </div>
             <div class="bookingActions">
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("GetBook", "Book", new { userName = HttpContext.Current.User.Identity.Name, bookId = items.BookId }, FormMethod.Post))
                 {
-                    <input type="button" value="Book Now" class="btn" />
+                    <input type="submit" value="Get Book " class="btn" />
                 }
 
-                <input type="button" value="Book Later" class="btn" />
+                <input type="button" value="Get Later" class="btn" />
             </div>
         </div>
 
     }
+    @if (TempData["RequestMessage"] != null)
+    {
+        <script type="text/javascript">
+
+            window.onload = function () {
+                alert("  @TempData["RequestMessage"]");
+            };
+        </script>
+
+    }
 </section>
+<script src="~/Content/Library.js"></script>

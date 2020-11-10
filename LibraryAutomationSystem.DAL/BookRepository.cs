@@ -2,15 +2,19 @@
 using System.Linq;
 using System.Data.SqlClient;
 using LibraryAutomationSystem.Entity;
+using UserEntity;
+using System;
 
 namespace LibraryAutomationSystem.DAL
 {
     public class BookRepository
     {
 
+        DBConnection dbConnection;
+
         public int AddBook(Entity.Book book)//Add Book 
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 using (var transaction = dbConnection.Database.BeginTransaction())
                 {
@@ -38,7 +42,7 @@ namespace LibraryAutomationSystem.DAL
         }
         public IEnumerable<Book> DisplayBook()//Display Book
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 return dbConnection.Book.Include("Category").Include("BookLanguage").ToList();
             }
@@ -46,7 +50,7 @@ namespace LibraryAutomationSystem.DAL
         }
         public Book FindBookById(int bookId)//Find Book
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 return dbConnection.Book.Find(bookId);
             }
@@ -54,7 +58,7 @@ namespace LibraryAutomationSystem.DAL
         public int RemoveBook(int bookId)//Remove Book
         {
 
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 using (var transaction = dbConnection.Database.BeginTransaction())
                 {
@@ -79,7 +83,7 @@ namespace LibraryAutomationSystem.DAL
         }
         public int UpdateBook(Book book)//Update Book
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 using (var transaction = dbConnection.Database.BeginTransaction())
                 {
@@ -106,5 +110,38 @@ namespace LibraryAutomationSystem.DAL
 
             }
         }
+        public int PlaceBookRequest(BookOrder bookOrder)//place the Book Request
+        {
+            using(dbConnection=new DBConnection())
+            {
+                dbConnection.BookOrder.Add(bookOrder);
+                return dbConnection.SaveChanges();
+            }
+        }
+        public IEnumerable<BookOrder> GetRequestedUser()//Get the requested user
+        {
+            using (dbConnection = new DBConnection())
+            {
+                return dbConnection.BookOrder.Where(book => book.BookReceivedDate == null).ToList();
+            }
+        }
+        public BookOrder GetBookOrderById(int bookOrderId)//Get BookOrder Details by id
+        {
+            using (dbConnection = new DBConnection())
+            {
+                return dbConnection.BookOrder.Where(book => book.BookOrderId == bookOrderId).FirstOrDefault();
+
+            }
+        }
+        public int UpdateReceivedDateInBookOrder(BookOrder bookOrder)//Update Received date in BookOrder Details
+        {
+            using (dbConnection = new DBConnection())
+            {
+                dbConnection.Entry(bookOrder).State = System.Data.Entity.EntityState.Modified;
+                return dbConnection.SaveChanges();
+
+            }
+        }
+        
     }
 }

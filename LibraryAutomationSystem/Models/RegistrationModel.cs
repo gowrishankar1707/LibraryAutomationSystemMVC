@@ -76,10 +76,6 @@ namespace LibraryAutomationSystem.Models
         [Display(Name = "Address")]
         public string MemberAddress { get; set; }
 
-        public Role Role { get; set; }
-
-        public int BookRequest { get; set; }
-
 
 
     }

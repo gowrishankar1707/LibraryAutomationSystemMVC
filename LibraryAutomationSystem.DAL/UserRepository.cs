@@ -7,9 +7,11 @@ namespace LibraryAutomationSystem.DAL
 
     public class UserRepository
     {
+        
+        DBConnection dbConnection;
         public int AddUser(User user)//Add User by User Entity
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 dbConnection.Users.Add(user);
                return dbConnection.SaveChanges();//return the save changed rows as a integer
@@ -18,14 +20,14 @@ namespace LibraryAutomationSystem.DAL
         }
         public IEnumerable<User> GetUser()//Get the User as list
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 return dbConnection.Users.ToList();//Convert the table to list and return it
             }
         }
         public User CheckUser(User user)
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
 
                 User checkUser = dbConnection.Users.Where(u => u.MemberUserName == user.MemberUserName && u.MemberPassword == user.MemberPassword).FirstOrDefault();//Check the username and password and return the entity by using first or default
@@ -35,7 +37,7 @@ namespace LibraryAutomationSystem.DAL
         }
         public User FindUserById(int userId)//Find user by ID
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                
                 return dbConnection.Users.Find(userId);//return the user where the userid is match
@@ -43,7 +45,7 @@ namespace LibraryAutomationSystem.DAL
         }
         public int DeleteUser(int userId)
         {
-            using (DBConnection dbConnection = new DBConnection())
+            using ( dbConnection = new DBConnection())
             {
                 User user = FindUserById(userId);//Find the user by Userid
                 dbConnection.Entry(user).State = System.Data.Entity.EntityState.Deleted;//Delete the User by entity state
@@ -51,5 +53,29 @@ namespace LibraryAutomationSystem.DAL
             }
 
             }
+        public bool CheckUserNameIsAvailable(string userName)
+        {
+            using ( dbConnection = new DBConnection())
+            {
+                var checkUserName = dbConnection.Users.Where(user => user.MemberUserName == userName).FirstOrDefault();
+                if (checkUserName != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+        public  int GetUserId(string userName)
+        {
+             using(dbConnection=new DBConnection())
+            {
+                int userId =( from user in dbConnection.Users where user.MemberUserName == userName select user.Id).FirstOrDefault();
+                return userId;
+            }
+        }
     }
 }

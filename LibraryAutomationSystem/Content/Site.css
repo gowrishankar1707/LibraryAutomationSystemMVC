@@ -19,6 +19,7 @@ body {
     padding:20px;
     font-size:18px;
 }
+
 /*
    **********************REUSABLE CONTENTS******************
 */
@@ -77,6 +78,12 @@ body {
 }
 .error{
     color:red;
+    display:inline-block;
+    width:auto;
+    overflow:hidden;
+    margin-top:2px;
+    margin-bottom:3px;
+    vertical-align:middle;
 }
 .icons-small{
     display:inline-block;
@@ -388,20 +395,20 @@ h3{
     **************************************REGISTER BODY*****************************
 */
 .Register-Body{
-    display:flex;
-    flex-flow:row wrap;
     padding:40px;
 }
 /*
 ********************************************** REGISTER BODY ELEMETNS*************************
-    */
-.Register-Body input[type=password],input[type=text],textarea,input[type=date],input[type=email],input[type=number]
+ */
+.Register-Body input[type=password],input[type=text],input[type=date],input[type=email],input[type=number]
 {
     width:200px;
-}
-.Register-Body textarea{
-    height:50px;
-    
+}   
+
+.Register-Body textarea {
+    resize: none;
+    width: 250px;
+    height: 150px;
 }
 input[type=date]{
     display:block;
@@ -422,18 +429,22 @@ input[type=date]:focus{
     outline:none;
 }
 .Register-Gender{
-    margin-left:10px;
     margin-right:22px;
     position:relative;
     margin-top:20px;
 }
+.Register-Gender span
+{
+    display:block;
+    margin:5px 0;
+}
 /*
     ********************************REGISTER FOOTER******************************
 */
-.Register-Footer{
-    display:flex;
-    justify-content:space-around;
-    margin-bottom:10px;
+.Register-Footer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
 }
 .Register-Button{
     width:200px;
@@ -441,25 +452,15 @@ input[type=date]:focus{
 /*
     *************************** VALIDATION ERROR MESSAGE*******************************
 */
-.error{
-    
-    color:black;
-    max-width:100px;
-    overflow:scroll;
-    color:red;
-    height:50px;
-    width:200px;
-
-}
-.gender{
+/*.gender{
     display:block;
     width:250px;
     overflow:hidden;
 }
 
 .Register-Gender error{
-    display:block;
-}
+   */ /*display:block;
+}*/
 /*
     ***********************************LEFT NAV PART*******************************
 */
@@ -623,17 +624,16 @@ tr:hover{
 .bookShowCase div{
     display:inline-block;
 }
-.bookImage{
+.bookImage img{
     display:inline-block;
    
     transition: transform 0.4s, box-shadow 0.4s;
     
 }
-.bookImage:hover{
-     cursor:pointer;
-    transform:translateY(-2px);
-    box-shadow:0px 5px 5px #E4E4E4;
-}
+    .bookImage img:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
 .bookImage img{
     height:100px;
     width:100px;
@@ -648,11 +648,13 @@ tr:hover{
     padding:3px 4px;
 }
 .bookingActions{
-    margin-left:10%;
+    float:right;
+    display:inline-block;
+    padding:20px 10px;
 }
-.bookingActions input[type=button]{
+.bookingActions input[type=submit]{
    display:block;
-    margin-bottom:3px;
+    margin-bottom:5px;
     
 }
 

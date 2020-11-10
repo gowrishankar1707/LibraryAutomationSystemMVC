@@ -6,7 +6,7 @@
 
 <link href="~/Content/Site.css" rel="stylesheet" />
 <script src="~/scripts/jquery-3.5.1.js"></script>
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "RegisterForm" }))
 {
     <div class="Register-panel">
 
@@ -17,68 +17,75 @@
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.MemberName)
 
-                @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25, @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.MemberName, "", new { @class = "error" })
+                @Html.TextBoxFor(Model => Model.MemberName, new { maxlength = 25, @class = "form-control", autocomplete = "off", @id = "MemberName" })
+                <span class="validateMemberName error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.MemberName, "", new { @class = "error" })*@
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.MemberUserName)
 
-                @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25, @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })
+                @Html.TextBoxFor(Model => Model.MemberUserName, new { maxlength = 25, @class = "form-control", autocomplete = "off", @id = "MemberUserName" })
+                <span class="validateMemberUserName error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.MemberUserName, "", new { @class = "error" })*@
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.Password)
 
-                @Html.PasswordFor(Model => Model.Password, new { maxlength = 25, @class = "form-control", autocomplete = "off" })
+                @Html.PasswordFor(Model => Model.Password, new { maxlength = 25, @class = "form-control", autocomplete = "off", @id = "password" })
+                <span class="validatePassword error"></span>
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.MemberPassword)
 
-                @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25, @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })
+                @Html.PasswordFor(Model => Model.MemberPassword, new { maxlength = 25, @class = "form-control", autocomplete = "off", @id = "confirmPassword" })
+                <span class="validateConformPassword error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.MemberPassword, "", new { @class = "error" })*@
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.MemberDOB)
 
-                @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10, @class = "input", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.MemberDOB, "", new { @class = "error" })
+                @Html.EditorFor(Model => Model.MemberDOB, new { maxlength = 10, @class = "input", autocomplete = "off", @id = "DOB" })
+                <span class="validateDOB error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.MemberDOB, "", new { @class = "error" })*@
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.MemberDOJ)
 
-                @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10, @class = "input", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.MemberDOJ, "", new { @class = "error" })
+                @Html.EditorFor(Model => Model.MemberDOJ, new { maxlength = 10, @class = "input", autocomplete = "off", @id = "DOJ" })
+                <span class="validateDOJ error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.MemberDOJ, "", new { @class = "error" })*@
             </div>
-            <div class="form-group Register-Gender" >
+            <div class="form-group Register-Gender">
 
                 @Html.DisplayNameFor(Model => Model.MemberSex)
                 <div class="Register-Gender">
-                    @Html.RadioButtonFor(Model => Model.MemberSex, "Male", new { @class = "input" })Male
-                    @Html.RadioButtonFor(Model => Model.MemberSex, "Fe-male", new { })Fe-male
-                    <span class="error gender">
-                        @Html.ValidationMessageFor(Model => Model.MemberSex, "", new { @class = "error" })
+                    @Html.RadioButtonFor(Model => Model.MemberSex, "Male", new { @id="gender",@name="gender" })Male
+                    @Html.RadioButtonFor(Model => Model.MemberSex, "Fe-male", new { @id="gender",@name="gender"})Fe-male
+                    <span class=" validateGender error">
+                        @*@Html.ValidationMessageFor(Model => Model.MemberSex, "", new { @class = "error" })*@
                     </span>
                 </div>
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.MemberPhoneNumber)
 
-                @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10, @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.MemberPhoneNumber, "", new { @class = "error" })
+                @Html.TextBoxFor(Model => Model.MemberPhoneNumber, new { maxlength = 10, @class = "form-control", autocomplete = "off", @id = "phoneNumber" })
+                <span class="validatePhoneNumber error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.MemberPhoneNumber, "", new { @class = "error" })*@
             </div>
             <div class="form-group">
                 @Html.DisplayNameFor(Model => Model.Email)
 
-                @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "error" })
+                @Html.TextBoxFor(Model => Model.Email, new { maxlength=30,@class = "form-control", autocomplete = "off", @id = "mail" })
+                <span class="validateMail error"></span>
+                @*@Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "error" })*@
             </div>
             <div class="form-group">
 
                 @Html.DisplayNameFor(Model => Model.MemberAddress)
 
-                @Html.TextAreaFor(Model => Model.MemberAddress, new { maxlength = 50, @class = "form-control", autocomplete = "off",
-               disabled = "disabled"})
-                @Html.ValidationMessageFor(Model => Model.MemberAddress, "", new { @class = "error" })
+                @Html.TextAreaFor(Model => Model.MemberAddress, new { maxlength = 50, @class = "form-control", autocomplete = "off" })
+                @*@Html.ValidationMessageFor(Model => Model.MemberAddress, "", new { @class = "error" })*@
             </div>
         </div>
 
@@ -87,18 +94,14 @@
         <br />
         <div class="Register-Footer">
             <div class="Submit-Register">
-                <input type="submit" value="Register" class="Register-Button btn" />
+                <input type="submit" value="Register" class="Register-Button btn" id="submitRegister" />
             </div>
 
         </div>
     </div>
 
 }
-<script>
-    $(document).ready(function () {
-        $("#address").attr('disabled', true);
-    });
-</script>
+<script src="~/Content/Library.js"></script>
 
 
 

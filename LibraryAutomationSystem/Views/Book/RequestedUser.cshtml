@@ -1,0 +1,64 @@
+﻿@model IEnumerable<UserEntity.BookOrder>
+
+@{
+    ViewBag.Title = "RequestedUser";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<div class="row">
+    <h2 class="Heading">RequestedUser</h2>
+    <table>
+        <tr>
+            <th>Book Order Id</th>
+            <th>User Id</th>
+            <th>Book Id</th>
+            <th>Book Tittle</th>
+            <th>Book Author</th>
+            <th>Book Requested</th>
+            <th>Book Image</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (UserEntity.BookOrder bookOrder in Model)
+        {
+            @Html.HiddenFor(model=>bookOrder.BookOrderId);
+            bookOrder.ImagePath = Path.Combine("~/Images/", bookOrder.ImagePath);
+            <tr>
+                <td>
+                    @bookOrder.BookOrderId
+                </td>
+                <td>
+                    @bookOrder.Id
+                </td>
+                <td>
+                    @bookOrder.BookId
+                </td>
+                <td>
+                    @bookOrder.BookTittle
+                </td>
+                <td>
+                    @bookOrder.AuthorName
+                </td>
+                <td>
+                    @bookOrder.RequestedDate
+                </td>
+                <td>
+                    <img src="@Url.Content(bookOrder.ImagePath)" />
+                </td>
+                <td>
+                    @Html.ActionLink("Received", "ReceivedBook", "Book", new { bookOrderId = bookOrder.BookOrderId }, new { @class = "btn link" })
+                    @Html.ActionLink("Deny","","",new { @class="btn link"})
+                </td>
+            </tr>
+
+        }
+    </table>
+    @if(TempData["UpdateReceiveDate"] !=null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["UpdateReceiveDate"]");
+            };
+        </script>
+    }
+</div>

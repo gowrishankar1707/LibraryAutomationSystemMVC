@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="BookLanguage.cs" />
+    <Compile Include="BookOrder.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="ExceptionLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * 
+ */
+
+using System;
 using LibraryAutomationSystem.Entity;
 using LibraryAutomationSystem.BL;
 using LibraryAutomationSystem.Models;
@@ -36,15 +40,16 @@ namespace LibraryAutomationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                    user.BookRequest = StaticInformation.bookRequest;//Each User has Book Request of 3
-                    User userInput = AutoMapper.Mapper.Map<RegistrationModel, User>(user);
 
-                    int result = accountBL.AddUser(userInput);
-                    if (result >= 1)
-                    {
-                        return RedirectToAction("Home", "HomeLAS");
-                    }
-                    return View();
+                User userInput = AutoMapper.Mapper.Map<RegistrationModel, User>(user);
+                userInput.Role = Role.user.ToString();
+                userInput.BookRequest =LibraryAutomationSystem.Common.StaticInformation. bookRequest;
+                int result = accountBL.AddUser(userInput);
+                if (result >= 1)
+                {
+                    return RedirectToAction("Home", "HomeLAS");
+                }
+                return View();
             }
             return View();
         }
@@ -52,8 +57,8 @@ namespace LibraryAutomationSystem.Controllers
         ////[ActionName("Login")]//Post Method of Login 
         //[ValidateAntiForgeryToken]
         [HttpPost]
-        
-        
+
+
         [ActionName("Login")]
         [ValidateAntiForgeryToken]
         public ActionResult Validate_User(LoginModel login)
@@ -70,12 +75,20 @@ namespace LibraryAutomationSystem.Controllers
                 if (checkUser.Role == Role.admin.ToString())//"True" if the  logined user is "Admin"   
                 {
 
-                    return RedirectToAction("Home","HomeLAS");
+                    return RedirectToAction("Home", "HomeLAS");
                 }
                 else if (checkUser.Role == Role.user.ToString())//"True" if the Logined user is "User"           
-                    return Json(new { data = StaticInformation.user }, JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("Home", "HomeLAS");
             }
             return View();
+        }
+        [HttpPost]
+        public JsonResult CheckUserName(string userName)
+        {
+            bool result = accountBL.CheckUserName(userName);
+            return Json(result);
+
+
         }
         [HttpGet]
         public RedirectToRouteResult Logout()

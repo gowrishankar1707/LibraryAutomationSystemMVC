@@ -8,7 +8,7 @@ namespace LibraryAutomationSystem.Common
 {
     public class StaticInformation
     {
-        public static int bookRequest = 3;
+        public static byte bookRequest = 3;
         public static string admin = "admin";
         public static string user = "user";
     }

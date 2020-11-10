@@ -1,42 +1,40 @@
 ﻿using LibraryAutomationSystem.Entity;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserEntity
 {
-    public class BookOrder
+   public  class BookOrder
     {
         [Key]
         public int BookOrderId { get; set; }
+  
         public int Id { get; set; }
-        public User User { get; set; }
+        public User User { get; set; }//User Id FK
         public int BookId { get; set; }
-        public Book Book { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
-        public int BookLanguageId { get; set; }
-        public BookLanguage BookLanguage { get; set; }
-
+        public Book Book { get; set; }//Book Id FK
         [Required]
         [MaxLength(50)]
+        [MinLength(2)]
         public string BookTittle { get; set; }
         [Required]
         [MaxLength(50)]
+        [MinLength(3)]
         public string AuthorName { get; set; }
         [Required]
-        [MaxLength(150)]
-        public string BookImagePath { get; set; }
+        [MaxLength(100)]
+        [MinLength(2)]
+        public string ImagePath { get; set; }
         [Required]
-        public DateTime BookedDate { get; set; }
-        public DateTime BookGetDate { get; set; }
-        public DateTime ExpectedReturnDate { get; set; }
-        public DateTime ReturnDate { get; set; }
-
+        [Column(TypeName = "datetime2")]
+        public Nullable< DateTime> RequestedDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public Nullable<DateTime> BookReceivedDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public Nullable<DateTime> ExpectedReturnDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public Nullable<DateTime> ReturnDate { get; set; }
 
     }
 }
